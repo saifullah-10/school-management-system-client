@@ -46,11 +46,11 @@ const Navbar = () => {
                 </div>
 
                 {/* Left */}
-                <Link href={'/'} className=" font-bold  flex gap-2 items-center">
+                <Link href={'/'} className=" font-bold  flex  items-center">
                     <h1 className="text-2xl">Starlight <span className="text-[#704FE6]">University</span></h1>
                 </Link>
                 {/* Center */}
-                <div className=" absolute left-1/2 -translate-x-1/2 flex gap-4 text-base text-center font-medium max-md:hidden">
+                <div className=" absolute left-1/2 -translate-x-1/2 flex gap-6 text-base text-center font-medium max-md:hidden">
                     {Links}
                 </div>
                 {/* Right */}
