@@ -1,52 +1,65 @@
 'use client'
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { HiOutlineShoppingBag } from "react-icons/hi";
+import { useEffect, useRef, useState } from "react";
 import { IoClose, IoMenu } from "react-icons/io5";
 
 const Navbar = () => {
     const navigate = usePathname()
     console.log(navigate);
-    
+
     const Links = <>
-        <Link href="/" className={`hover:text-[#1E99F5] ${navigate === '/' ? 'active' : ''}`}>Home</Link>
-        <Link href="/aboutUs" className={`hover:text-[#1E99F5] ${navigate === '/aboutUs' ? 'active' : ''}`}>About Us</Link>
-        <Link href="/courses" className={`hover:text-[#1E99F5] ${navigate === '/courses' ? 'active' : ''}`}>Courses</Link>
-        <Link href="/contact" className={`hover:text-[#1E99F5] ${navigate === '/contact' ? 'active' : ''}`}>Contact</Link>
+        <Link href="/" className={`hover:text-[#704FE6] ${navigate === '/' ? 'active' : ''}`}>Home</Link>
+        <Link href="/aboutUs" className={`hover:text-[#704FE6] ${navigate === '/aboutUs' ? 'active' : ''}`}>About Us</Link>
+        <Link href="/courses" className={`hover:text-[#704FE6] ${navigate === '/courses' ? 'active' : ''}`}>Courses</Link>
+        <Link href="/contact" className={`hover:text-[#704FE6] ${navigate === '/contact' ? 'active' : ''}`}>Contact</Link>
     </>
 
     const [menu, setMenu] = useState(false)
+    const menuRef = useRef<HTMLDivElement | null>(null);
+
+
+    const handleClickOutside = (event: MouseEvent) => {
+        if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+            setMenu(false);
+        }
+    };
+
+    useEffect(() => {
+        // Add event listener to close menu when clicking outside
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            // Cleanup event listener on unmount
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
 
 
     return (
         <div className="border-b-[1px]">
-            <nav className="flex justify-between items-center min-[850px]:w-11/12 max-w-screen-2xl mx-auto py-4 px-8  ">
+            <nav className="container relative cont flex justify-between items-center mx-auto py-4 px-2">
                 {/* Mobile menu */}
                 <div className="md:hidden " onClick={() => setMenu(!menu)}>
                     {menu ? <IoClose className="text-3xl text-[#f51e1e]" /> :
-                        <IoMenu className="text-3xl text-[#1E99F5]" />}
+                        <IoMenu className="text-3xl text-[#704FE6]" />}
                 </div>
 
                 {/* Left */}
-                <Link href={'/'} className="font-bold w-full flex gap-2 items-center">
+                <Link href={'/'} className=" font-bold  flex gap-2 items-center">
                     <h1 className="text-2xl">Starlight <span className="text-[#704FE6]">University</span></h1>
                 </Link>
                 {/* Center */}
-                <div className=" w-full space-x-3 text-base text-center font-medium max-md:hidden">
+                <div className=" absolute left-1/2 -translate-x-1/2 flex gap-4 text-base text-center font-medium max-md:hidden">
                     {Links}
                 </div>
                 {/* Right */}
-                <div className=" w-full flex justify-end space-x-6 items-center">
-                    <Link href="/cart" className="  hover:text-[#1E99F5] text-3xl relative">
-                        <HiOutlineShoppingBag />
-                        <h1 className="text-sm absolute -right-1 top-4 bg-black text-white rounded-full w-5 h-5 text-center">2</h1>
-                    </Link>
-                    <Link href="/login" className=" hover:text-[#1E99F5]">Login</Link>
-                </div>
+                <Link href="/login" >
+                    <button className="transform transition-transform  hover:scale-110 text-[#704FE6] border-2 border-[#704FE6] font-semibold px-5 py-2 rounded-md hover:bg-[#704FE6] hover:text-white ">Login</button>
+                </Link>
             </nav>
             {/* Mobile nav */}
-            <div className={`flex flex-col nav-link absolute border-2 border-l-0 rounded-br-xl p-5 md:hidden ${menu ? '' : 'hidden'}`}>
+            <div ref={menuRef} className={`flex flex-col nav-link absolute bg-white text-center space-y-4 w-full  border-y-2  p-5 md:hidden ${menu ? '' : 'hidden'}`}>
                 {Links}
             </div>
         </div>
