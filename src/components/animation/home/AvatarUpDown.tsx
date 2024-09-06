@@ -7,7 +7,7 @@ import Image from 'next/image';
 const AvatarUpDown = () => {
     return (
             <motion.div
-                className="absolute bg-white py-5 px-6 shadow-lg rounded-lg right-52 flex gap-5"
+                className="absolute bg-white py-5 px-6 max-[585px]:hidden shadow-lg rounded-lg right-52 flex gap-5"
                 animate={{ y: [0, -20, 0], }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut'}}>
                 <h1 className="text-xl">
