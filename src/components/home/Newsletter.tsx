@@ -4,7 +4,7 @@ import { Input } from "../ui/input";
 export default function Newsletter() {
   return (
     <div className="container mx-auto">
-      <div className="bg-purple-700 p-4 h-52 sm:p-8 rounded-lg flex flex-col sm:flex-row items-center justify-between relative overflow-hidden">
+      <div className="bg-purple-700 p-4 h-52 sm:p-8 rounded-lg flex flex-col sm:flex-row items-center justify-around relative overflow-hidden">
         <div className="flex flex-col w-full sm:w-1/2 space-y-2 mb-4 sm:mb-0 text-center sm:text-left font-bold ">
           <h2 className="text-white text-2xl sm:text-3xl font-bold">
             Join Our Newsletter
