@@ -90,3 +90,9 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+
+.active {
+  color: #1E99F5; /* Active link color */
+  font-weight: bold;
+}
