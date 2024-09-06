@@ -25,7 +25,7 @@ export default function Home() {
       <section>
         <WhyChooseUs />
       </section>
-      <section>
+      <section className=" max-w-[90%] mx-auto">
         <About />
       </section>
       <section>
