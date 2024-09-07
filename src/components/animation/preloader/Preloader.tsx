@@ -10,10 +10,10 @@ const Preloader = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsLoading(false); // Stop loading after 3 seconds (simulate data loading)
-    }, 2000);
+      setIsLoading(false); 
+    }, 700);
 
-    return () => clearTimeout(timer); // Clean up timer
+    return () => clearTimeout(timer); 
   }, []);
 
   if (isLoading) {
@@ -24,7 +24,7 @@ const Preloader = ({ children }: { children: React.ReactNode }) => {
     );
   }
 
-  return <>{children}</>; // Once loading is done, render the actual content
+  return <>{children}</>; 
 };
 
 export default Preloader;
