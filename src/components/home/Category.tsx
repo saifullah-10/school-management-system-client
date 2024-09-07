@@ -21,13 +21,13 @@ export default function Category() {
     <div className="my-10 pb-10 bg-[#FFFFFF] w-[90%] mx-auto">
       {/* categories */}
       <div className="flex justify-center">
-        <h1 className="text-center text-lg font-normal text-[#704fe6] bg-[#E9E2FF] border-2 w-fit px-6 py-1 rounded-[5px]"> Categories </h1>
+        <h1 className="text-center text-lg font-normal text-[#704fe6] bg-[#E9E2FF] border-2 w-fit px-6 py-1 rounded-[5px]"> Departments </h1>
       </div>
-      <div className="flex justify-center">
-        <h1 className="text-[32px] md:text-[44px] font-bold py-1 mt-5 mb-20">Browse By Categories</h1>
+      <div className="flex justify-center items-center text-center mx-auto">
+        <h1 className="py-1 mt-5 mb-8 w-[90%] md:w-[60%]">Shaping Future Leaders through Innovative Education and Research Excellence. Empowering Students to Drive Change in a Globalized World.</h1>
       </div>
 
-      <div className="w-full max-w-[1550px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="w-full max-w-[1550px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {categories.map((item) => (
           <div
             key={item.id}
