@@ -71,6 +71,7 @@ export default function WhyChooseUs() {
           width={396}
           height={500}
           className="absolute -bottom-8 -right-8 -z-10" />
+          
         <UpDownDotBox/>
       </div>
     </div>
