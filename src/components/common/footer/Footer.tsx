@@ -1,5 +1,5 @@
 import { Facebook,Star, Instagram, Twitter, Linkedin } from "lucide-react";
-
+import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white py-8 md:py-12">
@@ -86,17 +86,21 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Gallery</h3>
             <div className="grid grid-cols-3 gap-2">
               {[
-                "https://picsum.photos/id/1011/200/200",
-                "https://picsum.photos/id/1015/200/200",
-                "https://picsum.photos/id/1018/200/200",
-                "https://picsum.photos/id/1020/200/200",
-                "https://picsum.photos/id/1021/200/200",
-                "https://picsum.photos/id/1022/200/200",
+                "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/20/cambridge.JPG?q=80&w=1447&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1568792923760-d70635a89fdc?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1570975640108-2292d83390ff?q=80&w=1622&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1593054538403-51a323b10f47?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1644077112345-919855dbcb65?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
               ].map((pic, index) => (
-                <img
+                <Image
+                  loading="lazy"
+                  width={500}
+                  height={500}
+                  alt="University"
                   src={pic}
                   key={index}
-                  className="bg-gray-700 aspect-square rounded-md"
+                  className="bg-gray-700 aspect-square rounded-xl"
                 />
               ))}
             </div>
