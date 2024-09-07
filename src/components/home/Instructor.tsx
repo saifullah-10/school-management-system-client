@@ -13,7 +13,7 @@ export default function Instructor() {
                 Our Instructor
               </h1>
             </div>
-            <div className=" w-1/2 mx-auto text-center">
+            <div className=" w-full lg:w-1/2 mx-auto text-center">
               <h2>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 Accusantium eum atque ab consectetur? At ipsum doloribus,

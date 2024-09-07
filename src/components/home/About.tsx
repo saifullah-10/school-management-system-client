@@ -2,10 +2,10 @@ import Image from "next/image";
 export default function About() {
   return (
     <div className=" mb-28">
-      <div className=" gap-10 items-center flex justify-between">
+      <div className=" gap-20 lg:gap-10 items-center flex flex-col-reverse  lg:flex-row justify-between">
         {/* left image */}
-        <div className="w-1/2 flex-1  justify-center flex">
-          <div className="grid  grid-cols-4 grid-rows-4 w-[26rem] gap-5 rotate-45   h-[26rem]">
+        <div className="lg:w-1/2 w-full flex-1  justify-center flex">
+          <div className="grid  grid-cols-4 grid-rows-4 w-[16rem] lg:w-[26rem] gap-1 lg:gap-5 rotate-45  h-[16rem] lg:h-[26rem]">
             <div className=" shadow-xl relative rounded-xl col-span-2 overflow-hidden row-span-2">
               {" "}
               <Image
@@ -13,7 +13,7 @@ export default function About() {
                 alt="AboutImage"
                 layout="fill"
                 objectFit="contain"
-                className=" scale-160 -rotate-45 bg-center -translate-x-3 rounded-xl translate-y-4"
+                className=" scale-160 -rotate-45 bg-center -translate-x-2 lg:-translate-x-3 rounded-xl translate-y-4"
               />
             </div>
             <div className=" shadow-xl relative rounded-xl col-span-2 overflow-hidden row-span-2">
@@ -23,7 +23,7 @@ export default function About() {
                 alt="AboutImage"
                 layout="fill"
                 objectFit="contain"
-                className=" scale-160 -rotate-45 bg-center -translate-x-3 rounded-xl translate-y-4"
+                className=" scale-160 -rotate-45 bg-center -translate-x-2 lg:-translate-x-3 rounded-xl translate-y-4"
               />
             </div>
             <div className=" shadow-xl relative rounded-xl col-span-2 overflow-hidden row-span-2">
@@ -33,7 +33,7 @@ export default function About() {
                 alt="AboutImage"
                 layout="fill"
                 objectFit="contain"
-                className=" scale-160 -rotate-45 bg-center -translate-x-3 rounded-xl translate-y-4"
+                className=" scale-160 -rotate-45 bg-center -translate-x-2 lg:-translate-x-3 rounded-xl translate-y-4"
               />
             </div>
             <div className=" shadow-xl relative rounded-xl col-span-2 overflow-hidden row-span-2">
@@ -43,13 +43,13 @@ export default function About() {
                 alt="AboutImage"
                 layout="fill"
                 objectFit="contain"
-                className=" scale-160 -rotate-45 bg-center -translate-x-3 rounded-xl translate-y-4"
+                className=" scale-160 -rotate-45 bg-center -translate-x-2 lg:-translate-x-3 rounded-xl translate-y-4"
               />
             </div>
           </div>
         </div>
         {/* left image */}
-        <div className=" w-1/2 flex-1 flex flex-col gap-5">
+        <div className=" w-full lg:w-1/2 flex-1 flex flex-col gap-5">
           <div>
             <h1 className="text-lg  font-semibold text-[#704fe6] bg-[#E9E2FF] border-2 w-fit px-6 py-1 rounded-[5px]">
               About Us
@@ -75,8 +75,8 @@ export default function About() {
               excellence.
             </h2>
           </div>
-          <div className="flex w-full justify-between gap-5">
-            <div className="flex w-1/3 items-center flex-col flex-1 bg-green-300/70 border-2 border-green-500 rounded-xl p-3 justify-between">
+          <div className="flex flex-col lg:flex-row w-full justify-between gap-5">
+            <div className="flex w-full lg:w-1/3 items-center flex-col flex-1 bg-green-300/70 border-2 border-green-500 rounded-xl p-3 justify-between">
               <Image
                 src="/assets/images/Graduation.png"
                 alt="Graduation Cap"
@@ -89,7 +89,7 @@ export default function About() {
                 </h3>
               </div>
             </div>
-            <div className="flex w-1/3 items-center flex-col flex-1 bg-blue-300/70 border-2 border-blue-500 rounded-xl p-3 justify-between">
+            <div className="flex w-full lg:w-1/3 items-center flex-col flex-1 bg-blue-300/70 border-2 border-blue-500 rounded-xl p-3 justify-between">
               <Image
                 src="/assets/images/Schedule.png"
                 alt="Graduation Cap"
@@ -102,7 +102,7 @@ export default function About() {
                 </h3>
               </div>
             </div>
-            <div className="flex items-center w-1/3 flex-col flex-1 bg-yellow-300/70 border-2 border-yellow-500 rounded-xl p-3 justify-between">
+            <div className="flex items-center w-full lg:w-1/3 flex-col flex-1 bg-yellow-300/70 border-2 border-yellow-500 rounded-xl p-3 justify-between">
               <Image
                 src="/assets/images/Collaboration.png"
                 alt="Graduation Cap"
