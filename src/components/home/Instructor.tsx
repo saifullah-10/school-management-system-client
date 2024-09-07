@@ -1,5 +1,6 @@
-import Image from "next/image";
 import Marquee from "react-fast-marquee";
+
+import InstructorImage from "../animation/home/instructor/InstructorImage";
 
 export default function Instructor() {
   return (
@@ -7,7 +8,7 @@ export default function Instructor() {
       <div>
         <div>
           <div className="  text-center">
-            <h2>About Us</h2>
+            <h2>Instructor</h2>
             <div>
               <h2>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -18,27 +19,20 @@ export default function Instructor() {
           </div>
         </div>
 
-        <div>
-          <Marquee pauseOnHover={true}>
+        <div
+          className={`bg-[url('/assets/images/instructorGraphic.png')] h-full object-cover w-full py-10`}
+        >
+          <Marquee pauseOnHover={false}>
             <div className=" mr-10">
-              <div className=" ">
-                <Image
-                  src="https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                  alt=""
-                  width={100}
-                  height={100}
-                  className=""
-                />
+              <div className=" flex flex-col gap-5 ">
+                <div className=" border-2 rounded-full p-3">
+                  <InstructorImage />
+                </div>
+                <div className="  flex flex-col gap-2">
+                  <h1 className=" text-3xl text-center">Name</h1>
+                  <p>Department</p>
+                </div>
               </div>
-            </div>
-            <div className=" mr-10">
-              <h1>Instructor</h1>
-            </div>
-            <div className=" mr-10">
-              <h1>Instructor</h1>
-            </div>
-            <div className=" mr-10">
-              <h1>Instructor</h1>
             </div>
           </Marquee>
         </div>
