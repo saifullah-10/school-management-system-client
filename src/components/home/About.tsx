@@ -109,15 +109,19 @@ export default function About() {
           </div>
         </div>
         {/* left image */}
-        <div className=" w-1/2 flex-1">
-          <div></div>
+        <div className=" w-1/2 flex-1 flex flex-col gap-5">
+          <div>
+            <h1 className=" inline-block px-6 py-2 text-white rounded-2xl bg-purple-400 ">
+              About US
+            </h1>
+          </div>
           <div>
             <h1 className="  text-3xl">
               Empowering Education: Our University Management Solution{" "}
             </h1>
           </div>
           <div>
-            <h2>
+            <h2 className=" text-[#72716d]">
               Discover a new era of academic excellence with our University
               Management website. Designed to streamline every aspect of
               university administration, from admissions to graduation, our
@@ -140,34 +144,34 @@ export default function About() {
                 height={100}
               ></Image>
               <div>
-                <h3 className="text-lg whitespace-nowrap font-semibold mb-2">
+                <h3 className="text-center text-[#373737] font-semibold mb-2">
                   Seamless Student Management
                 </h3>
               </div>
             </div>
             <div className="flex w-1/3 items-center flex-col flex-1 bg-green-300/70 border-2 border-green-500 rounded-xl p-3 justify-between">
               <Image
-                src="/assets/images/Graduation.png"
+                src="/assets/images/Schedule.png"
                 alt="Graduation Cap"
-                width={100}
-                height={100}
+                width={50}
+                height={50}
               ></Image>
               <div>
-                <h3 className=" whitespace-nowrap font-semibold mb-2">
-                  Seamless Student Management
+                <h3 className="text-center text-[#373737] font-semibold mb-2">
+                  Advanced Course Scheduling
                 </h3>
               </div>
             </div>
             <div className="flex items-center w-1/3 flex-col flex-1 bg-green-300/70 border-2 border-green-500 rounded-xl p-3 justify-between">
               <Image
-                src="/assets/images/Graduation.png"
+                src="/assets/images/Collaboration.png"
                 alt="Graduation Cap"
-                width={100}
-                height={100}
+                width={50}
+                height={50}
               ></Image>
               <div>
-                <h3 className="text-xl whitespace-nowrap font-semibold mb-2">
-                  Seamless Student Management
+                <h3 className="text-center text-[#373737] font-semibold mb-2">
+                  Effective Faculty Collaboration
                 </h3>
               </div>
             </div>
