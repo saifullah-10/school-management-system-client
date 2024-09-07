@@ -8,11 +8,11 @@ export default function WhyChooseUs() {
       {/* left elements */}
       <div className="lg:w-1/2">
         {/* heading */}
-        <h1 className='text-lg font-normal text-[#704fe6] bg-[#E9E2FF] border-2 w-fit px-6 py-1 rounded-[5px]'>WHY CHOOSE US</h1>
+        <h1 className='font-Montserrat font-normal text-[#704fe6] bg-[#E9E2FF] border-2 w-fit px-6 py-1 rounded-[5px]'>WHY CHOOSE US</h1>
 
         <h3 className="text-5xl font-bold my-3">Creating A Community Of <br /> Life Long Learners.</h3>
 
-        <p>
+        <p className="text-sm font-Poppins text-gray-600 py-2">
           In our vibrant community, we believe that learning is a lifelong journey, not just a destination. We are dedicated to nurturing curiosity and fostering a passion for knowledge in every individual. By empowering minds and inspiring futures, we build bridges to new opportunities and cultivate a culture where education never ends.
         </p>
 
@@ -28,23 +28,23 @@ export default function WhyChooseUs() {
           <div className=" bg-[#E9E2FF] px-5 py-7 rounded-[8px]">
             <div className="flex items-center gap-2 text-[#704fe6]">
               <FaCircleCheck />
-              <p className="font-Montserrat text-xl font-bold text-black">World Class Trainers</p>
+              <p className="font-Montserrat text-xl font-bold text-black">Easy learning</p>
             </div>
-            <p className="text-gray-500 font-Poppins">Our team of world-class trainers brings unparalleled expertise.</p>
+            <p className="text-gray-500 font-Poppins">Making learning simple, engaging, and accessible for everyone, every step of the way.</p>
           </div>
           <div className=" bg-[#E9E2FF] px-5 py-7 rounded-[8px]">
             <div className="flex items-center gap-2 text-[#704fe6]">
               <FaCircleCheck />
-              <p className="font-Montserrat text-xl font-bold text-black">World Class Trainers</p>
+              <p className="font-Montserrat text-xl font-bold text-black">Flexible</p>
             </div>
-            <p className="text-gray-500 font-Poppins">Our team of world-class trainers brings unparalleled expertise.</p>
+            <p className="text-gray-500 font-Poppins">Empowering you to learn at your own pace, anytime and anywhere, with our adaptable and flexible learning.</p>
           </div>
           <div className=" bg-[#E9E2FF] px-5 py-7 rounded-[8px]">
             <div className="flex items-center gap-2 text-[#704fe6]">
               <FaCircleCheck />
-              <p className="font-Montserrat text-xl font-bold text-black">World Class Trainers</p>
+              <p className="font-Montserrat text-xl font-bold text-black">Affordable prices</p>
             </div>
-            <p className="text-gray-500 font-Poppins">Our team of world-class trainers brings unparalleled expertise.</p>
+            <p className="text-gray-500 font-Poppins">Providing high-quality education and resources at prices that everyone can afford, making learning accessible to all..</p>
           </div>
 
         </div>
