@@ -5,15 +5,28 @@ const Dot = () => {
     return (
         <div>
             <motion.div
-                className="w-6 h-6 bg-red-900 rounded-full absolute right-0"
+                className="w-6 h-6 bg-red-700 rounded-full absolute right-0"
                 animate={{
-                    scale: [1, 1.2, 1], // Pulsing effect
-                    // opacity: [1, 0.6, 1] // Opacity effect
+                    scale: [1, 1.2, 1], 
                 }}
                 transition={{
-                    duration: 1, // Adjust the speed of the pulse
+                    duration: 1, 
                     repeat: Infinity, // Keep repeating the animation
                     repeatType: "loop", // Make it loop smoothly
+                }}
+            />
+            <motion.div
+                className="w-6 h-6 bg-blue-700 rounded-full absolute bottom-24"
+                animate={{
+                    scale: [1, 1.2, 1], 
+                    x: [25, 50, 25, 0, 25],
+                    y: [0, 25, 50, 25, 0], 
+                }}
+                transition={{
+                    duration: 7,
+                    repeat: Infinity, 
+                    repeatType: "loop", 
+                    ease: "easeInOut", 
                 }}
             />
         </div>
