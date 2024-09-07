@@ -1,8 +1,9 @@
 
-const layout = () => {
-    return (
-        <div>dadddddd</div>
-    );
-};
 
-export default layout;
+export default function DashboardLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return <div>{children}</div>;
+}
