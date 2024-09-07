@@ -36,28 +36,36 @@ export default function Testimonial() {
     return (
         <div className="relative mt-48 pb-20 bg-[#F9F8FF]">
             {/* stats */}
-            <div className="absolute top-[-130px] left-1/2 translate-x-[-550px] my-10 max-w-[1100px] py-2 sm:py-4 lg:py-10 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full mx-auto w-[90%]">
-                <div className="max-w-7xl mx-auto flex justify-around items-center gap-4 flex-wrap">
-                    {stats.map((stat) => (
-                        <div
-                            key={stat.id}
-                            className="flex items-center gap-2 text-center w-[120px] justify-center"
-                        >
-                            <div className="text-[10px] sm:text-xl md:text-3xl bg-white rounded-full p-1 sm:p-2 md:p-4">
-                                {stat.icon}
-                            </div>
-                            <div className="pr-4">
-                                <h3 className="text-sm sm:text-2xl md:text-3xl font-bold text-gray-800">
-                                    {stat.number}
-                                </h3>
-                                <p className="text-[10px] sm:text-sm md:text-base font-medium text-gray-600">
-                                    {stat.title}
-                                </p>
-                            </div>
+
+<div className='w- xl:mx-auto'>
+                    <div className="absolute xl:top-[-95px] xl:border xl:mx-auto xl:max-w-[1936px] xl:w-[60%] xl:left-[20%]
+                    lg:top-[-95px] lg:border lg:w-[70%] lg:left-[15%]
+                    md:border md:top-[-90px] md:left-[9%] md:w-[82%] md:rounded-full
+                    sm:py-4 sm:top-[-90px] sm:border sm:w-full 
+                    w-full top-[-130px] my-10 bg-gradient-to-r from-yellow-400 to-yellow-500 mx-auto max-w-[1310px] py-2 ">
+                        <div className="max-w-7xl mx-auto flex justify-around items-center gap-2 flex-wrap">
+                            {stats.map((stat) => (
+                                <div
+                                    key={stat.id}
+                                    className="flex items-center gap-2 text-center w-[120px] justify-center"
+                                >
+                                    <div className="text-[10px] sm:text-xl lg:text-lg 2xl:text-[26px] 2xl:leading-snug  bg-white rounded-full p-1 sm:p-2 xl:p-4">
+                                        {stat.icon}
+                                    </div>
+                                    <div className="pr-4">
+                                        <h3 className="text-sm sm:text-2xl lg:text-lg 2xl:text-[26px] 2xl:leading-snug  font-bold text-gray-800">
+                                            {stat.number}
+                                        </h3>
+                                        <p className="text-[10px] sm:text-sm lg:text-xs 2xl:text-[26px] 2xl:leading-snug  font-medium text-gray-600">
+                                            {stat.title}
+                                        </p>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
-                    ))}
-                </div>
-            </div>
+                    </div>
+</div>
+
 
             <div className="flex justify-center pt-36">
                 <h1 className="text-center text-lg font-normal text-[#704fe6] bg-[#E9E2FF] border-2 w-fit px-6 py-1 rounded-[5px]">
@@ -89,9 +97,9 @@ export default function Testimonial() {
                         },
                         900: {
                             slidesPerView: 2,
-                            spaceBetween: 20,
+                            spaceBetween: 10,
                         },
-                        1400: {
+                        1200: {
                             slidesPerView: 3,
                             spaceBetween: 30,
                         },
@@ -100,12 +108,12 @@ export default function Testimonial() {
                     {testimonials.map((item) => (
                         <SwiperSlide key={item.name}>
                             <div className="mb-16">
-                                <div className="relative bg-blue-50 border border-[#00000050] rounded-xl p-8 w-full h-96 sm:h-80 shadow-sm max-w-[390px] mx-auto">
+                                <div className="relative bg-blue-50 border border-[#00000050] rounded-xl p-8 w-full shadow-sm max-w-[390px] mx-auto">
                                     <div className="absolute text-8xl text-blue-200 top-[-10px] left-3">“</div>
-                                    <p className="text-black mb-20 sm:mb-4 h-[200px] text-xl">
+                                    <p className="text-black mb-20 sm:mb-4 min-h-[220px] text-xl">
                                         {item.testimonial}
                                     </p>
-                                    <h4 className="text-xl font-extrabold text-blue-900">{item.name}</h4>
+                                    <h4 className="text-xl font-extrabold text-blue-900 pt-5">{item.name}</h4>
                                     <p className="text-md text-blue-600">{item.program}</p>
                                 </div>
                             </div>
