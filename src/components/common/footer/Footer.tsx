@@ -96,7 +96,7 @@ const Footer = () => {
                 <img
                   src={pic}
                   key={index}
-                  className="bg-gray-700 aspect-square rounded-md"
+                  className="bg-gray-700 aspect-square rounded-xl"
                 />
               ))}
             </div>
