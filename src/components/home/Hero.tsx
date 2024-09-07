@@ -9,7 +9,7 @@ import Dot from '../animation/home/Dot';
 
 const Hero = () => {
   return (
-    <div className="relative min-h-screen flex flex-col md:flex-row items-center max-md:mt-16">
+    <div className="relative min-h-screen flex flex-col md:flex-row items-center max-md:pt-16">
       {/* Background image with opacity */}
       <div className="absolute inset-0 z-[-1]">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${bg.src})` }}></div>
