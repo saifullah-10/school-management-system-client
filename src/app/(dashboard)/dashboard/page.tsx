@@ -1,10 +1,5 @@
-
-const page = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+const Dashboard = () => {
+  return <div>Dashboard</div>;
 };
 
-export default page;
+export default Dashboard;
