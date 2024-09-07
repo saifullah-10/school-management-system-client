@@ -8,11 +8,13 @@ export default function Courses() {
   return (
     <div className="bg-[url('/assets/images/ed-bg-1.jpg')] py-20">
       {/* elements */}
-      <div className="container w-10/12 mx-auto">
+      <div className="container mx-auto">
         {/* heading */}
-        <h1 className='font-Montserrat text-[#704fe6] bg-[#E9E2FF] border-2 w-fit px-6 py-1 rounded-[5px]'>POPULAR COURSES</h1>
+        <div className="w-10/12 mx-auto">
+          <h1 className='font-Montserrat text-[#704fe6] bg-[#E9E2FF] border-2 w-fit px-6 py-1 rounded-[5px]'>POPULAR COURSES</h1>
 
-        <h3 className="text-5xl font-bold my-3">Starlight Courses Student <br /> Can Join With Us</h3>
+          <h3 className="text-5xl font-bold my-3">Starlight Courses Student <br /> Can Join With Us</h3>
+        </div>
 
         {/* courses cards */}
 
