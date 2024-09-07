@@ -1,68 +1,8 @@
-// import Image from "next/image";
-
 import Image from "next/image";
-// import GraduationImage from "";
 export default function About() {
   return (
     <div className=" mb-28">
-      {/* <div className=" mb-28 text-center">
-        <h2>About Us</h2>
-        <div>
-          <h2>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Accusantium eum atque ab consectetur? At ipsum doloribus, incidunt
-            fugiat voluptate dolores.
-          </h2>
-        </div>
-      </div> */}
       <div className=" gap-10 items-center flex justify-between">
-        {/* <div className=" grid md:gap-8  lg:gap-10  grid-cols-12">
-          <div className="col-span-6 relative ">
-            <Image
-              className=" rounded-2xl shadow-2xl "
-              src="https://images.pexels.com/photos/1164572/pexels-photo-1164572.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              alt=""
-              layout="responsive"
-              width={1920}
-              height={1080}
-            />
-            <div className=" absolute top-0 left-0">hello</div>
-          </div>
-          <div className="col-span-6 relative ">
-            <Image
-              className=" rounded-2xl shadow-2xl "
-              src="https://images.pexels.com/photos/3184317/pexels-photo-3184317.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              alt=""
-              layout="responsive"
-              width={1920}
-              height={1080}
-            />
-            <div className=" absolute top-0 left-0">hello</div>
-          </div>
-          <div className="col-span-6 relative ">
-            <Image
-              className=" rounded-2xl shadow-2xl "
-              src="https://images.pexels.com/photos/1164572/pexels-photo-1164572.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              alt=""
-              layout="responsive"
-              width={1920}
-              height={1080}
-            />
-            <div className=" absolute top-0 left-0">hello</div>
-          </div>
-          <div className="col-span-6 relative ">
-            <Image
-              className=" rounded-2xl shadow-2xl "
-              src="https://images.pexels.com/photos/1164572/pexels-photo-1164572.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              alt=""
-              layout="responsive"
-              width={1920}
-              height={1080}
-            />
-            <div className=" absolute top-0 left-0">hello</div>
-          </div>
-        </div> */}
-
         {/* left image */}
         <div className="w-1/2 flex-1  justify-center flex">
           <div className="grid  grid-cols-4 grid-rows-4 w-[26rem] gap-5 rotate-45   h-[26rem]">
@@ -111,8 +51,8 @@ export default function About() {
         {/* left image */}
         <div className=" w-1/2 flex-1 flex flex-col gap-5">
           <div>
-            <h1 className=" inline-block px-6 py-2 text-white rounded-2xl bg-purple-400 ">
-              About US
+            <h1 className="text-lg  font-semibold text-[#704fe6] bg-[#E9E2FF] border-2 w-fit px-6 py-1 rounded-[5px]">
+              About Us
             </h1>
           </div>
           <div>
@@ -140,8 +80,8 @@ export default function About() {
               <Image
                 src="/assets/images/Graduation.png"
                 alt="Graduation Cap"
-                width={100}
-                height={100}
+                width={50}
+                height={50}
               ></Image>
               <div>
                 <h3 className="text-center text-[#373737] font-semibold mb-2">
@@ -149,7 +89,7 @@ export default function About() {
                 </h3>
               </div>
             </div>
-            <div className="flex w-1/3 items-center flex-col flex-1 bg-green-300/70 border-2 border-green-500 rounded-xl p-3 justify-between">
+            <div className="flex w-1/3 items-center flex-col flex-1 bg-blue-300/70 border-2 border-blue-500 rounded-xl p-3 justify-between">
               <Image
                 src="/assets/images/Schedule.png"
                 alt="Graduation Cap"
@@ -162,7 +102,7 @@ export default function About() {
                 </h3>
               </div>
             </div>
-            <div className="flex items-center w-1/3 flex-col flex-1 bg-green-300/70 border-2 border-green-500 rounded-xl p-3 justify-between">
+            <div className="flex items-center w-1/3 flex-col flex-1 bg-yellow-300/70 border-2 border-yellow-500 rounded-xl p-3 justify-between">
               <Image
                 src="/assets/images/Collaboration.png"
                 alt="Graduation Cap"
@@ -176,7 +116,26 @@ export default function About() {
               </div>
             </div>
           </div>
-          <button>More</button>
+
+          <div className=" flex justify-end">
+            <button className="flex items-center gap-2 text-white btn bg-[#704fe6] group-hover:bg-white group-hover:text-black py-2 px-5 rounded-full">
+              More
+              <span>
+                <svg
+                  width="21"
+                  height="8"
+                  viewBox="0 0 21 8"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20.3536 4.35355C20.5488 4.15829 20.5488 3.84171 20.3536 3.64645L17.1716 0.464466C16.9763 0.269204 16.6597 0.269204 16.4645 0.464466C16.2692 0.659728 16.2692 0.976311 16.4645 1.17157L19.2929 4L16.4645 6.82843C16.2692 7.02369 16.2692 7.34027 16.4645 7.53553C16.6597 7.7308 16.9763 7.7308 17.1716 7.53553L20.3536 4.35355ZM0 4.5H20V3.5H0V4.5Z"
+                    fill="currentcolor"
+                  ></path>
+                </svg>
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
