@@ -10,10 +10,10 @@ const Navbar = () => {
   console.log(navigate);
 
     const Links = <>
-        <Link href="/" className={`hover:text-[#704FE6]  ${navigate === '/' ? 'active' : ''}`}>Home</Link>
-        <Link href="/aboutUs" className={`hover:text-[#704FE6]  ${navigate === '/aboutUs' ? 'active' : ''}`}>About Us</Link>
-        <Link href="/courses" className={`hover:text-[#704FE6]  ${navigate === '/courses' ? 'active' : ''}`}>Courses</Link>
-        <Link href="/contact" className={`hover:text-[#704FE6]  ${navigate === '/contact' ? 'active' : ''}`}>Contact</Link>
+        <Link href="/" className={`hover:text-[#704FE6]  ${navigate === '/' ? 'nav-active' : ''}`}>Home</Link>
+        <Link href="/aboutUs" className={`hover:text-[#704FE6]  ${navigate === '/aboutUs' ? 'nav-active' : ''}`}>About Us</Link>
+        <Link href="/courses" className={`hover:text-[#704FE6]  ${navigate === '/courses' ? 'nav-active' : ''}`}>Courses</Link>
+        <Link href="/contact" className={`hover:text-[#704FE6]  ${navigate === '/contact' ? 'nav-active' : ''}`}>Contact</Link>
     </>
 
     const [menu, setMenu] = useState(false)
@@ -36,7 +36,7 @@ const Navbar = () => {
   }, []);
 
   if (navigate?.includes("dashboard")) {
-    return <div>admin navbar</div>;
+    return ;
   }
 
   return (

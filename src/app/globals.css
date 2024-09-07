@@ -5,10 +5,19 @@
 @tailwind components;
 @tailwind utilities;
 
-.active {
+.nav-active {
   color: #704fe6; /* Active link color */
   font-weight: bold;
 }
+.side-active {
+  color: white; /* Active link color */
+  font-weight: bold;
+  background-color: #704fe6;
+}
+.shadow-right-lg {
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+}
+
 body {
   font-family: "Poppins", sans-serif;
 }

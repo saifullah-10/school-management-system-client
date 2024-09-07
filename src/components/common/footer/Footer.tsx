@@ -6,7 +6,7 @@ const Footer = () => {
   const navigate = usePathname()
 
   if (navigate?.includes("dashboard")) {
-    return <div>footer</div>;
+    return;
   }
 
   return (
