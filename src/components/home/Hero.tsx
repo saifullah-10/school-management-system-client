@@ -17,7 +17,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="container w-11/12 mx-auto flex flex-col md:flex-row items-center relative z-10 ">
+      <div className="container w-11/12 mx-auto flex  max-[900px]:flex-col flex-row  items-center relative z-10 ">
         {/* left */}
         <div className="w-full text-white">
           <h1 className='text-xl text-white bg-[#815eff7a] border-2 border-[#3d1eb1]  w-fit px-5 py-2 rounded-lg font-semibold'>Welcome to Starlight</h1>
