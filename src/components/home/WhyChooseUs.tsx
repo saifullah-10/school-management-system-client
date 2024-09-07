@@ -1,11 +1,12 @@
 import Image from "next/image";
 import { FaCircleCheck } from "react-icons/fa6";
+import UpDownDotBox from "../animation/home/whyChooseUs/UpDownDotBox";
 
 export default function WhyChooseUs() {
   return (
     <div className="my-20 py-20 lg:flex justify-between container w-10/12 mx-auto">
       {/* left elements */}
-      <div className="w-1/2">
+      <div className="lg:w-1/2">
         {/* heading */}
         <h1 className='text-lg font-normal text-[#704fe6] bg-[#E9E2FF] border-2 w-fit px-6 py-1 rounded-[5px]'>WHY CHOOSE US</h1>
 
@@ -17,41 +18,41 @@ export default function WhyChooseUs() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 my-4">
 
-        <div className=" bg-[#E9E2FF] px-5 py-7 rounded-[8px]">
-          <div className="flex items-center gap-2 text-[#704fe6]">
-          <FaCircleCheck />
-            <p className="font-Montserrat text-xl font-bold text-black">World Class Trainers</p>
+          <div className=" bg-[#E9E2FF] px-5 py-7 rounded-[8px]">
+            <div className="flex items-center gap-2 text-[#704fe6]">
+              <FaCircleCheck />
+              <p className="font-Montserrat text-xl font-bold text-black">World Class Trainers</p>
+            </div>
+            <p className="text-gray-500 font-Poppins">Our team of world-class trainers brings unparalleled expertise.</p>
           </div>
-          <p className="text-gray-500 font-Poppins">Our team of world-class trainers brings unparalleled expertise.</p>
-        </div>
-        <div className=" bg-[#E9E2FF] px-5 py-7 rounded-[8px]">
-          <div className="flex items-center gap-2 text-[#704fe6]">
-          <FaCircleCheck />
-            <p className="font-Montserrat text-xl font-bold text-black">World Class Trainers</p>
+          <div className=" bg-[#E9E2FF] px-5 py-7 rounded-[8px]">
+            <div className="flex items-center gap-2 text-[#704fe6]">
+              <FaCircleCheck />
+              <p className="font-Montserrat text-xl font-bold text-black">World Class Trainers</p>
+            </div>
+            <p className="text-gray-500 font-Poppins">Our team of world-class trainers brings unparalleled expertise.</p>
           </div>
-          <p className="text-gray-500 font-Poppins">Our team of world-class trainers brings unparalleled expertise.</p>
-        </div>
-        <div className=" bg-[#E9E2FF] px-5 py-7 rounded-[8px]">
-          <div className="flex items-center gap-2 text-[#704fe6]">
-          <FaCircleCheck />
-            <p className="font-Montserrat text-xl font-bold text-black">World Class Trainers</p>
+          <div className=" bg-[#E9E2FF] px-5 py-7 rounded-[8px]">
+            <div className="flex items-center gap-2 text-[#704fe6]">
+              <FaCircleCheck />
+              <p className="font-Montserrat text-xl font-bold text-black">World Class Trainers</p>
+            </div>
+            <p className="text-gray-500 font-Poppins">Our team of world-class trainers brings unparalleled expertise.</p>
           </div>
-          <p className="text-gray-500 font-Poppins">Our team of world-class trainers brings unparalleled expertise.</p>
-        </div>
-        <div className=" bg-[#E9E2FF] px-5 py-7 rounded-[8px]">
-          <div className="flex items-center gap-2 text-[#704fe6]">
-          <FaCircleCheck />
-            <p className="font-Montserrat text-xl font-bold text-black">World Class Trainers</p>
+          <div className=" bg-[#E9E2FF] px-5 py-7 rounded-[8px]">
+            <div className="flex items-center gap-2 text-[#704fe6]">
+              <FaCircleCheck />
+              <p className="font-Montserrat text-xl font-bold text-black">World Class Trainers</p>
+            </div>
+            <p className="text-gray-500 font-Poppins">Our team of world-class trainers brings unparalleled expertise.</p>
           </div>
-          <p className="text-gray-500 font-Poppins">Our team of world-class trainers brings unparalleled expertise.</p>
-        </div>
 
         </div>
       </div>
 
-{/* images */}
+      {/* images */}
 
-      <div className="relative h-fit">
+      <div className="md:w-1/2 lg:w-auto relative h-fit mt-10 lg:mt-0 mx-auto">
         <Image
           src="/assets/images/choose-2-1.jpg"
           alt="community image"
@@ -70,12 +71,8 @@ export default function WhyChooseUs() {
           width={396}
           height={500}
           className="absolute -bottom-8 -right-8 -z-10" />
-        <Image
-          src="/assets/images/shape-1-3.png"
-          alt="community image"
-          width={277}
-          height={271}
-          className="absolute -top-20 -right-20 -z-10" />
+          
+        <UpDownDotBox/>
       </div>
     </div>
   );
