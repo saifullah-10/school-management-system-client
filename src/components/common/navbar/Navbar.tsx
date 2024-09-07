@@ -1,7 +1,7 @@
 'use client'
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState} from "react";
 import { IoClose, IoMenu } from "react-icons/io5";
 
 const Navbar = () => {
@@ -9,10 +9,10 @@ const Navbar = () => {
     console.log(navigate);
 
     const Links = <>
-        <Link href="/" className={`hover:text-[#704FE6] hover:underline ${navigate === '/' ? 'active' : ''}`}>Home</Link>
-        <Link href="/aboutUs" className={`hover:text-[#704FE6] hover:underline ${navigate === '/aboutUs' ? 'active' : ''}`}>About Us</Link>
-        <Link href="/courses" className={`hover:text-[#704FE6] hover:underline ${navigate === '/courses' ? 'active' : ''}`}>Courses</Link>
-        <Link href="/contact" className={`hover:text-[#704FE6] hover:underline ${navigate === '/contact' ? 'active' : ''}`}>Contact</Link>
+        <Link href="/" className={`hover:text-[#704FE6]  ${navigate === '/' ? 'active' : ''}`}>Home</Link>
+        <Link href="/aboutUs" className={`hover:text-[#704FE6]  ${navigate === '/aboutUs' ? 'active' : ''}`}>About Us</Link>
+        <Link href="/courses" className={`hover:text-[#704FE6]  ${navigate === '/courses' ? 'active' : ''}`}>Courses</Link>
+        <Link href="/contact" className={`hover:text-[#704FE6]  ${navigate === '/contact' ? 'active' : ''}`}>Contact</Link>
     </>
 
     const [menu, setMenu] = useState(false)

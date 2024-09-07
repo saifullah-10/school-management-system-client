@@ -1,8 +1,11 @@
+'use client'
 import { Facebook,Star, Instagram, Twitter, Linkedin } from "lucide-react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 const Footer = () => {
+  const navigate = usePathname()
   return (
-    <footer className="bg-gray-900 text-white py-8 md:py-12">
+    <footer className={`bg-gray-900 text-white py-8 md:py-12  ${navigate === '/login' ? 'hidden' : ''}`}>
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap -mx-4">
           {/* Logo and Description */}
