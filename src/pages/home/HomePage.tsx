@@ -17,9 +17,6 @@ export default function Home() {
         <Category />
       </section>
       <section>
-        <Testimonial />
-      </section>
-      <section>
         <Courses />
       </section>
       <section>
@@ -30,6 +27,9 @@ export default function Home() {
       </section>
       <section>
         <Instructor />
+      </section>
+      <section>
+        <Testimonial />
       </section>
       <section>
         <Newsletter />
