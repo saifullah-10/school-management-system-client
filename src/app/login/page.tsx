@@ -1,87 +1,79 @@
-// import Social from "@/components/common/social/Social";
-// import Lottie from "lottie-react";
-// import welcome from "../../../public/assets/welcome.json";
-// import Link from "next/link";
-// import { useForm, SubmitHandler } from "react-hook-form";
+'use client'
+import Social from "@/components/common/social/Social";
+import Link from "next/link";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { IoIosEye, IoIosEyeOff } from "react-icons/io";
+import { useState } from "react";
+import bg from '../../../public/assets/images/university1.jpg'
 
-// interface LoginFormInputs {
-//   email: string;
-//   password: string;
-// }
+interface LoginFormInputs {
+    email: string;
+    password: string;
+    agreeToTerms: boolean;
+}
 
 const LoginPage = () => {
-//   const {    register,    handleSubmit,    formState: { errors, isSubmitting },  } = useForm<LoginFormInputs>();
+    const [show, setShow] = useState(false)
+    const { register, handleSubmit, formState: { errors } } = useForm<LoginFormInputs>();
 
-//   const onSubmit: SubmitHandler<LoginFormInputs> = async (data) => {
-//     console.log("Email:", data.email);
-//     console.log("Password:", data.password);
-//     // Handle login logic here
-//   };
+    const onSubmit: SubmitHandler<LoginFormInputs> = async (data) => {
+        console.log("Email:", data.email);
+        console.log("Password:", data.password);
+        console.log("Agreed to Terms:", data.agreeToTerms);
+    };
 
-  return (
-    <div className="text-5xl">
-      {/* <div className="sm:h-[600px] w-11/12 max-w-screen-lg mx-auto shadow-2xl flex flex-col sm:flex-row-reverse items-center">
-        <div className="bg-black h-full sm:w-1/2 flex flex-col justify-center items-center max-sm:py-5">
-          <h1 className="text-white font-bold font-serif text-4xl">Welcome Back!</h1>
-          <Lottie animationData={welcome} loop={true} />
+    return (
+        <div className="w-full flex justify-center items-center mx-auto relative min-h-screen p-5 sm:p-10">
+            <div className="absolute inset-0 z-[-1]">
+                <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${bg.src})` }}></div>
+                <div className="absolute inset-0 bg-black opacity-50"></div>
+            </div>
+            <div className="relative z-10 max-w-lg w-full py-10 px-5 sm:p-10  rounded-[10px] shadow-lg">
+                <div className="absolute inset-0 bg-white bg-opacity-90 rounded-[10px]"></div>
+                <div className="relative z-10 ">
+                    <div className="text-center mb-6">
+                        <h1 className="text-xl font-semibold">Welcome To</h1>
+                        <Link href={"/"} className="font-bold flex items-center justify-center">
+                            <h1 className="text-2xl transform transition-transform hover:scale-110 cursor-pointer">Starlight <span className="text-[#704FE6]">University</span></h1>
+                        </Link>
+                        <p className="text-[#707070] mt-2">Enter your credentials to access your account</p>
+                    </div>
+                    <form className="mt-8" onSubmit={handleSubmit(onSubmit)}>
+                        <div className="border w-full  px-4 py-3 bg-white  rounded-[10px]">
+                            <label className="block text-sm font-medium text-black">Email</label>
+                            <input type="email" {...register("email", { required: true })} placeholder="Enter Your Email" className="w-full outline-none mt-1" />
+                        </div>
+                            {errors.email && <span className="text-red-600 text-sm">Email is required</span>}
+                        <div className="relative border w-full  px-4 py-3 bg-white mt-4 rounded-[10px]">
+                            <label className="block text-sm font-medium text-black">Password</label>
+                            <input type={show ? `text` : 'password'} {...register("password", { required: true })} placeholder="••••••••••••••••" className="w-full outline-none mt-1" />
+                            <div onClick={() => setShow(!show)} className="absolute right-4 top-10 cursor-pointer text-2xl">
+                                {show ? <IoIosEyeOff /> : <IoIosEye />}
+                            </div>
+                        </div>
+                            {errors.password && <span className="text-red-600 text-sm">Password is required</span>}
+                        <div className="flex items-center mt-3 gap-2 ">
+                            <input type="checkbox" {...register("agreeToTerms", { required: true })} className="h-4 w-4" />
+                            <label className="text-sm text-black">
+                                I agree to the <a href="#" className="underline">Terms & Policy</a>
+                            </label>
+                        </div>
+                        {errors.agreeToTerms && <span className="text-red-600 text-sm">You must agree to the terms and policy</span>}
+                        <input type="submit" value="Sign In" className="w-full py-3 bg-[#704FE6] rounded-[10px] text-white cursor-pointer hover:bg-gray-800 transition mt-6" />
+                    </form>
+                    <div className="flex items-center justify-center w-full my-4">
+                        <div className="border-t border-gray-300 flex-grow"></div>
+                        <span className="px-4 text-gray-500">OR</span>
+                        <div className="border-t border-gray-300 flex-grow"></div>
+                    </div>
+                    <Social />
+                    <h1 className="text-center mt-6 text-sm">
+                        Don’t have an account? <Link href={'/register'} className="text-blue-500 hover:underline">Sign Up</Link>
+                    </h1>
+                </div>
+            </div>
         </div>
-        <div className="sm:w-1/2 sm:p-10 max-sm:mt-4">
-          <h1 className="font-bold text-xl">Login Now</h1>
-          <p className="text-sm mt-1">
-            Don’t have an account?{" "}
-            <Link href={"/register"}>
-              <span className="underline font-bold">Create Now</span>
-            </Link>
-          </p>
-          <form className="mt-5" onSubmit={handleSubmit(onSubmit)}>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Email</span>
-              </label>
-              <input
-                type="email"
-                {...register("email", { required: true })}
-                placeholder="example@gmail.com"
-                className="input input-bordered"
-                required
-              />
-              {errors.email && (
-                <span className="text-[#ED1D24]">Email is required</span>
-              )}
-            </div>
-            <div className="form-control my-3">
-              <label className="label">
-                <span className="label-text">Password</span>
-              </label>
-              <input
-                type="password"
-                {...register("password", { required: true })}
-                placeholder="password"
-                className="input input-bordered"
-                required
-              />
-              {errors.password && (
-                <span className="text-[#ED1D24]">Password is required</span>
-              )}
-            </div>
-            <div className="form-control mt-6">
-              <button
-                type="submit"
-                className="btn bg-black text-white"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Logging in..." : "Login"}
-              </button>
-            </div>
-          </form>
-          <div className="divider"> OR</div>
-          <div>
-            <Social />
-          </div>
-        </div>
-      </div> */}
-    </div>
-  );
+    );
 };
 
 export default LoginPage;
