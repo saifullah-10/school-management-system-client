@@ -16,7 +16,7 @@ const Dot = () => {
                 }}
             />
             <motion.div
-                className="w-6 h-6 bg-blue-700 rounded-full absolute bottom-24"
+                className="w-6 h-6 bg-white rounded-full absolute bottom-24"
                 animate={{
                     scale: [1, 1.2, 1], 
                     x: [25, 50, 25, 0, 25],
