@@ -9,41 +9,41 @@ export default function About() {
             <div className=" shadow-xl relative rounded-xl col-span-2 overflow-hidden row-span-2">
               {" "}
               <Image
-                src="https://images.pexels.com/photos/207692/pexels-photo-207692.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                src="https://images.pexels.com/photos/159740/library-la-trobe-study-students-159740.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 alt="AboutImage"
                 layout="fill"
                 objectFit="contain"
-                className=" scale-160 -rotate-45 bg-center -translate-x-2 lg:-translate-x-3 rounded-xl translate-y-4"
+                className=" scale-210 -rotate-45 bg-center -translate-x-2 lg:-translate-x-3 rounded-xl translate-y-4"
               />
             </div>
             <div className=" shadow-xl relative rounded-xl col-span-2 overflow-hidden row-span-2">
               {" "}
               <Image
-                src="https://images.pexels.com/photos/207692/pexels-photo-207692.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                src="https://images.pexels.com/photos/716276/pexels-photo-716276.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 alt="AboutImage"
                 layout="fill"
                 objectFit="contain"
-                className=" scale-160 -rotate-45 bg-center -translate-x-2 lg:-translate-x-3 rounded-xl translate-y-4"
+                className=" scale-210 -rotate-45 bg-center -translate-x-2 lg:-translate-x-0 rounded-xl translate-y-0"
               />
             </div>
             <div className=" shadow-xl relative rounded-xl col-span-2 overflow-hidden row-span-2">
               {" "}
               <Image
-                src="https://images.pexels.com/photos/207692/pexels-photo-207692.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                src="https://images.pexels.com/photos/27495483/pexels-photo-27495483/free-photo-of-laboratory-check.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 alt="AboutImage"
                 layout="fill"
                 objectFit="contain"
-                className=" scale-160 -rotate-45 bg-center -translate-x-2 lg:-translate-x-3 rounded-xl translate-y-4"
+                className=" scale-210 -rotate-45 bg-center -translate-x-2 lg:-translate-x-3 rounded-xl translate-y-4"
               />
             </div>
             <div className=" shadow-xl relative rounded-xl col-span-2 overflow-hidden row-span-2">
               {" "}
               <Image
-                src="https://images.pexels.com/photos/207692/pexels-photo-207692.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                src="https://images.pexels.com/photos/18471533/pexels-photo-18471533/free-photo-of-a-laboratory-with-computers-and-monitors-on-the-desk.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 alt="AboutImage"
                 layout="fill"
                 objectFit="contain"
-                className=" scale-160 -rotate-45 bg-center -translate-x-2 lg:-translate-x-3 rounded-xl translate-y-4"
+                className=" scale-210 -rotate-45 bg-center -translate-x-2 lg:-translate-x-3 rounded-xl translate-y-4"
               />
             </div>
           </div>

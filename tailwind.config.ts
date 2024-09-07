@@ -15,7 +15,7 @@ const config: Config = {
       },
 
       scale: {
-        "160": "1.60",
+        "210": "2.10",
       },
       colors: {
         background: "hsl(var(--background))",
