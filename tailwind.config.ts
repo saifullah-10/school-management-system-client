@@ -9,9 +9,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+
       fontFamily: {
         Montserrat: "'Montserrat', sans-serif",
         Poppins: "'Poppins', sans-serif"
+
+      scale: {
+        "160": "1.60",
+
       },
       colors: {
         background: "hsl(var(--background))",

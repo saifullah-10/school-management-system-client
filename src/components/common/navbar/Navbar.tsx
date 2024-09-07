@@ -37,8 +37,8 @@ const Navbar = () => {
 
 
     return (
-        <div className="border-b-[1px]">
-            <nav className="container relative cont flex justify-between items-center mx-auto py-4 px-2">
+        <div className="border-b-[1px] border-[#704FE6] sticky top-0 z-50 bg-white ">
+            <nav className="container  flex justify-between items-center mx-auto py-4 px-2">
                 {/* Mobile menu */}
                 <div className="md:hidden " onClick={() => setMenu(!menu)}>
                     {menu ? <IoClose className="text-3xl text-[#f51e1e]" /> :
@@ -55,7 +55,7 @@ const Navbar = () => {
                 </div>
                 {/* Right */}
                 <Link href="/login" >
-                    <button className="transform transition-transform  hover:scale-110 text-[#704FE6] border-2 border-[#704FE6] font-semibold px-5 py-2 rounded-md hover:bg-[#704FE6] hover:text-white ">Login</button>
+                    <button className="transform transition-transform  hover:scale-110 text-[#704FE6] border-2 border-[#704FE6] font-semibold px-5 py-2 rounded-[8px] hover:bg-[#704FE6] hover:text-white ">Login</button>
                 </Link>
             </nav>
             {/* Mobile nav */}
