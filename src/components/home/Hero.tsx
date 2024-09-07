@@ -13,7 +13,7 @@ const Hero = () => {
       {/* Background image with opacity */}
       <div className="absolute inset-0 z-[-1]">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${bg.src})` }}></div>
-        <div className="absolute inset-0 bg-black" style={{ opacity: 0.4 }}></div>
+        <div className="absolute inset-0 bg-black" style={{ opacity: 0.6 }}></div>
       </div>
 
       {/* Content */}
@@ -21,13 +21,13 @@ const Hero = () => {
         {/* left */}
         <div className="w-full text-white">
           <h1 className='text-xl text-white bg-[#815eff7a] border-2 border-[#3d1eb1]  w-fit px-5 py-2 rounded-lg font-semibold'>Welcome to Starlight</h1>
-          <h1 className='text-5xl font-bold my-5 poppins-extrabold'>Achieving Your Dreams Through Education</h1>
+          <h1 className='text-5xl font-bold my-5 '>Achieving Your Dreams Through Education</h1>
           <p>
             We are experienced in educational platform and skilled strategies for
             the success of your career.
           </p>
-          <button className="flex  h-12 w-48 rounded-full bg-white items-center justify-between overflow-hidden mt-5">
-            <h1 className='ml-7 font-semibold text-black'>Find Courses</h1>
+          <button className="flex  h-12 w-48 rounded-full bg-white items-center justify-between overflow-hidden mt-5 transform transition-transform hover:scale-110 hover:border-2 border-[#3d1eb1]">
+            <h1 className='ml-7 font-semibold text-black '>Find Courses</h1>
             <div className="w-12 h-12 rounded-full bg-[#3d1eb1] flex items-center justify-center "><FaArrowRight /></div>
           </button>
         </div>
