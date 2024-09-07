@@ -37,7 +37,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="border-b-[1px] border-[#704FE6] sticky top-0 z-50 bg-white ">
+        <div className={`border-b-[1px] border-[#704FE6] sticky top-0 z-50 bg-white  ${navigate === '/login' ? 'hidden' : ''}`}>
             <nav className="container  flex justify-between items-center mx-auto py-4 px-2">
                 {/* Mobile menu */}
                 <div className="md:hidden " onClick={() => setMenu(!menu)}>
