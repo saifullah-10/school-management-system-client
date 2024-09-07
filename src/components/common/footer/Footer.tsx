@@ -10,7 +10,7 @@ const Footer = () => {
   }
 
   return (
-    <footer className={`bg-gray-900 text-white py-8 md:py-12  ${navigate === '/login' ? 'hidden' : ''}`}>
+    <footer className={`bg-gray-900 text-white py-8 md:py-12  ${navigate === "/login" || navigate === "/register" ? "hidden" : ""} `}>
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap -mx-4">
           {/* Logo and Description */}
