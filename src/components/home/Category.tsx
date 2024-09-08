@@ -23,7 +23,7 @@ export default function Category() {
       <div className="flex justify-center">
         <h1 className="text-center text-lg font-normal text-[#704fe6] bg-[#E9E2FF] border-2 w-fit px-6 py-1 rounded-[5px]"> Departments </h1>
       </div>
-      <div className="flex justify-center items-center text-center mx-auto">
+      <div className="flex justify-center items-center text-center mx-auto text-3xl">
         <h1 className="py-1 mt-5 mb-8 w-[90%] md:w-[60%]">Shaping Future Leaders through Innovative Education and Research Excellence. Empowering Students to Drive Change in a Globalized World.</h1>
       </div>
 
