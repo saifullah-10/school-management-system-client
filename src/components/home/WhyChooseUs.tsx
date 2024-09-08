@@ -4,13 +4,13 @@ import UpDownDotBox from "../animation/home/whyChooseUs/UpDownDotBox";
 
 export default function WhyChooseUs() {
   return (
-    <div className="my-20 py-20 lg:flex justify-between container w-10/12 mx-auto">
+    <div className="my-10 md:py-16 lg:flex justify-between container w-10/12 mx-auto">
       {/* left elements */}
       <div className="lg:w-1/2">
         {/* heading */}
         <h1 className='font-Montserrat font-normal text-[#704fe6] bg-[#E9E2FF] border-2 w-fit px-6 py-1 rounded-[5px]'>WHY CHOOSE US</h1>
 
-        <h3 className="text-5xl font-bold my-3">Creating A Community Of <br /> Life Long Learners.</h3>
+        <h3 className="text-3xl md:text-5xl font-bold my-3">Creating A Community Of <br /> Life Long Learners.</h3>
 
         <p className="text-sm font-Poppins text-gray-600 py-2">
           In our vibrant community, we believe that learning is a lifelong journey, not just a destination. We are dedicated to nurturing curiosity and fostering a passion for knowledge in every individual. By empowering minds and inspiring futures, we build bridges to new opportunities and cultivate a culture where education never ends.

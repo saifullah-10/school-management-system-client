@@ -9,7 +9,7 @@ const Courses: React.FC = () => {
   return (
     <>
       {/* heading */}
-      <div className="bg-[url('/assets/images/breadcrumb.jpg')] py-32 relative">
+      <div className="bg-[url('/assets/images/breadcrumb.jpg')] py-20 relative">
         <h1 className="text-6xl text-center font-Montserrat font-bold">
           All Courses
         </h1>
