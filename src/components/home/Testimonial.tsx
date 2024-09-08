@@ -114,7 +114,7 @@ export default function Testimonial() {
                     <div className="absolute text-8xl text-blue-200 top-[-10px] left-3">
                       “
                     </div>
-                    <p className="text-black mb-20 sm:mb-4 min-h-[310px] max-h-[310px] text-xl overflow-hidden">
+                    <p className="text-black mb-20 sm:mb-4 min-h-[310px] max-h-[310px] text-xl overflow-scroll">
                       {item.testimonial}
                     </p>
                     <h4 className="text-lg font-extrabold text-blue-900">
