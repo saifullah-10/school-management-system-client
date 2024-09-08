@@ -9,7 +9,7 @@ import Dot from '../animation/home/Dot';
 
 const Hero = () => {
   return (
-    <div className="relative min-h-screen flex flex-col md:flex-row items-center max-md:pt-16">
+    <div className="relative min-h-screen flex flex-col md:flex-row  items-center max-md:pt-16">
       {/* Background image with opacity */}
       <div className="absolute inset-0 z-[-1]">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${bg.src})` }}></div>
@@ -17,7 +17,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="container w-11/12 mx-auto flex  max-[900px]:flex-col flex-row  items-center relative z-10 ">
+      <div className="max-w-screen-2xl w-11/12 mx-auto flex  max-[900px]:flex-col flex-row  items-center relative z-10 ">
         {/* left */}
         <div className="w-full text-white">
           <h1 className='text-xl text-white bg-[#815eff7a] border-2 border-[#3d1eb1]  w-fit px-5 py-2 rounded-lg font-semibold'>Welcome to Starlight</h1>
