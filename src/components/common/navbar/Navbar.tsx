@@ -52,8 +52,8 @@ const Navbar = () => {
         </div>
 
         {/* Left */}
-        <Link href={"/"} className=" font-bold  flex  items-center">
-          <h1 className=" text-2xl transform transition-transform  hover:scale-110 cursor-pointer">Starlight <span className="text-[#704FE6]">University</span></h1>
+        <Link href={"/"} className=" font-bold flex  items-center">
+          <h1 className=" text-xl min-[360px]:text-2xl transform transition-transform  hover:scale-110 cursor-pointer">Starlight <span className="text-[#704FE6]">University</span></h1>
         </Link>
         {/* Center */}
         <div className=" absolute left-1/2 -translate-x-1/2 flex gap-6 text-base text-center font-medium max-[850px]:hidden">
