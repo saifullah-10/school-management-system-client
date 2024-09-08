@@ -42,7 +42,7 @@ const Navbar = () => {
   return (
     <div
       className={`border-b-[1px] border-[#704FE6] sticky top-0 z-50 bg-white  ${navigate === "/login" || navigate === "/register" ? "hidden" : ""}`}>
-      <nav className="container  flex justify-between items-center mx-auto py-4 px-2">
+      <nav className="max-w-screen-2xl md:w-11/12  flex justify-between items-center mx-auto py-4 px-2">
         {/* Mobile menu */}
         <div className="md:hidden " onClick={() => setMenu(!menu)}>
           {menu ? (
@@ -54,7 +54,7 @@ const Navbar = () => {
 
         {/* Left */}
         <Link href={"/"} className=" font-bold  flex  items-center">
-          <h1 className="text-2xl transform transition-transform hover:scale-110 cursor-pointer">Starlight <span className="text-[#704FE6]">University</span></h1>
+          <h1 className=" sm:text-2xl transform transition-transform hover:scale-110 cursor-pointer">Starlight <span className="text-[#704FE6]">University</span></h1>
         </Link>
         {/* Center */}
         <div className=" absolute left-1/2 -translate-x-1/2 flex gap-6 text-base text-center font-medium max-md:hidden">
