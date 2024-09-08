@@ -4,25 +4,18 @@
         "name": "John Doe",
         "email": "johndoe@example.com",
         "password": "hashed_password",
-        "_comment": "//// This section defines the roles",
         "roles": ["admin", "teacher", "student", "parent"],
         "photoUrl": "https://example.com/photo.jpg",
         "_comment2": "// Reference to the class the user is associated with",
         "classId": "class_id", 
-        "notifications": [
-          {
-            "eventId": "event_id",
-            "read": false
-          }
-        ],
         "createdAt": "2024-09-08T12:00:00Z"
       },
 
 
 
       {
-        "_id": "class_id",
-        "className": "Grade 10 - Science",
+        "_id": "course_id",
+        "className": "Computer",
         "teacherId": "teacher_user_id",
         "students": [
           "student_user_id_1",
