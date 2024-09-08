@@ -9,7 +9,7 @@ const UpDownDotBox = () => {
         <motion.div
             animate={{ y: [0, -20, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="absolute -top-20 -right-20 -z-10"
+            className="absolute -top-20 -right-20 -z-10 hidden md:block"
         >
             <Image
                 src="/assets/images/shape-1-3.png"
