@@ -120,7 +120,8 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
             <div className="flex items-center gap-3">
               <div className="text-right">
                 <h1 className="font-semibold">Stave Jobs</h1>
-                <p className="text-sm font">Admin</p>
+                <span className="inline-flex items-center rounded-[12px] bg-blue-50 px-2  py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">Admin</span>
+                {/* <p className="text-sm font">Admin</p> */}
               </div>
               <Image placeholder="blur" src={male} alt="" className="inline-block h-8 w-8 rounded-full ring-2 ring-white" />
             </div>
