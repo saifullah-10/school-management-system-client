@@ -18,7 +18,7 @@ interface Category {
 
 export default function Category() {
   return (
-    <div className="my-10 pb-10 bg-[#FFFFFF] w-[90%] mx-auto">
+    <div className="my-10 pb-10 bg-[#FFFFFF] mx-auto w-[98%] sm:w-[90%] max-w-screen-2xl">
       {/* categories */}
       <div className="flex justify-center">
         <h1 className="text-center text-lg font-normal text-[#704fe6] bg-[#E9E2FF] border-2 w-fit px-6 py-1 rounded-[5px]"> Departments </h1>
