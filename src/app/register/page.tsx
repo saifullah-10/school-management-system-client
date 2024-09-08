@@ -15,7 +15,7 @@ interface LoginFormInputs {
     role: string;
 };
 
-const register = () => {
+const Register = () => {
     const [show, setShow] = useState(false)
     const { register, handleSubmit, formState: { errors } } = useForm<LoginFormInputs>();
 
@@ -81,7 +81,6 @@ const register = () => {
                             <label className="block text-sm font-medium text-black">Role</label>
                             <select {...register("role", { required: true })} className="w-full outline-none mt-1 ">
                                 <option value="">Select Your Role</option>
-                                <option value="teacher">Teacher</option>
                                 <option value="student">Student</option>
                                 <option value="parent">Parent</option>
                             </select>
@@ -115,4 +114,4 @@ const register = () => {
     );
 };
 
-export default register;
+export default Register;
