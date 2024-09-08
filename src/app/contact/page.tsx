@@ -1,6 +1,11 @@
 // pages/contact.tsx
 "use client";
+import Linear from "@/components/animation/courses/Linear";
+import LinearWave from "@/components/animation/courses/LinearWave";
+import Rotate from "@/components/animation/courses/Rotate";
+import RotateFast from "@/components/animation/courses/RotateFast";
 import emailjs from "@emailjs/browser";
+import { Link } from "lucide-react";
 import React, { useState } from "react";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import { FaClock } from "react-icons/fa6";
@@ -56,16 +61,26 @@ const Contact: React.FC = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Contact Us Banner */}
-      <div className="text-center mb-10 bg-gradient-to-r from-[#EBD8DE] via-[#E8E8F4] to-[#D8D6F1] py-24">
-        <h1 className="text-5xl font-bold text-black">Contact Us</h1>
-        <p className="text-gray-500">
-          Home <span className="text-[#FC6441]">{"//"}</span> Contact Us
-        </p>
+      {/* heading */}
+      <div className="bg-[url('/assets/images/breadcrumb.jpg')] py-20 relative">
+        <h1 className="text-6xl text-center font-Montserrat font-bold">
+          Contact Us
+        </h1>
+        <div className="flex justify-center font-Poppins font-bold py-4">
+          <Link href="/" className="hover:underline">
+            Home
+          </Link>
+          <span className="text-[#704fe6] px-2">/</span>
+          <p>Contact Us</p>
+        </div>
+        <Linear />
+        <LinearWave />
+        <Rotate />
+        <RotateFast />
       </div>
 
       {/* Contact Form and Info */}
-      <div className="flex flex-col lg:flex-row justify-center items-center space-y-10 lg:space-y-0 lg:space-x-20">
+      <div className="flex flex-col lg:flex-row justify-center items-center space-y-10 lg:space-y-0 lg:space-x-20 w-[98%] sm:w-[90%] max-w-screen-2xl mx-auto pt-2">
         {/* Left Side: Contact Info */}
         <div className="relative shadow-lg  rounded-xl px-8 py-16 w-full lg:w-1/3 bg-gray-50">
           {/* triangle */}
