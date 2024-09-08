@@ -1,12 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import department from "@/app/aboutUs/deptInfo"
+import department from "@/app/aboutUs/deptInfo";
 import LinearWave from "@/components/animation/courses/LinearWave";
 import Linear from "@/components/animation/courses/Linear";
 import Rotate from "@/components/animation/courses/Rotate";
 import RotateFast from "@/components/animation/courses/RotateFast";
 export default function AboutUs() {
-
   return (
     <div>
       <div className="bg-[url('/assets/images/breadcrumb.jpg')] py-24 relative">
@@ -25,11 +24,11 @@ export default function AboutUs() {
         <Rotate />
         <RotateFast />
       </div>
-      <div>
+      <div className="max-w-screen-2xl w-[98%] mx-auto md:w-11/12">
         {department.map((dept, index) => (
           <div
             key={index}
-            className={`container mx-auto px-4 py-8 flex flex-col ${
+            className={`container mx-auto px-4 py-8 flex gap-8 lg:gap-10 flex-col ${
               dept.isReverse ? " md:flex-row-reverse" : "md:flex-row"
             } items-center`}
           >
@@ -57,11 +56,10 @@ export default function AboutUs() {
                 ))}
               </ul>
             </div>
-            <div className="md:w-1/2 mt-8 md:mt-0">
+            <div className="md:w-1/2 mt-8 md:mt-0 h-96 w-full relative">
               <Image
                 src={dept.deptImage}
-                width={500}
-                height={500}
+                fill={true}
                 loading={"lazy"}
                 alt="department image"
                 className="rounded-xl  shadow-lg"
