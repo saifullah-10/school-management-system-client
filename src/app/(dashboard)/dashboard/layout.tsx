@@ -39,6 +39,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
             <FiX size={24} className="text-red-600" />
           </button>
         </div>
+
         <ul className="mt-4 text-[17px]">
           <Link href="/dashboard">
             <li className={`py-2 flex items-center gap-2 px-4 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${pathname === "/dashboard" ? "bg-[#704FE6] text-white" : ""}`}>
@@ -46,12 +47,14 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
               Dashboard
             </li>
           </Link>
+
           <Link href="/dashboard/allStudent">
             <li className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${pathname === "/dashboard/allStudent" ? "bg-[#704FE6] text-white" : ""}`}>
               <GrGroup />
               All Students
             </li>
           </Link>
+
           {/* Teachers Menu with Dropdown */}
           <li className="relative">
             <button
@@ -76,30 +79,35 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
               </ul>
             )}
           </li>
+
           <Link href="/dashboard/classRoutine">
             <li className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${pathname === "/dashboard/classRoutine" ? "bg-[#704FE6] text-white" : ""}`}>
               <FaRegCalendarAlt />
               Class Routine
             </li>
           </Link>
+
           <Link href="/dashboard/profile">
             <li className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${pathname === "/dashboard/profile" ? "bg-[#704FE6] text-white" : ""}`}>
               <ImProfile />
               Profile
             </li>
           </Link>
+
           <Link href="/dashboard/notice">
             <li className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${pathname === "/dashboard/notice" ? "bg-[#704FE6] text-white" : ""}`}>
               <MdNotificationsActive />
               Notice
             </li>
           </Link>
+          
           <Link href="/logout">
             <li className="py-2 px-4 hover:text-white hover:bg-[#704FE6]">
               Logout
             </li>
           </Link>
         </ul>
+        
       </div>
       <div className={`flex-grow p-6 transition-all duration-300 md:ml-64`}>
         <nav className="bg-white py-2 px-4 rounded-xl mb-10 flex justify-between items-center">
