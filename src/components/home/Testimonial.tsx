@@ -74,8 +74,8 @@ export default function Testimonial() {
             Testimonials
           </h1>
         </div>
-        <div className="flex justify-center text-[44px] font-bold py-1 mt-5 mb-16">
-          <div className="flex flex-col w-[90%] mx-auto items-center justify-center">
+        <div className="flex justify-center font-bold py-1 mt-5 mb-16">
+          <div className="flex flex-col w-[90%] mx-auto items-center justify-center text-3xl">
             <h1>Creating A Community Of</h1>
             <h1>Life Long Learners.</h1>
           </div>
@@ -114,7 +114,7 @@ export default function Testimonial() {
                     <div className="absolute text-8xl text-blue-200 top-[-10px] left-3">
                       “
                     </div>
-                    <p className="text-black mb-20 sm:mb-4 min-h-[310px] max-h-[310px] text-xl overflow-scroll">
+                    <p className="text-black mb-20 sm:mb-4 min-h-[310px] max-h-[310px] text-xl overflow-hide">
                       {item.testimonial}
                     </p>
                     <h4 className="text-lg font-extrabold text-blue-900">
