@@ -56,7 +56,7 @@ export default function Testimonial() {
                                         <h3 className="text-sm sm:text-2xl lg:text-lg 2xl:text-[26px] 2xl:leading-snug  font-bold text-gray-800">
                                             {stat.number}
                                         </h3>
-                                        <p className="text-[10px] sm:text-sm lg:text-xs 2xl:text-[26px] 2xl:leading-snug  font-medium text-gray-600">
+                                        <p className="text-[8px] sm:text-[8px] lg:text-[8px] 2xl:text-[20px] 2xl:leading-snug  font-medium text-gray-600">
                                             {stat.title}
                                         </p>
                                     </div>

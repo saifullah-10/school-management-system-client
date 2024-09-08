@@ -143,7 +143,6 @@ const Register = () => {
                 className="w-full outline-none mt-1 "
               >
                 <option value="">Select Your Role</option>
-                <option value="teacher">Teacher</option>
                 <option value="student">Student</option>
                 <option value="parent">Parent</option>
               </select>
