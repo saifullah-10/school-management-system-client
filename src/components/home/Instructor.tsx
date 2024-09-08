@@ -27,7 +27,7 @@ export default function Instructor() {
           className={`bg-[url('/assets/images/instructorGraphic.png')] h-full object-cover w-full py-10`}
         >
           <Marquee pauseOnHover={false}>
-            <div className=" flex gap-20 mr-10">
+            <div className=" flex gap-20 mr-10  max-w-screen-2xl w-[98%] mx-auto  md:w-11/12 ">
               <div className=" flex flex-col items-center gap-3 ">
                 <div className=" border-2 rounded-full p-3 w-[200px] ">
                   <InstructorImage
