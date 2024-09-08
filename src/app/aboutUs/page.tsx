@@ -1,9 +1,30 @@
 import Image from "next/image";
+import Link from "next/link";
 import department from "@/app/aboutUs/deptInfo"
+import LinearWave from "@/components/animation/courses/LinearWave";
+import Linear from "@/components/animation/courses/Linear";
+import Rotate from "@/components/animation/courses/Rotate";
+import RotateFast from "@/components/animation/courses/RotateFast";
 export default function AboutUs() {
 
   return (
     <div>
+      <div className="bg-[url('/assets/images/breadcrumb.jpg')] py-24 relative">
+        <h1 className="text-6xl text-center font-Montserrat font-bold">
+          About Us
+        </h1>
+        <div className="flex justify-center font-Poppins font-bold">
+          <Link href="/" className="hover:underline">
+            Home
+          </Link>
+          <span className="text-[#704fe6] px-2">/</span>
+          <p>About Us</p>
+        </div>
+        <Linear />
+        <LinearWave />
+        <Rotate />
+        <RotateFast />
+      </div>
       <div>
         {department.map((dept, index) => (
           <div
