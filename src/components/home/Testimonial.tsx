@@ -110,17 +110,17 @@ export default function Testimonial() {
             {testimonials.map((item) => (
               <SwiperSlide key={item.name}>
                 <div className="mb-16">
-                  <div className="relative bg-blue-50 border border-[#00000050] rounded-xl p-8 w-full shadow-sm max-w-[390px] mx-auto">
+                  <div className="relative bg-blue-50 border border-[#00000050] rounded-xl p-8 w-full shadow-sm max-w-[400px] mx-auto">
                     <div className="absolute text-8xl text-blue-200 top-[-10px] left-3">
                       “
                     </div>
-                    <p className="text-black mb-20 sm:mb-4 min-h-[310px] max-h-[310px] text-xl">
+                    <p className="text-black mb-20 sm:mb-4 min-h-[310px] max-h-[310px] text-xl overflow-hidden">
                       {item.testimonial}
                     </p>
-                    <h4 className="text-xl font-extrabold text-blue-900 pt-5">
+                    <h4 className="text-lg font-extrabold text-blue-900">
                       {item.name}
                     </h4>
-                    <p className="text-md text-blue-600">{item.program}</p>
+                    <p className="text-sm text-blue-600">{item.program}</p>
                   </div>
                 </div>
               </SwiperSlide>
@@ -170,63 +170,63 @@ const testimonials: Testimonial[] = [
   },
   {
     name: "James Thompson",
-    program: "MBA in Business Administration",
+    program: "Business Adm.",
     year: "1st Year",
     testimonial:
       "I chose this university for its reputation in business education, and I couldn't be happier. The case studies and networking opportunities are invaluable, and I've already connected with some great mentors.",
   },
   {
     name: "Sophia Patel",
-    program: "BA in Psychology",
+    program: "Psychology",
     year: "2nd Year",
     testimonial:
       "The courses here are both challenging and rewarding. The professors genuinely care about our success, and the student community is like a second family. I feel like I'm being well-prepared for my future career in mental health.",
   },
   {
     name: "Alexander Brooks",
-    program: "MSc in Data Science",
+    program: "Data Science",
     year: "Final Year",
     testimonial:
       "The university’s state-of-the-art labs and resources have allowed me to dive deep into data science. The practical experience I’ve gained through internships arranged by the university has been invaluable.",
   },
   {
     name: "Olivia Martin",
-    program: "BFA in Fine Arts",
+    program: "Fine Arts",
     year: "3rd Year",
     testimonial:
       "The creative freedom and guidance I get from my professors are incredible. I’ve had the opportunity to showcase my work in exhibitions, and I feel like my artistic skills have grown tremendously since I started.",
   },
   {
     name: "Daniel Nguyen",
-    program: "BEng in Mechanical Engineering",
+    program: "Mechanical Engineering",
     year: "4th Year",
     testimonial:
       "The university's engineering program is top-notch. The professors are industry experts, and the lab facilities are outstanding. The practical experience I've gained here will definitely give me a head start in my career.",
   },
   {
     name: "Grace Chen",
-    program: "BA in International Relations",
+    program: "International Relations",
     year: "2nd Year",
     testimonial:
       "The diversity and inclusiveness of the campus are amazing. I've met students from all around the world, and the courses are always relevant to global issues. This has truly broadened my perspective.",
   },
   {
     name: "Liam Carter",
-    program: "BSc in Environmental Science",
+    program: "Environmental Science",
     year: "3rd Year",
     testimonial:
       "What I love most about my program is how we’re encouraged to apply what we learn to real-world issues. From field trips to research projects, I've gained hands-on experience that will be crucial for my career in sustainability.",
   },
   {
     name: "Mia Rodriguez",
-    program: "BEd in Elementary Education",
+    program: "Elementary Education",
     year: "Final Year",
     testimonial:
       "The education program has been fantastic. My student teaching experience was transformative, and the guidance I received from my mentors made me feel confident about stepping into my own classroom.",
   },
   {
     name: "Ethan Wright",
-    program: "BSc in Biotechnology",
+    program: "Biotechnology",
     year: "4th Year",
     testimonial:
       "The research opportunities available here have really shaped my academic journey. I've been able to work alongside brilliant faculty members on cutting-edge projects, and it's been an incredibly rewarding experience.",

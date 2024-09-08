@@ -23,13 +23,16 @@ export default function Courses() {
             [...Array(6)].map((_, index) => (
               <div
                 key={index}
-                className="bg-slate-200 group hover:bg-[#17254e] transition duration-300 ease-in-out hover:text-white border-dashed border-[#7151e6] border-[1px] w-[360px] sm:w-[408px] shadow-xl rounded-xl py-2">
+
+                className="bg-slate-200 group hover:bg-[#17254e] transition duration-300 ease-in-out hover:text-white border-dashed border-[#7151e6] border-[1px] w-[360px] sm:w-[408px] shadow-xl rounded-xl">
+
                 <div className="relative overflow-hidden rounded-2xl w-[90%] md:w-[360px] top-2 mx-auto h-[255px]">
                   <Image
                     src="/assets/images/course-2-2.jpg"
                     alt="Course image"
                     fill={true}
                     className="absolute inset-0 rounded-2xl mx-auto transform group-hover:scale-110 transition duration-300 ease-in-out w-full h-full object-cover" />
+                   
                 </div>
                 {/* card body */}
                 <div className="p-8 mx-auto">
