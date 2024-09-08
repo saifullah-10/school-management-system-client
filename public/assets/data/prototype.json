@@ -1,0 +1,132 @@
+[
+    {
+        "_id": "unique_user_id",
+        "name": "John Doe",
+        "email": "johndoe@example.com",
+        "password": "hashed_password",
+        "_comment": "//// This section defines the roles",
+        "roles": ["admin", "teacher", "student", "parent"],
+        "photoUrl": "https://example.com/photo.jpg",
+        "_comment2": "// Reference to the class the user is associated with",
+        "classId": "class_id", 
+        "notifications": [
+          {
+            "eventId": "event_id",
+            "read": false
+          }
+        ],
+        "createdAt": "2024-09-08T12:00:00Z"
+      },
+
+
+
+      {
+        "_id": "class_id",
+        "className": "Grade 10 - Science",
+        "teacherId": "teacher_user_id",
+        "students": [
+          "student_user_id_1",
+          "student_user_id_2"
+        ],
+        "createdAt": "2024-09-08T12:00:00Z"
+      },
+
+
+
+      {
+        "_id": "notification_id",
+        "title": "Exam Schedule Updated",
+        "message": "The exam schedule for next week has been updated.",
+        "_comment": "//// global  or class",
+        "type": "global",  
+        "_comment2": "//// Required if type is class ; null if type is global",
+        "classId": "class_id", 
+        "_comment3": "//// Reference to the creator's user ID",
+        "createdBy": "teacher_or_admin_user_id", 
+        "createdAt": "2024-09-08T12:00:00Z"
+      },
+
+
+
+      {
+        "_id": "student_unique_id",
+        "name": "Jane Doe",
+        "email": "jane.doe@example.com",
+        "_comment": "// Reference to the class the student is enrolled in",
+        "classId": "class_id",  
+        "fees": {
+          "totalFee": 5000,  
+          "amountPaid": 2000,  
+          "dueAmount": 3000,  
+          "paymentHistory": [
+            {
+              "paymentDate": "2024-01-15",
+              "amount": 1000,
+              "method": "credit card",
+              "transactionId": "transaction_unique_id_1"
+            },
+            {
+              "paymentDate": "2024-02-10",
+              "amount": 1000,
+              "method": "bank transfer",
+              "transactionId": "transaction_unique_id_2"
+            }
+          ]
+        }
+        
+      },
+
+
+      {
+        "_id": "teacher_unique_id",
+        "name": "John Smith",
+        "email": "john.smith@example.com",
+        "role": "teacher",
+        "_comment": "// Reference to the class the teacher is assigned to",
+        "classId": "class_id",  
+        "salary": {
+          "monthlySalary": 3000, 
+          "salaryPaid": 12000,  
+          "salaryDue": 0,  
+          "paymentHistory": [
+            {
+              "paymentDate": "2024-01-31",
+              "amount": 3000,
+              "method": "bank transfer",
+              "transactionId": "transaction_unique_id_1"
+            },
+            {
+              "paymentDate": "2024-02-28",
+              "amount": 3000,
+              "method": "bank transfer",
+              "transactionId": "transaction_unique_id_2"
+            }
+          ]
+        }
+      },
+      
+
+
+      {
+        "_id": "payment_unique_id",
+        "userId": "student_or_teacher_id", 
+        "amount": 3000,
+        "paymentDate": "2024-02-10",
+        "method": "credit card",
+        "_comment": "// Or teacher to distinguish between payments made and salaries received",
+        "role": "student",  
+        "transactionId": "transaction_unique_id"
+      }
+      
+      
+      
+      
+
+
+
+      
+]
+
+
+
+
