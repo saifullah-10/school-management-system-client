@@ -1,5 +1,5 @@
 
-const profile = () => {
+const Profile = () => {
     return (
         <div>
             Profile
@@ -7,4 +7,4 @@ const profile = () => {
     );
 };
 
-export default profile;
+export default Profile;
