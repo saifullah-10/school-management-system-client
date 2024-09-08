@@ -8,8 +8,8 @@ export default function AboutUs() {
         {department.map((dept, index) => (
           <div
             key={index}
-            className={`container mx-auto px-4 py-8 flex flex-col md:${
-              dept.isReverse ? "flex-row-reverse" : "flex-row"
+            className={`container mx-auto px-4 py-8 flex flex-col ${
+              dept.isReverse ? " md:flex-row-reverse" : "md:flex-row"
             } items-center`}
           >
             <div className="md:w-1/2 pr-8">
