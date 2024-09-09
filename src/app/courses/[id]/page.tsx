@@ -45,7 +45,7 @@ const CourseDetailspage = ({ params }: { params: Params }) => {
                             <BsPersonSquare />
                             <p>By <span className='font-Montserrat font-semibold'>Admin</span> </p>
                         </div>
-                        <div className='flex'></div>
+                        <div className='flex gap-2'></div>
                     </div>
                 </div>
             </div>
