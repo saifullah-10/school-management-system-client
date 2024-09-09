@@ -45,7 +45,7 @@ const GenderPieChart: React.FC = () => {
                 <div>
                     <div className='h-3 rounded-full bg-[#FFA601]  mb-2'></div>
                     <h1 className='text-slate-500'>Male Students</h1>
-                    <p className='text-end font-semibold text-lg'>105000</p>
+                    <p className='text-end font-semibold text-lg'>10500</p>
                 </div>
             </div>
         </div>

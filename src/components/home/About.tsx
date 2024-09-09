@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 export default function About() {
   return (
     <div className=" max-sm:mt-20 mb-28 max-w-screen-2xl w-[98%] mx-auto md:w-11/12 ">
