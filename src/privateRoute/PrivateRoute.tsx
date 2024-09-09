@@ -1,7 +1,7 @@
 "use client";
 
 import { MainContext } from "@/contextProvider/ContextProvider";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useContext, useEffect } from "react";
 
 const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({
