@@ -6,37 +6,50 @@ import { PieChart, Pie, Tooltip, Cell, ResponsiveContainer } from 'recharts';
 
 // Data for the pie chart
 const data = [
-  { name: 'Female Students', value: 45000 },
-  { name: 'Male Students', value: 105000 },
+    { name: 'Female Students', value: 45000 },
+    { name: 'Male Students', value: 105000 },
 ];
 
-const COLORS = ['#FF69B4', '#1E90FF'];
+const COLORS = ['#304FFE', '#FFA601'];
 
 const GenderPieChart: React.FC = () => {
-  return (
-    <div className="p-5 bg-white rounded-lg shadow-md">
-      <h2 className="text-xl font-semibold mb-4">Student Distribution by Gender</h2>
-      <ResponsiveContainer width="100%" height={400}>
-        <PieChart>
-          <Pie
-            data={data}
-            cx="50%"
-            cy="50%"
-            labelLine={false}
-            outerRadius="80%"
-            innerRadius="50%"  
-            fill="#8884d8"
-            dataKey="value"
-          >
-            {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-            ))}
-          </Pie>
-          <Tooltip />
-        </PieChart>
-      </ResponsiveContainer>
-    </div>
-  );
+    return (
+        <div >
+            <h1 className='text-2xl font-bold'>Students</h1>
+            <ResponsiveContainer width="100%" height={400}>
+                <PieChart>
+                    <Pie
+                        data={data}
+                        cx="50%"
+                        cy="50%"
+                        labelLine={false}
+                        outerRadius="80%"
+                        innerRadius="50%"
+                        fill="#8884d8"
+                        dataKey="value"
+                    >
+                        {data.map((entry, index) => (
+                            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                        ))}
+                    </Pie>
+                    <Tooltip />
+                </PieChart>
+            </ResponsiveContainer>
+            <div className='flex justify-between'>
+                <div>
+                    <div className='h-3 rounded-full bg-[#304FFE]  mb-2'></div>
+                    <h1 className='text-slate-500'>Female Students</h1>
+                    <p className='text-end font-semibold text-lg'>4500</p>
+                </div>
+                <div className="border-r border-gray-300 "></div>
+                <div>
+                    <div className='h-3 rounded-full bg-[#FFA601]  mb-2'></div>
+                    <h1 className='text-slate-500'>Male Students</h1>
+                    <p className='text-end font-semibold text-lg'>10500</p>
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default GenderPieChart;
