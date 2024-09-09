@@ -3,10 +3,11 @@ import Social from "@/components/common/social/Social";
 import Link from "next/link";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import bg from "../../../public/assets/images/university1.jpg";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { MainContext } from "@/contextProvider/ContextProvider";
 
 interface LoginFormInputs {
   email: string;
@@ -16,6 +17,7 @@ interface LoginFormInputs {
 
 const LoginPage = () => {
   const [show, setShow] = useState(false);
+  const context = useContext(MainContext);
   const router = useRouter();
   const {
     register,
@@ -36,6 +38,9 @@ const LoginPage = () => {
       );
 
       if (res.data) {
+        if (context) {
+          context.setUser = res.data;
+        }
         router.push("/dashboard");
       }
     } catch (err) {
