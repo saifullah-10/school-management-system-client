@@ -9,12 +9,12 @@ const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const context = useContext(MainContext);
   const route = useRouter();
-
+console.log(context?.user)
   useEffect(() => {
-    if (!context?.user) {
+    if (context === null || context?.user === undefined) {
       route.push("/login");
     }
-  }, [context?.user, route]);
+  }, [context, route]);
 
   if (context?.user) {
     return <>{children}</>;
