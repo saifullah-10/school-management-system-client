@@ -41,21 +41,9 @@ const Admin = () => {
                     </div>
                 </div>
             </div>
-            <div className="flex justify-between ">
+            <div className="flex gap-5 flex-col lg:flex-row justify-between ">
                 <div className="flex-1 max-w-[550px] bg-white p-5 rounded-xl shadow-lg mt-5 flex-shrink-0">
-                    <div className="mb-5">
-                        <h1 className="text-2xl font-semibold">Earnings</h1>
-                        <div className="flex gap-7 mt-2">
-                            <div>
-                                <h1 className="flex items-center gap-2"><div className="w-4 h-4 bg-[#4CAF50]  rounded-full"></div> Total Earnings</h1>
-                                <p className="text-center">$51000</p>
-                            </div>
-                            <div>
-                                <h1 className="flex items-center gap-2"><div className="w-4 h-4 bg-[#F44336]  rounded-full"></div> Total Expenses</h1>
-                                <p className="text-center">$21000</p>
-                            </div>
-                        </div>
-                    </div>
+
                     <EarningChart />
                 </div>
                 <div className="flex-1 max-w-[550px] bg-white p-5 rounded-xl shadow-lg mt-5 flex-shrink-0">

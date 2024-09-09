@@ -16,34 +16,49 @@ const data = [
 
 const EarningChart: React.FC = () => {
     return (
-        <div className="w-full h-[400px]">
-            <ResponsiveContainer width="100%" height="100%">
-                <AreaChart
-                    data={data}
-                    margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
-                >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="month" />
-                    <YAxis />
-                    <Tooltip />
-                    <Area
-                        type="monotone"
-                        dataKey="earnings"
-                        stackId="1"
-                        stroke="#4CAF50"
-                        fill="#4CAF50"
-                        fillOpacity={0.8}
-                    />
-                    <Area
-                        type="monotone"
-                        dataKey="expenses"
-                        stackId="1"
-                        stroke="#F44336"
-                        fill="#F44336"
-                        fillOpacity={0.8}
-                    />
-                </AreaChart>
-            </ResponsiveContainer>
+        <div>
+            <div className="mb-5">
+                <h1 className="text-2xl font-semibold">Earnings</h1>
+                <div className="flex gap-7 mt-2">
+                    <div>
+                        <h1 className="flex items-center gap-2"><div className="w-4 h-4 bg-[#4CAF50]  rounded-full"></div> Total Earnings</h1>
+                        <p className="text-center">$51000</p>
+                    </div>
+                    <div>
+                        <h1 className="flex items-center gap-2"><div className="w-4 h-4 bg-[#F44336]  rounded-full"></div> Total Expenses</h1>
+                        <p className="text-center">$21000</p>
+                    </div>
+                </div>
+            </div>
+            <div className="w-full h-[400px]">
+                <ResponsiveContainer width="100%" height="100%">
+                    <AreaChart
+                        data={data}
+                        margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+                    >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="month" />
+                        <YAxis />
+                        <Tooltip />
+                        <Area
+                            type="monotone"
+                            dataKey="earnings"
+                            stackId="1"
+                            stroke="#4CAF50"
+                            fill="#4CAF50"
+                            fillOpacity={0.8}
+                        />
+                        <Area
+                            type="monotone"
+                            dataKey="expenses"
+                            stackId="1"
+                            stroke="#F44336"
+                            fill="#F44336"
+                            fillOpacity={0.8}
+                        />
+                    </AreaChart>
+                </ResponsiveContainer>
+            </div>
         </div>
     );
 };
