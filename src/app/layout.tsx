@@ -5,6 +5,7 @@ import Navbar from "@/components/common/navbar/Navbar";
 import Footer from "@/components/common/footer/Footer";
 import Preloader from "@/components/animation/preloader/Preloader";
 import ContextProvider from "@/contextProvider/ContextProvider";
+import ScrollToTopButton from "@/components/common/scroll to top/ScrollToText";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,15 +34,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-      
-          <ContextProvider>
-            <Preloader>
-              <Navbar></Navbar>
-              {children}
-              <Footer />
-            </Preloader>
-          </ContextProvider>
-      
+        <ContextProvider>
+          <Preloader>
+            <Navbar></Navbar>
+            {children}
+            <Footer />
+            <ScrollToTopButton />
+          </Preloader>
+        </ContextProvider>
       </body>
     </html>
   );
