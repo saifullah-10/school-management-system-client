@@ -4,22 +4,25 @@ import { MainContext } from "@/contextProvider/ContextProvider";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect } from "react";
 
-const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const context = useContext(MainContext);
   const route = useRouter();
-console.log(context?.user)
+
   useEffect(() => {
-    if (context === null || context?.user === undefined) {
+    if (!context?.loading && !context?.user) {
       route.push("/login");
     }
-  }, [context, route]);
+  }, [context?.loading, context?.user, route]);
+
+  if (context?.loading) {
+    return <div>Loading...</div>;
+  }
 
   if (context?.user) {
     return <>{children}</>;
   }
-  return <div>loading...</div>;
+
+  return <div>Redirecting to login...</div>;
 };
 
 export default PrivateRoute;
