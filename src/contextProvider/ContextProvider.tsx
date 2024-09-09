@@ -1,51 +1,67 @@
-"use client";
+'use client'
+import { createContext, ReactNode, useEffect, useState } from "react";
+import axios from "axios";
 
 interface MainContextType {
   value: string;
   setValue: (value: string) => void;
-  user: object | null;
-  setUser: (value: object) => void;
-  //more
+  user: User | null;
+  setUser: React.Dispatch<React.SetStateAction<User | null>>;
+  loading: boolean; 
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-import { createContext, ReactNode, useEffect, useState } from "react";
-import axios from "axios";
+interface User {
+  _id: string;
+  email: string;
+  username: string;
+  authentication?: object;
+  sessionToken: string;
+}
 
 export const MainContext = createContext<MainContextType | null>(null);
 
 const ContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [value, setValue] = useState<string>("helloo");
-  const [user, setUser] = useState<object | null>(null);
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const checkAuthStatus = async () => {
       try {
         const response = await axios.get(
           "http://localhost:5000/auth/check-auth",
-          {
-            withCredentials: true,
-          }
+          { withCredentials: true }
         );
-
-        if (response) {
+        if (response.data) {
           setUser(response.data);
+        } else {
+          setUser(null);
         }
       } catch (err) {
+        console.error("Error fetching auth status:", err);
         setUser(null);
-        console.error(err);
+      } finally {
+        setLoading(false); 
       }
     };
+
     checkAuthStatus();
   }, []);
-  console.log(user);
+
   const contextValue: MainContextType = {
     value,
     setValue,
     user,
     setUser,
+    loading, 
+    setLoading,
   };
+
   return (
-    <MainContext.Provider value={contextValue}>{children}</MainContext.Provider>
+    <MainContext.Provider value={contextValue}>
+      {children}
+    </MainContext.Provider>
   );
 };
 
