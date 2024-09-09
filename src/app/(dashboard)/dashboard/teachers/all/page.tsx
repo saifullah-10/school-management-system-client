@@ -5,7 +5,7 @@ import { Checkbox, Table } from "flowbite-react"; // Ensure both components are 
 import Dropdown from "@/components/dashboard/teacherRelatedComponents/Dropdown";
 
 
-interface Student {
+interface Teachers {
     id: number;
     photo: string;
     name: string;
@@ -18,12 +18,12 @@ interface Student {
     email: string;
 }
 
-function Tab() {
+function AllTeacher() {
     const [searchID, setSearchID] = useState<string>("");
     const [searchName, setSearchName] = useState<string>("");
     const [searchPhone, setSearchPhone] = useState<string>("");
 
-    const students: Student[] = [
+    const teachers: Teachers[] = [
         {
             id: 1,
             photo: "https://randomuser.me/api/portraits/men/1.jpg",
@@ -267,7 +267,7 @@ function Tab() {
     ];
 
     // Filter students based on search inputs
-    const filteredStudents = students.filter((st) => {
+    const filteredStudents = teachers.filter((st) => {
         return (
             st.id.toString().includes(searchID) &&
             st.name.toLowerCase().includes(searchName.toLowerCase()) &&
@@ -276,7 +276,7 @@ function Tab() {
     });
 
     // Pagination state
-    const [currentPage, setCurrentPage] = useState<number>(1);
+    const [currentPage] = useState<number>(1);
 
     return (
         <div className="overflow-x-auto p-8 px-6 bg-[#F0F1F3]">
@@ -333,7 +333,7 @@ function Tab() {
                     </Table.Head>
                     <Table.Body className="divide-y">
                         {filteredStudents.length > 0 ? (
-                            filteredStudents.slice(0,7).map((st) => (
+                            filteredStudents.slice(0, 7).map((st) => (
                                 <Table.Row
                                     key={st.id}
                                     className={`${st.id % 2 !== 0 ? "bg-[#FFFFFF]" : "bg-[#F9F9F9]"
@@ -384,32 +384,32 @@ function Tab() {
                     <div className="flex items-center pt-3">
                         <button
                             className={`px-4 py-2 mr-2 border rounded ${currentPage === 1
-                                    ? "bg-gray-200 cursor-not-allowed"
-                                    : "bg-gray-100 hover:bg-gray-200 cursor-pointer"
+                                ? "bg-gray-200 cursor-not-allowed"
+                                : "bg-gray-100 hover:bg-gray-200 cursor-pointer"
                                 }`}
                         >
                             Previous
                         </button>
                         <button
                             className={`px-4 py-2 mr-2 border rounded ${currentPage === 1
-                                    ? "bg-orange-500 text-white border-orange-500"
-                                    : "bg-gray-100 hover:bg-gray-200"
+                                ? "bg-orange-500 text-white border-orange-500"
+                                : "bg-gray-100 hover:bg-gray-200"
                                 }`}
                         >
                             1
                         </button>
                         <button
                             className={`px-4 py-2 border rounded ${currentPage === 2
-                                    ? "bg-orange-500 text-white border-orange-500"
-                                    : "bg-gray-100 hover:bg-gray-200"
+                                ? "bg-orange-500 text-white border-orange-500"
+                                : "bg-gray-100 hover:bg-gray-200"
                                 }`}
                         >
                             2
                         </button>
                         <button
                             className={`px-4 py-2 ml-2 border rounded ${currentPage === 2
-                                    ? "bg-gray-200 cursor-not-allowed"
-                                    : "bg-gray-100 hover:bg-gray-200 cursor-pointer"
+                                ? "bg-gray-200 cursor-not-allowed"
+                                : "bg-gray-100 hover:bg-gray-200 cursor-pointer"
                                 }`}
                         >
                             Next
@@ -424,4 +424,4 @@ function Tab() {
     );
 }
 
-export default Tab;
+export default AllTeacher;
