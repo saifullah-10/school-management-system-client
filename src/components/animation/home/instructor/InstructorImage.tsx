@@ -13,6 +13,7 @@ export default function InstructorImage({ source }: InstructorImageProps) {
         alt=""
         width={200}
         height={300}
+        loading="lazy"
         className="object-cover w-[200px] h-[300px] rounded-full "
       />
     </>
