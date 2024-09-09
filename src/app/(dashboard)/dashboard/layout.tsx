@@ -13,7 +13,6 @@ import { MdNotificationsActive } from "react-icons/md";
 import Image from "next/image";
 import male from "../../../../public/assets/images/maleStudent.jpg";
 import ContextProvider from "@/contextProvider/ContextProvider";
-import PrivateRoute from "@/privateRoute/PrivateRoute";
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +29,6 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <ContextProvider>
-      <PrivateRoute>
         <div className="flex min-h-screen bg-[#F6F8FA]">
           {/* Sidebar */}
           <div
@@ -210,7 +208,6 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
             </div>
           </div>
         </div>
-      </PrivateRoute>
     </ContextProvider>
   );
 };
