@@ -22,11 +22,12 @@ const EarningChart: React.FC = () => {
                 <div className="flex gap-7 mt-2">
                     <div>
                         <h1 className="flex items-center gap-2"><div className="w-4 h-4 bg-[#4CAF50]  rounded-full"></div> Total Earnings</h1>
-                        <p className="text-center">$51000</p>
+                        <p className="text-right font-semibold">$51000</p>
                     </div>
+                    <div className="border-r border-gray-300 "></div>
                     <div>
                         <h1 className="flex items-center gap-2"><div className="w-4 h-4 bg-[#F44336]  rounded-full"></div> Total Expenses</h1>
-                        <p className="text-center">$21000</p>
+                        <p className="text-right font-semibold">$21000</p>
                     </div>
                 </div>
             </div>
