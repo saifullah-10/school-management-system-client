@@ -26,6 +26,7 @@ const ContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
             withCredentials: true,
           }
         );
+
         if (response) {
           setUser(response.data);
         }
@@ -36,7 +37,7 @@ const ContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     };
     checkAuthStatus();
   }, []);
-
+  console.log(user);
   const contextValue: MainContextType = {
     value,
     setValue,
