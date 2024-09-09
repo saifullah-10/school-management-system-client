@@ -29,7 +29,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex min-h-screen bg-[#F6F8FA]">
       {/* Sidebar */}
-      <div        className={`fixed z-10 top-0 left-0 h-full w-64 bg-white shadow-right-lg text-black transition-transform transform ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:w-64`}
+      <div className={`fixed z-10 top-0 left-0 h-full w-64 bg-white shadow-right-lg text-black transition-transform transform ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:w-64`}
         style={{ maxWidth: "100%", minWidth: "250px" }}>
         <div className="p-4 flex items-center justify-between">
           <Link href={"/"} className="text-2xl  transform transition-transform hover:scale-110 cursor-pointer font-extrabold">
@@ -100,16 +100,18 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
               Notice
             </li>
           </Link>
-          
+
           <Link href="/logout">
             <li className="py-2 px-4 hover:text-white hover:bg-[#704FE6]">
               Logout
             </li>
           </Link>
         </ul>
-        
+
       </div>
-      <div className={`flex-grow p-6 transition-all duration-300 md:ml-64`}>
+      {/* // Content section */}
+      <div className={`flex-grow p-6 transition-all duration-300 md:ml-64  mx-auto`}>
+        <div className=" max-w-7xl mx-auto">
         <nav className="bg-white py-2 px-4 rounded-xl mb-10 flex justify-between items-center">
           <button className="md:hidden bg-[#704FE6] rounded-[5px] text-white p-2" onClick={toggleSidebar}>
             {isOpen ? <FiX /> : <FiMenu />}
@@ -120,8 +122,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
             <div className="flex items-center gap-3">
               <div className="text-right">
                 <h1 className="font-semibold">Stave Jobs</h1>
-                <span className="inline-flex items-center rounded-[12px] bg-blue-50 px-2  py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">Admin</span>
-                {/* <p className="text-sm font">Admin</p> */}
+                <span className="inline-flex items-center rounded-[12px] bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">Admin</span>
               </div>
               <Image placeholder="blur" src={male} alt="" className="inline-block h-8 w-8 rounded-full ring-2 ring-white" />
             </div>
@@ -129,6 +130,8 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         </nav>
         {children}
       </div>
+
+        </div>
     </div>
   );
 };
