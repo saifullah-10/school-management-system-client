@@ -30,7 +30,9 @@ const Courses: React.FC = () => {
 
       <div className="flex flex-wrap md:flex-col gap-10 justify-center my-20">
         {[...Array(6)].map((_, index) => (
-          <Course key={index} keyProp={index} />
+          <Link href={`/courses/${index}`} key={index}>
+            <Course keyProp={index} />
+          </Link>
         ))}
       </div>
     </>
