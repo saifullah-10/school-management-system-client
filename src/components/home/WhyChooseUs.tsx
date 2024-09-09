@@ -64,13 +64,13 @@ export default function WhyChooseUs() {
           alt="community image"
           width={396}
           height={500}
-          className="absolute -top-8 -left-8 -z-10" />
+          className="absolute -top-4 sm:-top-8 -left-4 sm:-left-8 -z-10" />
         <Image
           src="/assets/images/shape-1-2.png"
           alt="community image"
           width={396}
           height={500}
-          className="absolute -bottom-8 -right-8 -z-10" />
+          className="absolute -bottom-4 sm:-bottom-8 -right-4 sm:-right-8 -z-10" />
           
         <UpDownDotBox/>
       </div>
