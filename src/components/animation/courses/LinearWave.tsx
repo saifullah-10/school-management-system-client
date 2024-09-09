@@ -9,7 +9,7 @@ const LinearWave = () => {
         <motion.div
             animate={{ x: [-30, 20] }}
             transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
-            className="absolute bottom-[40%] left-[22%]"
+            className="absolute bottom-[40%] left-[22%] hidden md:block"
         >
             <Image
                 src="/assets/images/shape-2-2.png"

@@ -20,6 +20,8 @@ const LoginPage = () => {
         console.log("Email:", data.email);
         console.log("Password:", data.password);
         console.log("Agreed to Terms:", data.agreeToTerms);
+
+        
     };
 
     return (

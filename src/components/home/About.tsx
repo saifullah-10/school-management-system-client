@@ -1,7 +1,7 @@
 import Image from "next/image";
 export default function About() {
   return (
-    <div className=" mb-28 max-w-screen-2xl w-[98%] mx-auto md:w-11/12 ">
+    <div className=" max-sm:mt-20 mb-28 max-w-screen-2xl w-[98%] mx-auto md:w-11/12 ">
       <div className=" gap-20 lg:gap-10 items-center flex flex-col-reverse  lg:flex-row justify-between">
         {/* left image */}
         <div className="lg:w-1/2 w-full flex-1  justify-center flex">

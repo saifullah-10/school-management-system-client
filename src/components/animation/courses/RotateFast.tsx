@@ -9,7 +9,7 @@ const RotateFast = () => {
         <motion.div
             animate={{ rotate: [0,360] }}
             transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
-            className="absolute top-[15%] right-[3%]"
+            className="absolute top-[15%] right-[3%] hidden md:block"
         >
             <Image
                 src="/assets/images/shape-1-4.png"

@@ -17,7 +17,7 @@ const Linear = () => {
                 ease: "linear",
                 times: [0, 0.2, 0.5, 1]
             }}
-            className="absolute top-[20%] left-[2%]"
+            className="absolute top-[20%] left-[2%] hidden md:block"
         >
             <Image
                 src="/assets/images/shape-2-1.png"
