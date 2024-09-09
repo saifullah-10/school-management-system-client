@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/common/navbar/Navbar";
 import Footer from "@/components/common/footer/Footer";
 import Preloader from "@/components/animation/preloader/Preloader";
-
+import ContextProvider from "@/contextProvider/ContextProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,11 +32,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Preloader>
-          <Navbar></Navbar>
-          {children}
-          <Footer />
-        </Preloader>
+        <ContextProvider>
+          <Preloader>
+            <Navbar></Navbar>
+            {children}
+            <Footer />
+          </Preloader>
+        </ContextProvider>
       </body>
     </html>
   );
