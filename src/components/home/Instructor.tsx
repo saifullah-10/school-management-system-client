@@ -15,9 +15,11 @@ export default function Instructor() {
             </div>
             <div className=" w-full lg:w-1/2 mx-auto text-center">
               <h2>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Accusantium eum atque ab consectetur? At ipsum doloribus,
-                incidunt fugiat voluptate dolores.
+                Our Instructor section showcases a dedicated team of experienced
+                educators committed to fostering academic excellence. Here,
+                students can explore profiles, view qualifications, and connect
+                with instructors who are passionate about guiding their learning
+                journey.
               </h2>
             </div>
           </div>
@@ -26,8 +28,8 @@ export default function Instructor() {
         <div
           className={`bg-[url('/assets/images/instructorGraphic.png')] h-full object-cover w-full py-10`}
         >
-          <Marquee pauseOnHover={false}>
-            <div className=" flex gap-20 mr-10  max-w-screen-2xl w-[98%] mx-auto  md:w-11/12 ">
+          <Marquee pauseOnHover={false} delay={50}>
+            <div className=" flex gap-10 mr-10">
               <div className=" flex flex-col items-center gap-3 ">
                 <div className=" border-2 rounded-full p-3 w-[200px] ">
                   <InstructorImage
