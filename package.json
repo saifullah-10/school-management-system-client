@@ -23,6 +23,8 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
+    "flowbite": "^2.5.1",
+    "flowbite-react": "^0.10.1",
     "framer-motion": "^11.5.4",
     "lottie-react": "^2.4.0",
     "lucide-react": "^0.438.0",
