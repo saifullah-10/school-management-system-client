@@ -11,7 +11,7 @@ interface CourseProps {
 const Course: React.FC<CourseProps> = ({ keyProp }) => {
     // console.log(keyProp);
     return (
-        <div className={`flex flex-col md:flex-row ${(keyProp % 2 === 0) ? 'md:flex-row-reverse' : ''} items-center bg-slate-50 group hover:bg-[#17254e] transition duration-300 ease-in-out hover:text-white border-dashed border-[#7151e6] border-[1px] w-[388px] md:w-10/12 shadow-xl rounded-xl mx-auto px-2`}>
+        <div className={`flex flex-col md:flex-row ${(keyProp % 2 === 0) ? 'md:flex-row-reverse' : ''} items-center bg-slate-50 group hover:bg-[#17254e] transition duration-300 ease-in-out hover:text-white border-dashed border-[#7151e6] border-[1px] w-[365px] sm:w-10/12 shadow-xl rounded-xl mx-auto px-2`}>
             <div className="relative overflow-hidden rounded-2xl max-w-[360px] top-2 mx-auto h-[255px]">
                 <Image
                     src="/assets/images/course-2-2.jpg"
