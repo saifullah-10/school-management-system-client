@@ -9,7 +9,6 @@ const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const context = useContext(MainContext);
   const route = useRouter();
-  const navigation = usePathname();
 
   useEffect(() => {
     if (!context?.user) {
@@ -18,9 +17,6 @@ const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({
   }, [context?.user, route]);
 
   if (context?.user) {
-    if (navigation?.includes("login")) {
-      route.push("/");
-    }
     return <>{children}</>;
   }
   return <div>loading...</div>;
