@@ -3,9 +3,17 @@
 interface MainContextType {
   value: string;
   setValue: (value: string) => void;
-  user: object | null;
-  setUser: (value: object) => void;
+
+  user: User | null;
+  setUser: React.Dispatch<React.SetStateAction<User | null>>;
   //more
+}
+interface User {
+  _id: string;
+  email: string;
+  username: string;
+  authentication?: object; // Define this more specifically if possible
+  sessionToken: string;
 }
 
 import { createContext, ReactNode, useEffect, useState } from "react";
@@ -15,7 +23,7 @@ export const MainContext = createContext<MainContextType | null>(null);
 
 const ContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [value, setValue] = useState<string>("helloo");
-  const [user, setUser] = useState<object | null>(null);
+  const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
     const checkAuthStatus = async () => {
@@ -27,23 +35,28 @@ const ContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
           }
         );
 
-        if (response) {
+        if (response.data) {
           setUser(response.data);
+        } else {
+          setUser(null);
         }
       } catch (err) {
+        console.error("Error fetching auth status:", err);
         setUser(null);
-        console.error(err);
       }
     };
+
     checkAuthStatus();
   }, []);
-  console.log(user);
+
   const contextValue: MainContextType = {
     value,
     setValue,
     user,
     setUser,
   };
+
+ 
   return (
     <MainContext.Provider value={contextValue}>{children}</MainContext.Provider>
   );

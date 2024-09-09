@@ -27,18 +27,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ContextProvider>
-          <Preloader>
-            <Navbar></Navbar>
-            {children}
-            <Footer />
-          </Preloader>
-        </ContextProvider>
+      
+          <ContextProvider>
+            <Preloader>
+              <Navbar></Navbar>
+              {children}
+              <Footer />
+            </Preloader>
+          </ContextProvider>
+      
       </body>
     </html>
   );
