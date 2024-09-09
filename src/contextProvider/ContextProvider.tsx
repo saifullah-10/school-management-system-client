@@ -7,7 +7,7 @@ interface MainContextType {
   setValue: (value: string) => void;
   user: User | null;
   setUser: React.Dispatch<React.SetStateAction<User | null>>;
-  loading: boolean; // New loading state
+  loading: boolean; 
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
