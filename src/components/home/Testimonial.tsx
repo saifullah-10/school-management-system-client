@@ -38,15 +38,15 @@ export default function Testimonial() {
       
         <div className=" xl:mx-auto">
           <div
-            className="absolute xl:border xl:mx-auto 
+            className="absolute xl:border xl:mx-auto
             xl:max-w-[1936px] 
             xl:w-[60%] xl:left-[20%]
                        lg:border lg:w-[70%] lg:left-[15%]
                       md:border md:top-[-70px] md:left-[9%] md:w-[82%] md:rounded-full
                       sm:py-4 sm:top-[-90px] sm:border sm:w-full 
-                      w-full top-[-130px] my-10 bg-gradient-to-r from-yellow-400 to-yellow-500 mx-auto max-w-[1310px] py-2 p-[10%] md:p-0"
+                      w-full top-[-130px] my-10 bg-gradient-to-r from-yellow-400 to-yellow-500 mx-auto max-w-[1310px] py-4 p-[10%] md:p-0"
           >
-            <div className="max-w-7xl md:flex md:justify-around items-center gap-2 flex-wrap grid grid-cols-2 mx-auto my-auto">
+            <div className="py-1 xl:py-2 max-w-7xl md:flex md:justify-around items-center gap-2 flex-wrap grid grid-cols-2 mx-auto my-auto">
               {stats.map((stat) => (
                 <div
                   key={stat.id}
