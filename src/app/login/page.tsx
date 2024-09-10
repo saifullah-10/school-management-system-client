@@ -44,13 +44,13 @@ const LoginPage = () => {
         router.push("/dashboard");
       }
     } catch (err) {
-      router.push('/login')
-         setLoading(false);
+      router.push("/login");
+      setLoading(false);
       console.error(err);
     }
   };
   if (loading) {
-    return <div>dingloa</div>;
+    return <div>loading from login</div>;
   }
   return (
     <div className="w-full flex justify-center items-center mx-auto relative min-h-screen p-5 sm:p-10">
