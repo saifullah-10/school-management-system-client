@@ -32,17 +32,6 @@ const Sidebar = () => {
           Dashboard
         </li>
       </Link>
-      <Link href="/dashboard">
-        <li
-          className={`py-2 flex items-center gap-2 px-4 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${
-            pathname === "/dashboard" ? "bg-[#704FE6] text-white" : ""
-          }`}
-        >
-          <AiOutlineDashboard className="text-xl" />
-          Dashboard
-        </li>
-      </Link>
-
       <Link href="/dashboard/allStudent">
         <li
           className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${
@@ -117,7 +106,7 @@ const Sidebar = () => {
       <Link href="/dashboard/attendance">
         <li
           className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${
-            pathname === "/dashboard/classRoutine"
+            pathname === "/dashboard/attendance"
               ? "bg-[#704FE6] text-white"
               : ""
           }`}

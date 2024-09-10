@@ -48,7 +48,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         <div
           className={`flex-grow lg:p-6 transition-all duration-300 md:ml-64  mx-auto`}
         >
-          <div className=" max-w-7xl mx-auto">
+          <div className=" max-w-7xl px-2 mx-auto ">
             <nav className="bg-white py-2 px-4 rounded-xl mb-10 flex justify-between items-center">
               <button
                 className="md:hidden bg-[#704FE6] rounded-[5px] text-white p-2"

@@ -19,7 +19,7 @@ const Admin = () => {
                 </div>
             </div>
 
-            <div className="flex flex-wrap gap-6 my-5">
+            <div className="flex flex-wrap justify-between my-5">
                 <div className="bg-white h-96 rounded-xl shadow-lg p-4">
                     <h3 className="text-2xl font-bold ml-4">Event Calendar</h3>
                     <Calendar />
