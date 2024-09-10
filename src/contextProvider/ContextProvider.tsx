@@ -7,7 +7,7 @@ import {
   useEffect,
   useState,
 } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import axios from "axios";
 
 interface AuthContextProps {
@@ -26,7 +26,6 @@ export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
   const [user, setUser] = useState<object | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const router = useRouter();
-  const location = usePathname();
 
   useEffect(() => {
     const authCheck = async () => {
@@ -35,7 +34,6 @@ export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
         .split("; ")
         .find((row) => row.startsWith(""));
 
-      console.log(token);
       if (token) {
         // Fetch user data using token and set user state
         const res = await axios.get("http://localhost:5000/auth/check-auth", {
@@ -43,8 +41,6 @@ export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
         });
         setUser(res.data);
         setLoading(false);
-      } else {
-        console.log(location);
       }
     };
     authCheck();

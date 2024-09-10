@@ -44,6 +44,8 @@ const LoginPage = () => {
         router.push("/dashboard");
       }
     } catch (err) {
+      router.push('/login')
+         setLoading(false);
       console.error(err);
     }
   };
