@@ -7,23 +7,14 @@ import { ImProfile } from "react-icons/im";
 import { FaAngleRight } from "react-icons/fa6";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { MdNotificationsActive } from "react-icons/md";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { logout } from "@/utils/api/api";
 
 const Sidebar = () => {
-  const router = useRouter();
+  // const router = useRouter();
   const handleLogout = async () => {
-    try {
-      const res = await logout();
-      if (res.status === 200) {
-        router.push("/login");
-      } else {
-        console.log("try again");
-      }
-    } catch (err) {
-      console.log(err);
-    }
+    logout();
   };
 
   const [isTeachersOpen, setIsTeachersOpen] = useState(false); // For submenu
