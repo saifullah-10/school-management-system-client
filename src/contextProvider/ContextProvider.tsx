@@ -64,11 +64,6 @@ export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
         router.push("/login");
       }
     }
-
-    setUser(null);
-    document.cookie =
-      "yourTokenCookieName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    router.push("/login");
   };
   console.log(user);
   return (
