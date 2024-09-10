@@ -7,12 +7,28 @@ import { ImProfile } from "react-icons/im";
 import { FaAngleRight } from "react-icons/fa6";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { MdNotificationsActive } from "react-icons/md";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
-import { useAuth } from "@/contextProvider/ContextProvider";
+import { logout, fetchProtectedData } from "@/utils/api/api";
 
 const Sidebar = () => {
-  const { logout } = useAuth();
+  const router = useRouter();
+  const handleLogout = async () => {
+    try {
+      const res = await logout();
+      if (res.status === 200) {
+        router.push("/login");
+      } else {
+        console.log("try again");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const protectedData = async () => {
+    const res = await fetchProtectedData();
+    console.log(res);
+  };
   const [isTeachersOpen, setIsTeachersOpen] = useState(false); // For submenu
   const pathname = usePathname() || "";
 
@@ -139,10 +155,17 @@ const Sidebar = () => {
       </Link>
 
       <li
-        onClick={logout}
+        onClick={handleLogout}
         className="py-2 px-4 hover:text-white hover:bg-[#704FE6]"
       >
         Logout
+      </li>
+
+      <li
+        onClick={protectedData}
+        className="py-2 px-4 hover:text-white hover:bg-[#704FE6]"
+      >
+        user check
       </li>
     </ul>
   );

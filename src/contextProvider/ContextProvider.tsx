@@ -4,11 +4,11 @@ import {
   Dispatch,
   SetStateAction,
   useContext,
-  useEffect,
+
   useState,
 } from "react";
-import { useRouter } from "next/navigation";
-import axios from "axios";
+
+
 interface User {
   _id: string;
   authentication: object;
@@ -31,44 +31,10 @@ export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const router = useRouter();
-
-  useEffect(() => {
-    const authCheck = async () => {
-      // Check if token exists in cookies
-      const token = document.cookie
-        .split("; ")
-        .find((row) => row.startsWith(""));
-
-      if (token) {
-        // Fetch user data using token and set user state
-        const res = await axios.get("http://localhost:5000/auth/check-auth", {
-          withCredentials: true,
-        });
-        setUser(res.data);
-        setLoading(false);
-      }
-    };
-    authCheck();
-  }, [router]);
-
-  const logout = async () => {
-    if (user) {
-      const res = await axios.post(
-        `http://localhost:5000/auth/logout/${user._id}`,
-        {},
-        { withCredentials: true }
-      );
-      if (res.status === 200) {
-        setUser(null);
-        router.push("/login");
-      }
-    }
-  };
-  console.log(user, "context provider");
+ 
   return (
     <AuthContext.Provider
-      value={{ user, setUser, loading, setLoading, logout }}
+      value={{ user, setUser, loading, setLoading }}
     >
       {children}
     </AuthContext.Provider>
