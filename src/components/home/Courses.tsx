@@ -8,9 +8,9 @@ export default function Courses() {
   return (
     <div className="bg-[url('/assets/images/ed-bg-1.jpg')] md:py-14">
       {/* elements */}
-      <div className="container mx-auto">
+      <div className="w-11/12 mx-auto">
         {/* heading */}
-        <div className="w-11/12 mx-auto">
+        <div className="">
           <h1 className='font-Montserrat text-[#704fe6] bg-[#E9E2FF] border-2 w-fit px-6 py-1 rounded-[5px]'>POPULAR COURSES</h1>
 
           <h3 className="text-3xl md:text-5xl font-bold my-3">Starlight Courses Student <br /> Can Join With Us</h3>
@@ -18,13 +18,13 @@ export default function Courses() {
 
         {/* courses cards */}
 
-        <div className="flex flex-wrap gap-10 justify-center w-[98%] mx-auto mt-20">
+        <div className="flex flex-wrap gap-5 justify-center mx-auto mt-20">
           {
             [...Array(6)].map((_, index) => (
               <Link href={`/courses/${index}`}
                 key={index}>
                 <div
-                  className="bg-slate-200 group hover:bg-[#17254e] transition duration-300 ease-in-out hover:text-white border-dashed border-[#7151e6] border-[1px] w-[360px] sm:w-[408px] shadow-xl rounded-xl"
+                  className="bg-slate-200 group hover:bg-[#17254e] transition duration-300 ease-in-out hover:text-white border-dashed border-[#7151e6] border-[1px] w-[360px] sm:w-[398px] shadow-xl rounded-xl"
                 >
 
                   <div className="relative overflow-hidden rounded-2xl w-[90%] md:w-[360px] top-2 mx-auto h-[255px]">
