@@ -5,9 +5,10 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 import { useState } from "react";
 import bg from "../../../public/assets/images/university1.jpg";
-import axios from "axios";
+
 import { useRouter } from "next/navigation";
-import { useAuth } from "@/contextProvider/ContextProvider";
+
+import { login } from "@/utils/api/api";
 
 interface LoginFormInputs {
   email: string;
@@ -19,7 +20,7 @@ const LoginPage = () => {
   const [show, setShow] = useState(false);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const { setUser } = useAuth();
+
   const {
     register,
     handleSubmit,
@@ -32,15 +33,9 @@ const LoginPage = () => {
     console.log("Agreed to Terms:", data.agreeToTerms);
     setLoading(true);
     try {
-      const res = await axios.post(
-        "http://localhost:5000/auth/login",
-        { email, password },
-        { withCredentials: true }
-      );
+      const res = await login(email, password);
 
       if (res.data) {
-        setUser(res.data);
-        setLoading(false);
         router.push("/dashboard");
       }
     } catch (err) {
