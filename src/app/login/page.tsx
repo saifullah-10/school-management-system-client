@@ -7,6 +7,7 @@ import { useState } from "react";
 import bg from "../../../public/assets/images/university1.jpg";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/contextProvider/ContextProvider";
 
 interface LoginFormInputs {
   email: string;
@@ -18,6 +19,7 @@ const LoginPage = () => {
   const [show, setShow] = useState(false);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const { setUser } = useAuth();
   const {
     register,
     handleSubmit,
@@ -37,6 +39,7 @@ const LoginPage = () => {
       );
 
       if (res.data) {
+        setUser(res.data);
         setLoading(false);
         router.push("/dashboard");
       }

@@ -1,12 +1,21 @@
 "use client";
-import { createContext, useContext, useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
+import { usePathname, useRouter } from "next/navigation";
 import axios from "axios";
 
 interface AuthContextProps {
   user: object | null;
   setUser: (user: object | null) => void;
   logout?: () => void;
+  loading: boolean;
+  setLoading: Dispatch<SetStateAction<boolean>>;
 }
 
 const AuthContext = createContext<AuthContextProps | undefined>(undefined);
@@ -15,7 +24,9 @@ export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [user, setUser] = useState<object | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
   const router = useRouter();
+  const location = usePathname();
 
   useEffect(() => {
     const authCheck = async () => {
@@ -23,14 +34,17 @@ export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
       const token = document.cookie
         .split("; ")
         .find((row) => row.startsWith(""));
+
+      console.log(token);
       if (token) {
         // Fetch user data using token and set user state
         const res = await axios.get("http://localhost:5000/auth/check-auth", {
           withCredentials: true,
         });
         setUser(res.data);
+        setLoading(false);
       } else {
-        router.push("/login");
+        console.log(location);
       }
     };
     authCheck();
@@ -42,9 +56,9 @@ export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
   //     "yourTokenCookieName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   //   router.push("/login");
   // };
-
+  console.log(user);
   return (
-    <AuthContext.Provider value={{ user, setUser }}>
+    <AuthContext.Provider value={{ user, setUser, loading, setLoading }}>
       {children}
     </AuthContext.Provider>
   );
