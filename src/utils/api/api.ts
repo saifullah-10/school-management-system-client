@@ -19,7 +19,7 @@ export const login = async (email: string, password: string) => {
 };
 
 export const logout = async () => {
-  return axios.post(`${API_URL}/auth/logout`, {}, { withCredentials: true });
+  return axios.get(`${API_URL}/auth/logout`, { withCredentials: true });
 };
 
 export const fetchProtectedData = async () => {
