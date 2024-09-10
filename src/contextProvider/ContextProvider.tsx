@@ -1,68 +1,73 @@
-'use client'
-import { createContext, ReactNode, useEffect, useState } from "react";
+"use client";
+import {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
+import { usePathname, useRouter } from "next/navigation";
 import axios from "axios";
 
-interface MainContextType {
-  value: string;
-  setValue: (value: string) => void;
-  user: User | null;
-  setUser: React.Dispatch<React.SetStateAction<User | null>>;
-  loading: boolean; 
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+interface AuthContextProps {
+  user: object | null;
+  setUser: (user: object | null) => void;
+  logout?: () => void;
+  loading: boolean;
+  setLoading: Dispatch<SetStateAction<boolean>>;
 }
 
-interface User {
-  _id: string;
-  email: string;
-  username: string;
-  authentication?: object;
-  sessionToken: string;
-}
+const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 
-export const MainContext = createContext<MainContextType | null>(null);
-
-const ContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [value, setValue] = useState<string>("helloo");
-  const [user, setUser] = useState<User | null>(null);
+export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  const [user, setUser] = useState<object | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const router = useRouter();
+  const location = usePathname();
 
   useEffect(() => {
-    const checkAuthStatus = async () => {
-      try {
-        const response = await axios.get(
-          "http://localhost:5000/auth/check-auth",
-          { withCredentials: true }
-        );
-        if (response.data) {
-          setUser(response.data);
-        } else {
-          setUser(null);
-        }
-      } catch (err) {
-        console.error("Error fetching auth status:", err);
-        setUser(null);
-      } finally {
-        setLoading(false); 
+    const authCheck = async () => {
+      // Check if token exists in cookies
+      const token = document.cookie
+        .split("; ")
+        .find((row) => row.startsWith(""));
+
+      console.log(token);
+      if (token) {
+        // Fetch user data using token and set user state
+        const res = await axios.get("http://localhost:5000/auth/check-auth", {
+          withCredentials: true,
+        });
+        setUser(res.data);
+        setLoading(false);
+      } else {
+        console.log(location);
       }
     };
+    authCheck();
+  }, [router]);
 
-    checkAuthStatus();
-  }, []);
-
-  const contextValue: MainContextType = {
-    value,
-    setValue,
-    user,
-    setUser,
-    loading, 
-    setLoading,
-  };
-
+  // const logout = () => {
+  //   setUser(null);
+  //   document.cookie =
+  //     "yourTokenCookieName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  //   router.push("/login");
+  // };
+  console.log(user);
   return (
-    <MainContext.Provider value={contextValue}>
+    <AuthContext.Provider value={{ user, setUser, loading, setLoading }}>
       {children}
-    </MainContext.Provider>
+    </AuthContext.Provider>
   );
 };
 
-export default ContextProvider;
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+  return context;
+};
