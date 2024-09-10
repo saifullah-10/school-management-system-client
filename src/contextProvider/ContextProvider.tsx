@@ -65,7 +65,7 @@ export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
       }
     }
   };
-  console.log(user);
+  console.log(user, "context provider");
   return (
     <AuthContext.Provider
       value={{ user, setUser, loading, setLoading, logout }}
