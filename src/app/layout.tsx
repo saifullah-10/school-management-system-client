@@ -4,8 +4,9 @@ import "./globals.css";
 import Navbar from "@/components/common/navbar/Navbar";
 import Footer from "@/components/common/footer/Footer";
 import Preloader from "@/components/animation/preloader/Preloader";
-import ContextProvider from "@/contextProvider/ContextProvider";
+
 import Tanstack from "@/utils/Tanstack";
+import { ContextProvider } from "@/contextProvider/ContextProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

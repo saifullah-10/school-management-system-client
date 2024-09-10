@@ -1,48 +1,59 @@
 "use client";
-import { createContext, ReactNode, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import axios from "axios";
 
-
-interface MainContextType {
-  value: string;
-  setValue: (value: string) => void;
-  user: User | null;
-  setUser: React.Dispatch<React.SetStateAction<User | null>>;
-  loading: boolean;
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+interface AuthContextProps {
+  user: object | null;
+  setUser: (user: object | null) => void;
+  logout?: () => void;
 }
 
-interface User {
-  _id: string;
-  email: string;
-  username: string;
-  authentication?: object;
-  sessionToken: string;
-}
-// function getCookie(name: string) {
-//   const value = `; ${document.cookie}`;
-//   const parts = value.split(`; ${name}=`);
-//   if (parts.length === 2) return parts?.pop()?.split(";").shift();
-// }
-export const MainContext = createContext<MainContextType | null>(null);
+const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 
-const ContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [value, setValue] = useState<string>("helloo");
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  const [user, setUser] = useState<object | null>(null);
+  const router = useRouter();
 
-  
-  const contextValue: MainContextType = {
-    value,
-    setValue,
-    user,
-    setUser,
-    loading,
-    setLoading,
-  };
+  useEffect(() => {
+    const authCheck = async () => {
+      // Check if token exists in cookies
+      const token = document.cookie
+        .split("; ")
+        .find((row) => row.startsWith(""));
+      if (token) {
+        // Fetch user data using token and set user state
+        const res = await axios.get("http://localhost:5000/auth/check-auth", {
+          withCredentials: true,
+        });
+        setUser(res.data);
+      } else {
+        router.push("/login");
+      }
+    };
+    authCheck();
+  }, [router]);
+
+  // const logout = () => {
+  //   setUser(null);
+  //   document.cookie =
+  //     "yourTokenCookieName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  //   router.push("/login");
+  // };
 
   return (
-    <MainContext.Provider value={contextValue}>{children}</MainContext.Provider>
+    <AuthContext.Provider value={{ user, setUser }}>
+      {children}
+    </AuthContext.Provider>
   );
 };
 
-export default ContextProvider;
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+  return context;
+};
