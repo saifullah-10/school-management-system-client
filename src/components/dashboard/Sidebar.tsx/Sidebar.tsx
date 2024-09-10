@@ -24,6 +24,7 @@ const Sidebar = () => {
     setIsTeachersOpen(!isTeachersOpen); // Toggle submenu open/close
   };
 
+
   return (
     <ul className="mt-4 text-[17px]">
       <Link href="/dashboard">
@@ -95,6 +96,7 @@ const Sidebar = () => {
         )}
       </li>
 
+      
       <Link href="/dashboard/classRoutine">
         <li
           className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${
@@ -119,7 +121,29 @@ const Sidebar = () => {
           Attendance
         </li>
       </Link>
+      <Link href="/dashboard/courses">
+        <li
+          className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${
+            pathname === "/dashboard/courses"
+              ? "bg-[#704FE6] text-white"
+              : ""
+          }`}
+        >
+          <FaRegCalendarAlt />
+          Courses
+        </li>
+      </Link>
 
+      <Link href="/dashboard/exam">
+        <li
+          className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${
+            pathname === "/dashboard/exam" ? "bg-[#704FE6] text-white" : ""
+          }`}
+        >
+          <ImProfile />
+          Exam
+        </li>
+      </Link>
       <Link href="/dashboard/profile">
         <li
           className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${
