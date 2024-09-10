@@ -9,10 +9,16 @@ import {
 } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-
+interface User {
+  _id: string;
+  authentication: object;
+  email: string;
+  username: string;
+  token: string;
+}
 interface AuthContextProps {
-  user: object | null;
-  setUser: (user: object | null) => void;
+  user: User | null;
+  setUser: (user: User | null) => void;
   logout?: () => void;
   loading: boolean;
   setLoading: Dispatch<SetStateAction<boolean>>;
@@ -23,7 +29,7 @@ const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [user, setUser] = useState<object | null>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const router = useRouter();
 
@@ -46,15 +52,29 @@ export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
     authCheck();
   }, [router]);
 
-  // const logout = () => {
-  //   setUser(null);
-  //   document.cookie =
-  //     "yourTokenCookieName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-  //   router.push("/login");
-  // };
+  const logout = async () => {
+    if (user) {
+      const res = await axios.post(
+        `http://localhost:5000/auth/logout/${user._id}`,
+        {},
+        { withCredentials: true }
+      );
+      if (res.status === 200) {
+        setUser(null);
+        router.push("/login");
+      }
+    }
+
+    setUser(null);
+    document.cookie =
+      "yourTokenCookieName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    router.push("/login");
+  };
   console.log(user);
   return (
-    <AuthContext.Provider value={{ user, setUser, loading, setLoading }}>
+    <AuthContext.Provider
+      value={{ user, setUser, loading, setLoading, logout }}
+    >
       {children}
     </AuthContext.Provider>
   );
