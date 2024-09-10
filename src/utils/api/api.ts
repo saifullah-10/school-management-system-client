@@ -23,5 +23,5 @@ export const logout = async () => {
 };
 
 export const fetchProtectedData = async () => {
-  return axios.get(`${API_URL}/protected`, { withCredentials: true });
+  return axios.get(`${API_URL}/auth/protected`, { withCredentials: true });
 };
