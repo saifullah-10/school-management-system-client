@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import {
-    Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Checkbox, TextField, Button, Paper,
+    Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Button, Paper,
 } from '@mui/material';
 import { BsPersonWorkspace } from 'react-icons/bs';
 
@@ -103,11 +103,10 @@ const StudentTable: React.FC = () => {
 
             {/* Responsive Table */}
             <div style={{ overflowX: 'auto' }}>
-                <TableContainer component={Paper} sx={{ width: { xs: "80vw", sm: "60vw", md: "70vw", lg: 1100 } }}>
+                <TableContainer component={Paper} sx={{ width: { xs: "86vw", sm: "62vw", md: "70vw", lg: "76vw" } , overflowX: 'auto' , margin: '0 auto'}}>
                     <Table>
                         <TableHead>
                             <TableRow>
-                                <TableCell><Checkbox /></TableCell>
                                 <TableCell>Roll</TableCell>
                                 <TableCell>Photo</TableCell>
                                 <TableCell>Name</TableCell>
@@ -124,7 +123,6 @@ const StudentTable: React.FC = () => {
                         <TableBody>
                             {filteredData.map((student, index) => (
                                 <TableRow key={index}>
-                                    <TableCell><Checkbox /></TableCell>
                                     <TableCell>{student.roll}</TableCell>
                                     <TableCell><BsPersonWorkspace size={20} /></TableCell>
                                     <TableCell>{student.name}</TableCell>

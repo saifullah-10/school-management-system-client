@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000";
+const API_URL = "https://school-management-system-server-ashen.vercel.app";
 
 export const register = async (email: string, password: string) => {
   return axios.post(
@@ -19,7 +19,7 @@ export const login = async (email: string, password: string) => {
 };
 
 export const logout = async () => {
-  return axios.post(`${API_URL}/auth/logout`, {}, { withCredentials: true });
+  return axios.get(`${API_URL}/auth/logout`, { withCredentials: true });
 };
 
 export const fetchProtectedData = async () => {
