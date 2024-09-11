@@ -7,16 +7,17 @@ import { ImProfile } from "react-icons/im";
 import { FaAngleRight } from "react-icons/fa6";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { MdNotificationsActive } from "react-icons/md";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { logout } from "@/utils/api/api";
 
 const Sidebar = () => {
-  // const router = useRouter();
+  const router = useRouter();
   const handleLogout = async () => {
     const res = await logout();
     if (res.status === 200) {
       console.log("logout success");
+      router.push("/login");
     }
   };
 
