@@ -20,6 +20,7 @@ export const login = async (email: string, password: string) => {
 };
 
 export const logout = () => {
+  console.log(Cookies);
   Cookies.remove("token", { path: "/" });
 };
 
