@@ -1,40 +1,79 @@
 "use client"
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Table, TableBody, TableCell, TableContainer,
-  TableHead, TableRow, Paper
+  TableHead, TableRow, Paper, MenuItem, Select, InputLabel, FormControl
 } from '@mui/material';
 import { ImCross } from 'react-icons/im';
 import { FaCheck } from 'react-icons/fa';
+import { GoDash } from 'react-icons/go';
 
 // Define the types
 interface AttendanceRecord {
   name: string;
-  attendance: Array<string>; // 'P' for present, 'A' for absent, '' for no entry
+  attendance: { [course: string]: Array<string> }; // { courseName: ['P', 'A', ...] }
 }
 
-// Sample Data
+// Sample Data with 10 Students and 17 Courses
 const attendanceData: AttendanceRecord[] = [
-  { name: 'Michele Johnson', attendance: ['P', 'P', 'P', 'A', 'P', '-', 'P', 'P', 'A', 'P', '-', 'A', '-', 'P', '-', 'P', '-', 'A', 'P', '-', 'A', 'P', 'A', 'P', 'P', '-', 'P', 'P', '-', 'P'] },
-  { name: 'Richi Akon', attendance: ['P', 'A', 'P', 'A', 'P', '-', 'P', 'A', 'A', 'P', '-', 'P', '-', 'A', '-', 'A', '-', 'P', 'P', '-', 'P', 'P', 'A', 'P', 'A', '-', 'P', 'P', '-', 'P'] },
-  { name: 'Amanda Kherr', attendance: ['P', 'P', 'A', 'P', 'P', '-', 'A', 'P', 'A', 'P', '-', 'P', '-', 'P', '-', 'P', '-', 'A', 'P', '-', 'A', 'P', 'P', 'A', 'P', '-', 'P', 'A', '-', 'P'] }
+  { name: 'Michele Johnson', attendance: generateAttendanceData(10, 17) },
+  { name: 'Richi Akon', attendance: generateAttendanceData(10, 17) },
+  { name: 'Amanda Kherr', attendance: generateAttendanceData(10, 17) },
+  { name: 'John Doe', attendance: generateAttendanceData(10, 17) },
+  { name: 'Jane Smith', attendance: generateAttendanceData(10, 17) },
+  { name: 'Emily Davis', attendance: generateAttendanceData(10, 17) },
+  { name: 'Michael Brown', attendance: generateAttendanceData(10, 17) },
+  { name: 'Sarah Wilson', attendance: generateAttendanceData(10, 17) },
+  { name: 'David Lee', attendance: generateAttendanceData(10, 17) },
+  { name: 'Olivia Harris', attendance: generateAttendanceData(10, 17) },
 ];
 
+// Function to generate random attendance data for a given number of days and courses
+function generateAttendanceData(days: number, coursesCount: number): { [course: string]: Array<string> } {
+  const courses = Array.from({ length: coursesCount }, (_, i) => `DS${100 + i}`);
+  const data: { [course: string]: Array<string> } = {};
+
+  courses.forEach(course => {
+    data[course] = Array.from({ length: days }, () => ['P', 'A', '-'][Math.floor(Math.random() * 3)]);
+  });
+
+  return data;
+}
+
 const AttendanceTable: React.FC = () => {
+  const [selectedDate, setSelectedDate] = useState<number>(1);
+
+  const courses = Object.keys(attendanceData[0].attendance);
+  const days = [...Array(10)].map((_, index) => index + 1);
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">Attendance Sheet of Class One: Section A, April 2019</h1>
-      <TableContainer component={Paper} sx={{ width: { xs: "95vw", sm: "62vw", md: "70vw", lg: "78vw" }, overflowX: 'auto', margin: '0 auto' }}>
+      <h1 className="text-2xl font-bold mb-4">Attendance of Student</h1>
 
+      <div className="mb-4">
+        <FormControl>
+          <InputLabel id="date-select-label">Date</InputLabel>
+          <Select
+            labelId="date-select-label"
+            value={selectedDate}
+            onChange={(e) => setSelectedDate(e.target.value as number)}
+            label="Date"
+          >
+            {days.map(day => (
+              <MenuItem key={day} value={day}>{day}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </div>
+
+      <TableContainer component={Paper} sx={{ width: { xs: "95vw", sm: "62vw", md: "70vw", lg: "78vw" }, overflowX: 'auto', margin: '0 auto' }}>
         <Table stickyHeader>
           <TableHead>
             <TableRow>
               <TableCell>Students</TableCell>
-              {/* Loop over 30 days of the month */}
-              {[...Array(30)].map((_, index) => (
-                <TableCell key={index + 1} align="center">{index + 1}</TableCell>
+              {courses.map(course => (
+                <TableCell key={course} align="center">{course}</TableCell>
               ))}
             </TableRow>
           </TableHead>
@@ -42,14 +81,14 @@ const AttendanceTable: React.FC = () => {
             {attendanceData.map((record, index) => (
               <TableRow key={index}>
                 <TableCell>{record.name}</TableCell>
-                {record.attendance.map((status, idx) => (
-                  <TableCell key={idx} align="center">
-                    {status === 'P' ? (
+                {courses.map(course => (
+                  <TableCell key={course} align="center">
+                    {record.attendance[course][selectedDate - 1] === 'P' ? (
                       <FaCheck color='green'/>
-                    ) : status === 'A' ? (
+                    ) : record.attendance[course][selectedDate - 1] === 'A' ? (
                       <ImCross color='red' />
                     ) : (
-                      '-'
+                      <GoDash />
                     )}
                   </TableCell>
                 ))}
