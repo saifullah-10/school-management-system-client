@@ -8,14 +8,20 @@ const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const router = useRouter();
-  const [user, setUser] = useState(true);
+  const [user, setUser] = useState(false);
   const [loading, setLoading] = useState(true);
   const protectedData = async () => {
     try {
-      const res = await fetchProtectedData();
-      if (res.status === 200) {
-        setUser(true);
+      const response = await fetchProtectedData();
+      if (response instanceof Error) {
+        router.push("/login");
+        setUser(false);
         setLoading(false);
+      } else {
+        if (response?.status === 200) {
+          setUser(true);
+          setLoading(false);
+        }
       }
     } catch (err) {
       setUser(false);

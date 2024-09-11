@@ -1,7 +1,7 @@
 import axios from "axios";
-import Cookies from "js-cookie";
 
-const API_URL = "https://school-management-system-server-lime.vercel.app";
+
+const API_URL = "http://localhost:5000";
 
 export const register = async (email: string, password: string) => {
   return axios.post(
@@ -12,19 +12,27 @@ export const register = async (email: string, password: string) => {
 };
 
 export const login = async (email: string, password: string) => {
-  return axios.post(
-    `${API_URL}/auth/login`,
-    { email, password },
-    { withCredentials: true }
-  );
+  return axios.post(`${API_URL}/auth/login`, { email, password });
 };
 
 export const logout = async () => {
-  const ck = Cookies.get();
-  console.log(ck);
-  return axios.get(`${API_URL}/auth/logout`, { withCredentials: true });
+  localStorage.clear();
+
 };
 
 export const fetchProtectedData = async () => {
-  return axios.get(`${API_URL}/auth/protected`, { withCredentials: true });
+  const accessToken = localStorage.getItem("us");
+
+  try {
+    const response = await axios.get(`${API_URL}/auth/protected`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    if (response) {
+      return response;
+    }
+  } catch (error) {
+    return error as Error;
+  }
 };

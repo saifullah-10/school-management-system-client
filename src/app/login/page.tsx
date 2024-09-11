@@ -34,9 +34,14 @@ const LoginPage = () => {
     setLoading(true);
     try {
       const res = await login(email, password);
+      const us_token = res.data.token;
+      if (us_token) {
+        localStorage.setItem("us", us_token);
 
-      if (res.data) {
         router.push("/dashboard");
+      } else {
+        console.error("login failed");
+        router.push("/login");
       }
     } catch (err) {
       router.push("/login");

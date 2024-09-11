@@ -18,17 +18,9 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
   const router = useRouter();
-  const handleLogout = async () => {
-    try {
-      const res = await logout();
-      if (res.status === 200) {
-        router.push("/login");
-      } else {
-        console.log("try again");
-      }
-    } catch (err) {
-      console.log(err);
-    }
+  const handleLogout = () => {
+    logout();
+    router.push("/login");
   };
 
   const [isTeachersOpen, setIsTeachersOpen] = useState(false); // For submenu
@@ -37,7 +29,6 @@ const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
   const toggleTeachersMenu = () => {
     setIsTeachersOpen(!isTeachersOpen); // Toggle submenu open/close
   };
-
 
   return (
     <>
@@ -62,8 +53,9 @@ const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
       <ul className="mt-4 text-[17px]">
         <Link href="/dashboard">
           <li
-            className={`py-2 flex items-center gap-2 px-4 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${pathname === "/dashboard" ? "bg-[#704FE6] text-white" : ""
-              }`}
+            className={`py-2 flex items-center gap-2 px-4 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${
+              pathname === "/dashboard" ? "bg-[#704FE6] text-white" : ""
+            }`}
           >
             <AiOutlineDashboard className="text-xl" />
             Dashboard
@@ -71,10 +63,11 @@ const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
         </Link>
         <Link href="/dashboard/allStudent">
           <li
-            className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${pathname === "/dashboard/allStudent"
+            className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${
+              pathname === "/dashboard/allStudent"
                 ? "bg-[#704FE6] text-white"
                 : ""
-              }`}
+            }`}
           >
             <GrGroup />
             All Students
@@ -85,10 +78,11 @@ const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
         <li className="relative">
           <button
             onClick={toggleTeachersMenu}
-            className={`w-full text-left py-2 px-4 hover:text-white hover:bg-[#704FE6] flex justify-between items-center ${pathname.includes("/dashboard/teacher")
+            className={`w-full text-left py-2 px-4 hover:text-white hover:bg-[#704FE6] flex justify-between items-center ${
+              pathname.includes("/dashboard/teacher")
                 ? "bg-[#704FE6] text-white"
                 : ""
-              }`}
+            }`}
           >
             <h1 className="flex text-lg items-center gap-2">
               <GiTeacher />
@@ -100,10 +94,11 @@ const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
             <ul className="ml-4 mt-2">
               <Link href="/dashboard/teachers/all">
                 <li
-                  className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white rounded-l-xl ${pathname === "/dashboard/teachers/all"
+                  className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white rounded-l-xl ${
+                    pathname === "/dashboard/teachers/all"
                       ? "bg-[#704FE6] text-white"
                       : ""
-                    }`}
+                  }`}
                 >
                   <FaAngleRight />
                   All Teachers
@@ -111,10 +106,11 @@ const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
               </Link>
               <Link href="/dashboard/teachers/add">
                 <li
-                  className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white rounded-l-xl ${pathname === "/dashboard/teachers/add"
+                  className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white rounded-l-xl ${
+                    pathname === "/dashboard/teachers/add"
                       ? "bg-[#704FE6] text-white"
                       : ""
-                    }`}
+                  }`}
                 >
                   <FaAngleRight />
                   Add Teacher
@@ -124,13 +120,13 @@ const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
           )}
         </li>
 
-
         <Link href="/dashboard/classRoutine">
           <li
-            className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${pathname === "/dashboard/classRoutine"
+            className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${
+              pathname === "/dashboard/classRoutine"
                 ? "bg-[#704FE6] text-white"
                 : ""
-              }`}
+            }`}
           >
             <FaRegCalendarAlt />
             Class Routine
@@ -138,10 +134,11 @@ const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
         </Link>
         <Link href="/dashboard/attendance">
           <li
-            className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${pathname === "/dashboard/attendance"
+            className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${
+              pathname === "/dashboard/attendance"
                 ? "bg-[#704FE6] text-white"
                 : ""
-              }`}
+            }`}
           >
             <FaListCheck />
             Attendance
@@ -149,10 +146,9 @@ const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
         </Link>
         <Link href="/dashboard/courses">
           <li
-            className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${pathname === "/dashboard/courses"
-                ? "bg-[#704FE6] text-white"
-                : ""
-              }`}
+            className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${
+              pathname === "/dashboard/courses" ? "bg-[#704FE6] text-white" : ""
+            }`}
           >
             <FaBook />
             Courses
@@ -161,8 +157,9 @@ const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
 
         <Link href="/dashboard/exam">
           <li
-            className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${pathname === "/dashboard/exam" ? "bg-[#704FE6] text-white" : ""
-              }`}
+            className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${
+              pathname === "/dashboard/exam" ? "bg-[#704FE6] text-white" : ""
+            }`}
           >
             <FaClipboardList />
             Exam
@@ -170,8 +167,9 @@ const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
         </Link>
         <Link href="/dashboard/profile">
           <li
-            className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${pathname === "/dashboard/profile" ? "bg-[#704FE6] text-white" : ""
-              }`}
+            className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${
+              pathname === "/dashboard/profile" ? "bg-[#704FE6] text-white" : ""
+            }`}
           >
             <ImProfile />
             Profile
@@ -180,8 +178,9 @@ const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
 
         <Link href="/dashboard/notice">
           <li
-            className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${pathname === "/dashboard/notice" ? "bg-[#704FE6] text-white" : ""
-              }`}
+            className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${
+              pathname === "/dashboard/notice" ? "bg-[#704FE6] text-white" : ""
+            }`}
           >
             <MdNotificationsActive />
             Notice
@@ -191,7 +190,8 @@ const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
         <li
           onClick={handleLogout}
           className="py-2 px-4 hover:text-white hover:bg-[#704FE6] flex items-center font-bold text-lg gap-2"
-        ><FiLogOut />
+        >
+          <FiLogOut />
           Logout
         </li>
       </ul>
