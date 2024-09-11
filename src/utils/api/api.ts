@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const API_URL = "https://school-management-system-server-ashen.vercel.app";
+const API_URL = "https://school-management-system-server-lime.vercel.app";
 
 export const register = async (email: string, password: string) => {
   return axios.post(
