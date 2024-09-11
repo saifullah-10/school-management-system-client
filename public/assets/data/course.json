@@ -1,0 +1,609 @@
+[
+    {
+      "course_code": "DS101",
+      "title": "Introduction to Data Science",
+      "author": "Admin",
+      "category": "Data Analysis",
+      "course_info": {
+        "overview": "This foundational course in data science is designed for beginners who wish to enter the field. It provides a comprehensive introduction to data science concepts, including data collection, cleaning, and basic analysis techniques. By the end of this course, students will have a solid grounding in data science and be prepared to advance to more complex topics.",
+        "objectives": [
+          "Understand the core principles and terminology of data science.",
+          "Learn to collect and clean data from various sources.",
+          "Apply basic data analysis techniques to uncover insights.",
+          "Visualize data effectively using introductory tools and techniques.",
+          "Develop a basic data science project to showcase skills."
+        ],
+        "modules": [
+          "Introduction to Data Science: Concepts and Tools",
+          "Data Collection: Methods and Techniques",
+          "Data Cleaning: Handling Missing and Erroneous Data",
+          "Basic Data Analysis: Descriptive Statistics and Summary Measures",
+          "Data Visualization: Using Tools to Present Data",
+          "Mini Project: Applying Skills to a Real-World Dataset"
+        ],
+        "prerequisites": "None",
+        "duration": "6 weeks",
+        "schedule": "Spring 2024",
+        "format": "Online",
+        "language": "English",
+        "certification": "Certificate of Completion"
+      },
+      "course_image": "path_to_image1.jpg",
+      "course_name": "Data Science Basics",
+      "description": "An introduction to data science principles and practices, designed to provide a foundational understanding for aspiring data scientists.",
+      "lessons": 10,
+      "credit_hours": "3h",
+      "enrollment": 120,
+      "instructor": "Dr. Alice Smith",
+      "price": "$129.99"
+    },
+    {
+      "course_code": "DS102",
+      "title": "Advanced Data Analysis",
+      "author": "Admin",
+      "category": "Data Analysis",
+      "course_info": {
+        "overview": "This course dives deep into advanced data analysis techniques, including machine learning algorithms and complex statistical methods. It is designed for students who already have a basic understanding of data science and wish to enhance their skills. The course covers advanced topics such as predictive modeling and model evaluation, preparing students for more challenging data analysis tasks.",
+        "objectives": [
+          "Implement and evaluate various machine learning algorithms.",
+          "Understand and apply advanced statistical methods for data analysis.",
+          "Conduct in-depth exploratory data analysis (EDA) to uncover patterns.",
+          "Develop and refine predictive models for real-world data.",
+          "Complete a capstone project demonstrating advanced data analysis skills."
+        ],
+        "modules": [
+          "Machine Learning Overview: Concepts and Algorithms",
+          "Supervised Learning: Regression and Classification Techniques",
+          "Unsupervised Learning: Clustering and Dimensionality Reduction",
+          "Model Evaluation: Metrics and Validation Techniques",
+          "Advanced Statistical Methods: Bayesian Analysis and More",
+          "Capstone Project: Real-World Data Analysis"
+        ],
+        "prerequisites": "Introduction to Data Science or equivalent knowledge",
+        "duration": "8 weeks",
+        "schedule": "Summer 2024",
+        "format": "Hybrid",
+        "language": "English",
+        "certification": "Advanced Data Analysis Certificate"
+      },
+      "course_image": "path_to_image2.jpg",
+      "course_name": "Data Analysis Mastery",
+      "description": "A comprehensive course for mastering advanced data analysis techniques, including machine learning and complex statistical methods.",
+      "lessons": 12,
+      "credit_hours": "4h",
+      "enrollment": 90,
+      "instructor": "Dr. Bob Johnson",
+      "price": "$199.99"
+    },
+    {
+      "course_code": "DS103",
+      "title": "Business Intelligence Fundamentals",
+      "author": "Admin",
+      "category": "Business Analysis",
+      "course_info": {
+        "overview": "This course introduces the concepts and tools of business intelligence (BI). It covers how to use BI to make data-driven decisions and manage business operations effectively. Students will learn about BI tools and techniques for analyzing data and creating reports and dashboards to support business strategy.",
+        "objectives": [
+          "Understand the fundamental concepts of business intelligence.",
+          "Use BI tools like Tableau and Power BI to analyze data.",
+          "Develop and present BI reports and dashboards.",
+          "Interpret data to make informed business decisions.",
+          "Implement BI strategies in a business context."
+        ],
+        "modules": [
+          "Introduction to Business Intelligence: Concepts and Tools",
+          "Overview of BI Tools: Tableau, Power BI, and Others",
+          "Data Warehousing: Basics and Architecture",
+          "Report and Dashboard Creation: Best Practices",
+          "Case Studies: BI Applications in Real Businesses",
+          "Project: Developing a BI Report and Dashboard"
+        ],
+        "prerequisites": "Basic Knowledge of Business Concepts",
+        "duration": "5 weeks",
+        "schedule": "Fall 2024",
+        "format": "Online",
+        "language": "English",
+        "certification": "Business Intelligence Fundamentals Certificate"
+      },
+      "course_image": "path_to_image3.jpg",
+      "course_name": "Business Intelligence Basics",
+      "description": "Learn the basics of business intelligence and how to use it to drive strategic decisions and improve business performance.",
+      "lessons": 8,
+      "credit_hours": "2h",
+      "enrollment": 150,
+      "instructor": "Dr. Emily Davis",
+      "price": "$149.99"
+    },
+    {
+      "course_code": "DS104",
+      "title": "Statistical Analysis with R",
+      "author": "Admin",
+      "category": "Statistics",
+      "course_info": {
+        "overview": "This course focuses on using the R programming language for statistical analysis. It covers data manipulation, hypothesis testing, and advanced statistical techniques. Students will gain practical experience with R and develop skills to perform comprehensive statistical analyses and visualize data.",
+        "objectives": [
+          "Master the basics of R programming for statistical analysis.",
+          "Conduct hypothesis testing and interpret results.",
+          "Perform complex statistical analyses using R.",
+          "Create and interpret data visualizations with R.",
+          "Apply R skills to real-world data analysis problems."
+        ],
+        "modules": [
+          "Introduction to R: Basics and Environment Setup",
+          "Data Manipulation: Cleaning and Transforming Data",
+          "Statistical Testing: T-tests, ANOVA, and Non-Parametric Tests",
+          "Data Visualization: ggplot2 and Other Libraries",
+          "Advanced R Techniques: Custom Functions and Packages",
+          "Project: Statistical Analysis of a Real-World Dataset"
+        ],
+        "prerequisites": "Basic Statistics and Programming Knowledge",
+        "duration": "7 weeks",
+        "schedule": "Winter 2024",
+        "format": "Online",
+        "language": "English",
+        "certification": "Certificate in Statistical Analysis with R"
+      },
+      "course_image": "path_to_image4.jpg",
+      "course_name": "Advanced R for Statistics",
+      "description": "Deepen your understanding of statistical analysis using R, with a focus on advanced techniques and real-world applications.",
+      "lessons": 10,
+      "credit_hours": "3h",
+      "enrollment": 110,
+      "instructor": "Dr. Laura Green",
+      "price": "$159.99"
+    },
+    {
+      "course_code": "DS105",
+      "title": "Data Visualization Techniques",
+      "author": "Admin",
+      "category": "Data Visualization",
+      "course_info": {
+        "overview": "This course covers a range of techniques for effective data visualization, including the use of tools like Tableau and Power BI. Students will learn principles of good visualization design, how to create impactful visualizations, and how to communicate data insights clearly and effectively.",
+        "objectives": [
+          "Understand the principles of effective data visualization.",
+          "Learn to use visualization tools such as Tableau and Power BI.",
+          "Design and create various types of visualizations for different data types.",
+          "Interpret and communicate data insights through visual means.",
+          "Apply visualization techniques to real-world data scenarios."
+        ],
+        "modules": [
+          "Principles of Data Visualization: Theory and Practice",
+          "Introduction to Tableau: Features and Functions",
+          "Introduction to Power BI: Features and Functions",
+          "Visualization Design: Creating Effective Charts and Graphs",
+          "Case Studies: Analyzing Real-World Data Sets",
+          "Project: Designing a Dashboard for a Business Scenario"
+        ],
+        "prerequisites": "None",
+        "duration": "4 weeks",
+        "schedule": "Spring 2024",
+        "format": "Online",
+        "language": "English",
+        "certification": "Data Visualization Certificate"
+      },
+      "course_image": "path_to_image5.jpg",
+      "course_name": "Data Visualization Basics",
+      "description": "Explore effective data visualization techniques and tools to present data insights clearly and compellingly.",
+      "lessons": 6,
+      "credit_hours": "2h",
+      "enrollment": 130,
+      "instructor": "Dr. Michael Lee",
+      "price": "$139.99"
+    },
+    {
+      "course_code": "DS106",
+      "title": "Machine Learning for Beginners",
+      "author": "Admin",
+      "category": "Machine Learning",
+      "course_info": {
+        "overview": "This introductory course in machine learning provides a comprehensive overview of key concepts and algorithms. Students will learn about supervised and unsupervised learning, model evaluation, and basic implementations of machine learning algorithms. The course is designed for those new to the field and aims to build a strong foundation in machine learning.",
+        "objectives": [
+          "Understand the fundamental concepts of machine learning.",
+          "Implement basic machine learning algorithms for classification and regression.",
+          "Apply unsupervised learning techniques for clustering and dimensionality reduction.",
+          "Evaluate and improve machine learning models.",
+          "Complete practical projects to apply learned algorithms to real data."
+        ],
+        "modules": [
+          "Introduction to Machine Learning: Concepts and Terminology",
+          "Supervised Learning: Algorithms and Applications",
+          "Unsupervised Learning: Clustering and Dimensionality Reduction",
+          "Model Evaluation: Metrics, Cross-Validation, and Tuning",
+          "Hands-on Projects: Implementing ML Algorithms on Real Data",
+          "Capstone Project: Developing a Machine Learning Model"
+        ],
+        "prerequisites": "Basic Programming Knowledge",
+        "duration": "6 weeks",
+        "schedule": "Summer 2024",
+        "format": "Online",
+        "language": "English",
+        "certification": "Machine Learning Basics Certificate"
+      },
+      "course_image": "path_to_image6.jpg",
+      "course_name": "Intro to Machine Learning",
+      "description": "Learn the fundamentals of machine learning, including key algorithms and techniques, and gain practical experience through hands-on projects.",
+      "lessons": 8,
+      "credit_hours": "3h",
+      "enrollment": 140,
+      "instructor": "Dr. Sophia Turner",
+      "price": "$169.99"
+    },
+    {
+      "course_code": "DS107",
+      "title": "Big Data Analytics",
+      "author": "Admin",
+      "category": "Big Data",
+      "course_info": {
+        "overview": "This course focuses on the challenges and techniques of analyzing large datasets. Students will learn about big data technologies such as Hadoop and Spark, and how to use these tools for data processing and analysis. The course also covers techniques for visualizing and interpreting big data insights.",
+        "objectives": [
+          "Understand the fundamental concepts of big data and its challenges.",
+          "Learn to use Hadoop and Spark for large-scale data processing.",
+          "Analyze big data using advanced techniques and tools.",
+          "Visualize big data insights effectively.",
+          "Apply big data analytics techniques to real-world problems."
+        ],
+        "modules": [
+          "Introduction to Big Data: Concepts and Tools",
+          "Hadoop Basics: Architecture and Implementation",
+          "Spark Basics: In-Memory Data Processing",
+          "Data Processing Techniques: Batch and Stream Processing",
+          "Big Data Visualization: Tools and Methods",
+          "Capstone Project: Analyzing a Large Dataset"
+        ],
+        "prerequisites": "Introduction to Data Science",
+        "duration": "8 weeks",
+        "schedule": "Fall 2024",
+        "format": "Hybrid",
+        "language": "English",
+        "certification": "Big Data Analytics Certificate"
+      },
+      "course_image": "path_to_image7.jpg",
+      "course_name": "Analyzing Big Data",
+      "description": "Explore techniques and tools for analyzing large datasets, including Hadoop and Spark, and gain hands-on experience with big data analytics.",
+      "lessons": 12,
+      "credit_hours": "4h",
+      "enrollment": 80,
+      "instructor": "Dr. William Clark",
+      "price": "$219.99"
+    },
+    {
+      "course_code": "DS108",
+      "title": "Database Management Systems",
+      "author": "Admin",
+      "category": "Database",
+      "course_info": {
+        "overview": "This course provides a thorough understanding of database management systems (DBMS), including their design, implementation, and management. Students will learn about relational databases, SQL, and database administration, preparing them for roles in database management and development.",
+        "objectives": [
+          "Understand the architecture and design of relational database systems.",
+          "Use SQL for querying and managing databases.",
+          "Implement and maintain a database system.",
+          "Apply best practices for database administration.",
+          "Complete a project demonstrating DBMS skills in a real-world context."
+        ],
+        "modules": [
+          "Database Design: Principles and Normalization",
+          "SQL Basics: Queries, Joins, and Subqueries",
+          "Advanced SQL: Indexing, Transactions, and Stored Procedures",
+          "Database Administration: Backup, Recovery, and Security",
+          "Project Work: Designing and Implementing a Database System"
+        ],
+        "prerequisites": "Basic Programming Knowledge",
+        "duration": "6 weeks",
+        "schedule": "Winter 2024",
+        "format": "Online",
+        "language": "English",
+        "certification": "Database Management Systems Certificate"
+      },
+      "course_image": "path_to_image8.jpg",
+      "course_name": "Advanced Database Management",
+      "description": "Gain expertise in database management systems, including design, SQL, and administration, and apply your skills through a comprehensive project.",
+      "lessons": 10,
+      "credit_hours": "3h",
+      "enrollment": 95,
+      "instructor": "Dr. Alice White",
+      "price": "$179.99"
+    },
+    {
+      "course_code": "DS109",
+      "title": "Introduction to Python for Data Analysis",
+      "author": "Admin",
+      "category": "Programming",
+      "course_info": {
+        "overview": "This course introduces Python programming with a focus on its application in data analysis. Students will learn Python fundamentals and how to use popular libraries like Pandas and NumPy for data manipulation and analysis. The course includes hands-on exercises to build practical skills in data analysis with Python.",
+        "objectives": [
+          "Learn the basics of Python programming.",
+          "Use Pandas for data manipulation and cleaning.",
+          "Apply NumPy for numerical analysis and operations.",
+          "Visualize data using Python libraries such as Matplotlib and Seaborn.",
+          "Complete a project to analyze a dataset using Python."
+        ],
+        "modules": [
+          "Introduction to Python: Basics and Setup",
+          "Data Manipulation with Pandas: Loading, Cleaning, and Transforming Data",
+          "Numerical Analysis with NumPy: Arrays and Mathematical Operations",
+          "Data Visualization with Matplotlib and Seaborn",
+          "Project: Analyzing a Dataset Using Python"
+        ],
+        "prerequisites": "None",
+        "duration": "5 weeks",
+        "schedule": "Spring 2024",
+        "format": "Online",
+        "language": "English",
+        "certification": "Python for Data Analysis Certificate"
+      },
+      "course_image": "path_to_image9.jpg",
+      "course_name": "Python for Data Science",
+      "description": "Learn Python programming with a focus on data analysis techniques and tools, including Pandas, NumPy, and visualization libraries.",
+      "lessons": 8,
+      "credit_hours": "3h",
+      "enrollment": 125,
+      "instructor": "Dr. John Carter",
+      "price": "$139.99"
+    },
+    {
+      "course_code": "DS110",
+      "title": "Predictive Analytics",
+      "author": "Admin",
+      "category": "Analytics",
+      "course_info": {
+        "overview": "This course explores predictive analytics techniques used to forecast future trends based on historical data. Students will learn about various predictive models and their applications in business contexts, using tools such as R and Python to build and evaluate models.",
+        "objectives": [
+          "Understand the principles of predictive analytics.",
+          "Apply statistical and machine learning models to make predictions.",
+          "Use R and Python for building predictive models.",
+          "Evaluate model performance and refine predictions.",
+          "Implement predictive analytics solutions in business scenarios."
+        ],
+        "modules": [
+          "Introduction to Predictive Analytics: Concepts and Models",
+          "Building Predictive Models: Regression, Classification, and Time Series",
+          "Model Evaluation: Metrics and Validation Techniques",
+          "Implementing Predictive Models with R and Python",
+          "Case Studies: Applications in Business and Industry",
+          "Project: Developing a Predictive Model for a Real-World Problem"
+        ],
+        "prerequisites": "Introduction to Data Science or equivalent knowledge",
+        "duration": "7 weeks",
+        "schedule": "Summer 2024",
+        "format": "Hybrid",
+        "language": "English",
+        "certification": "Predictive Analytics Certificate"
+      },
+      "course_image": "path_to_image10.jpg",
+      "course_name": "Advanced Predictive Analytics",
+      "description": "Dive into predictive analytics with a focus on building and evaluating models to forecast future trends and outcomes.",
+      "lessons": 10,
+      "credit_hours": "4h",
+      "enrollment": 85,
+      "instructor": "Dr. Karen Mitchell",
+      "price": "$199.99"
+    },
+    {
+      "course_code": "DS111",
+      "title": "Data Ethics and Privacy",
+      "author": "Admin",
+      "category": "Data Ethics",
+      "course_info": {
+        "overview": "This course addresses the ethical considerations and privacy issues related to data collection and analysis. Students will explore topics such as data security, ethical data use, and privacy regulations. The course aims to equip students with the knowledge to handle data responsibly and ethically in their professional work.",
+        "objectives": [
+          "Understand the principles of data ethics and privacy.",
+          "Learn about data protection regulations and compliance.",
+          "Apply ethical considerations in data collection and analysis.",
+          "Develop strategies for ensuring data security and privacy.",
+          "Discuss real-world case studies of data ethics and privacy issues."
+        ],
+        "modules": [
+          "Introduction to Data Ethics: Principles and Frameworks",
+          "Data Privacy Regulations: GDPR, CCPA, and Others",
+          "Ethical Data Use: Guidelines and Best Practices",
+          "Data Security: Techniques and Tools for Protection",
+          "Case Studies: Real-World Data Ethics and Privacy Issues",
+          "Project: Developing an Ethical Data Use Policy"
+        ],
+        "prerequisites": "None",
+        "duration": "4 weeks",
+        "schedule": "Fall 2024",
+        "format": "Online",
+        "language": "English",
+        "certification": "Data Ethics and Privacy Certificate"
+      },
+      "course_image": "path_to_image11.jpg",
+      "course_name": "Ethics in Data Science",
+      "description": "Explore the ethical considerations and privacy issues in data science, including regulations, best practices, and real-world case studies.",
+      "lessons": 6,
+      "credit_hours": "2h",
+      "enrollment": 100,
+      "instructor": "Dr. Daniel Harris",
+      "price": "$119.99"
+    },
+    {
+      "course_code": "DS112",
+      "title": "Natural Language Processing with Python",
+      "author": "Admin",
+      "category": "Machine Learning",
+      "course_info": {
+        "overview": "This course introduces natural language processing (NLP) techniques using Python. Students will learn to analyze and interpret text data, apply NLP algorithms, and develop applications such as chatbots and text classifiers. The course includes hands-on projects to build practical NLP skills.",
+        "objectives": [
+          "Understand the basics of natural language processing.",
+          "Implement NLP algorithms for text analysis and processing.",
+          "Use Python libraries such as NLTK and SpaCy for NLP tasks.",
+          "Develop NLP applications like sentiment analysis and text classification.",
+          "Complete projects to apply NLP techniques to real-world text data."
+        ],
+        "modules": [
+          "Introduction to Natural Language Processing: Concepts and Tools",
+          "Text Preprocessing: Tokenization, Lemmatization, and More",
+          "Feature Extraction: Bag of Words, TF-IDF, and Word Embeddings",
+          "NLP Algorithms: Classification, Clustering, and Named Entity Recognition",
+          "Building NLP Applications: Chatbots and Text Classifiers",
+          "Project: Developing an NLP Application"
+        ],
+        "prerequisites": "Introduction to Python Programming",
+        "duration": "6 weeks",
+        "schedule": "Spring 2024",
+        "format": "Online",
+        "language": "English",
+        "certification": "NLP with Python Certificate"
+      },
+      "course_image": "path_to_image12.jpg",
+      "course_name": "Text Analytics with Python",
+      "description": "Learn natural language processing with Python, focusing on text analysis, NLP algorithms, and application development through hands-on projects.",
+      "lessons": 9,
+      "credit_hours": "3h",
+      "enrollment": 90,
+      "instructor": "Dr. Emily Martinez",
+      "price": "$179.99"
+    },
+    {
+      "course_code": "DS113",
+      "title": "Time Series Analysis",
+      "author": "Admin",
+      "category": "Statistics",
+      "course_info": {
+        "overview": "This course focuses on time series analysis, including methods for forecasting and analyzing temporal data. Students will learn techniques for modeling time-dependent data and use tools such as R and Python for time series analysis. The course includes practical applications and projects to solidify understanding.",
+        "objectives": [
+          "Understand the principles of time series analysis.",
+          "Apply statistical methods for time series forecasting.",
+          "Use R and Python for time series data manipulation and modeling.",
+          "Analyze and interpret time series data for various applications.",
+          "Complete a project to forecast time series data using learned techniques."
+        ],
+        "modules": [
+          "Introduction to Time Series Analysis: Concepts and Terminology",
+          "Time Series Decomposition: Trend, Seasonality, and Noise",
+          "Forecasting Methods: ARIMA, Exponential Smoothing, and More",
+          "Time Series Analysis with R: Techniques and Libraries",
+          "Time Series Analysis with Python: Techniques and Libraries",
+          "Project: Forecasting a Time Series Dataset"
+        ],
+        "prerequisites": "Basic Statistics and Programming Knowledge",
+        "duration": "7 weeks",
+        "schedule": "Summer 2024",
+        "format": "Hybrid",
+        "language": "English",
+        "certification": "Time Series Analysis Certificate"
+      },
+      "course_image": "path_to_image13.jpg",
+      "course_name": "Advanced Time Series",
+      "description": "Explore techniques for analyzing and forecasting time series data using R and Python, with practical projects and applications.",
+      "lessons": 11,
+      "credit_hours": "4h",
+      "enrollment": 85,
+      "instructor": "Dr. Lisa Adams",
+      "price": "$199.99"
+    },
+    {
+      "course_code": "DS114",
+      "title": "Data Engineering Fundamentals",
+      "author": "Admin",
+      "category": "Data Engineering",
+      "course_info": {
+        "overview": "This course covers the foundational concepts and practices of data engineering, including data pipelines, ETL processes, and data warehousing. Students will learn how to design and implement data systems to support data analysis and business intelligence.",
+        "objectives": [
+          "Understand the role and responsibilities of a data engineer.",
+          "Design and implement data pipelines and ETL processes.",
+          "Work with data warehousing concepts and technologies.",
+          "Use tools and technologies for data engineering tasks.",
+          "Complete a project to build a data pipeline and data warehouse."
+        ],
+        "modules": [
+          "Introduction to Data Engineering: Concepts and Tools",
+          "Data Pipelines: Design and Implementation",
+          "ETL Processes: Extraction, Transformation, and Loading",
+          "Data Warehousing: Design and Architecture",
+          "Data Engineering Tools: Apache Airflow, Luigi, and More",
+          "Project: Building a Data Pipeline and Warehouse"
+        ],
+        "prerequisites": "Basic Knowledge of Databases and Programming",
+        "duration": "8 weeks",
+        "schedule": "Fall 2024",
+        "format": "Online",
+        "language": "English",
+        "certification": "Data Engineering Fundamentals Certificate"
+      },
+      "course_image": "path_to_image14.jpg",
+      "course_name": "Data Engineering Basics",
+      "description": "Learn the fundamentals of data engineering, including designing and implementing data pipelines and data warehousing solutions.",
+      "lessons": 12,
+      "credit_hours": "4h",
+      "enrollment": 70,
+      "instructor": "Dr. Robert Young",
+      "price": "$209.99"
+    },
+    {
+      "course_code": "DS115",
+      "title": "Data Science Project Management",
+      "author": "Admin",
+      "category": "Project Management",
+      "course_info": {
+        "overview": "This course focuses on the management aspects of data science projects, including planning, execution, and evaluation. Students will learn about project management methodologies, tools, and techniques specifically tailored for data science projects, ensuring successful project outcomes.",
+        "objectives": [
+          "Understand project management principles and methodologies.",
+          "Apply project management techniques to data science projects.",
+          "Plan and execute data science projects effectively.",
+          "Use tools and techniques for tracking and evaluating project progress.",
+          "Complete a project management plan for a data science project."
+        ],
+        "modules": [
+          "Introduction to Project Management: Principles and Methodologies",
+          "Planning Data Science Projects: Scope, Timeline, and Resources",
+          "Executing Data Science Projects: Teams, Tasks, and Tools",
+          "Monitoring and Evaluating Project Progress: Metrics and Reports",
+          "Case Studies: Successful Data Science Projects",
+          "Project: Developing a Project Management Plan for a Data Science Initiative"
+        ],
+        "prerequisites": "Basic Knowledge of Data Science",
+        "duration": "5 weeks",
+        "schedule": "Winter 2024",
+        "format": "Online",
+        "language": "English",
+        "certification": "Data Science Project Management Certificate"
+      },
+      "course_image": "path_to_image15.jpg",
+      "course_name": "Managing Data Science Projects",
+      "description": "Explore project management techniques and tools tailored for data science projects to ensure successful planning, execution, and evaluation.",
+      "lessons": 7,
+      "credit_hours": "3h",
+      "enrollment": 75,
+      "instructor": "Dr. Susan Clark",
+      "price": "$159.99"
+    },
+    {
+      "course_code": "DS116",
+      "title": "Introduction to Cloud Computing for Data Science",
+      "author": "Admin",
+      "category": "Cloud Computing",
+      "course_info": {
+        "overview": "This course provides an introduction to cloud computing concepts and their applications in data science. Students will learn about cloud platforms like AWS, Google Cloud, and Azure, and how to leverage these services for data storage, processing, and analysis.",
+        "objectives": [
+          "Understand the fundamentals of cloud computing and its benefits for data science.",
+          "Learn to use cloud platforms such as AWS, Google Cloud, and Azure.",
+          "Apply cloud services for data storage, processing, and analysis.",
+          "Develop skills to deploy data science applications in the cloud.",
+          "Complete a project using cloud computing services for data science tasks."
+        ],
+        "modules": [
+          "Introduction to Cloud Computing: Concepts and Benefits",
+          "Overview of Cloud Platforms: AWS, Google Cloud, and Azure",
+          "Data Storage Solutions: Databases, Data Lakes, and Warehouses",
+          "Data Processing in the Cloud: Tools and Techniques",
+          "Deploying Data Science Applications: Best Practices and Tools",
+          "Project: Implementing a Data Science Solution Using Cloud Services"
+        ],
+        "prerequisites": "Basic Knowledge of Data Science and Programming",
+        "duration": "6 weeks",
+        "schedule": "Spring 2024",
+        "format": "Online",
+        "language": "English",
+        "certification": "Cloud Computing for Data Science Certificate"
+      },
+      "course_image": "path_to_image16.jpg",
+      "course_name": "Cloud Data Science Essentials",
+      "description": "Learn the fundamentals of cloud computing and its applications in data science, including cloud platforms, storage solutions, and deployment techniques.",
+      "lessons": 8,
+      "credit_hours": "3h",
+      "enrollment": 110,
+      "instructor": "Dr. Jessica Lee",
+      "price": "$169.99"
+    }
+  ]
+  
