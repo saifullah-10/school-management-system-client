@@ -14,7 +14,10 @@ import { logout } from "@/utils/api/api";
 const Sidebar = () => {
   // const router = useRouter();
   const handleLogout = async () => {
-    logout();
+    const res = await logout();
+    if (res.status === 200) {
+      console.log("logout success");
+    }
   };
 
   const [isTeachersOpen, setIsTeachersOpen] = useState(false); // For submenu
@@ -23,7 +26,6 @@ const Sidebar = () => {
   const toggleTeachersMenu = () => {
     setIsTeachersOpen(!isTeachersOpen); // Toggle submenu open/close
   };
-
 
   return (
     <ul className="mt-4 text-[17px]">
@@ -96,7 +98,6 @@ const Sidebar = () => {
         )}
       </li>
 
-      
       <Link href="/dashboard/classRoutine">
         <li
           className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${
@@ -124,9 +125,7 @@ const Sidebar = () => {
       <Link href="/dashboard/courses">
         <li
           className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${
-            pathname === "/dashboard/courses"
-              ? "bg-[#704FE6] text-white"
-              : ""
+            pathname === "/dashboard/courses" ? "bg-[#704FE6] text-white" : ""
           }`}
         >
           <FaRegCalendarAlt />
