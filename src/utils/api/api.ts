@@ -1,5 +1,5 @@
 import axios from "axios";
-// import Cookies from "js-cookie";
+import Cookies from "js-cookie";
 
 const API_URL = "https://school-management-system-server-ashen.vercel.app";
 
@@ -20,6 +20,8 @@ export const login = async (email: string, password: string) => {
 };
 
 export const logout = async () => {
+  const ck = Cookies.get();
+  console.log(ck);
   return axios.get(`${API_URL}/auth/logout`, { withCredentials: true });
 };
 
