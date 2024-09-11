@@ -5,7 +5,7 @@ import { MdNotificationsActive } from "react-icons/md";
 import Image from "next/image";
 import male from "../../../../public/assets/images/maleStudent.jpg";
 import Sidebar from "@/components/dashboard/Sidebar.tsx/Sidebar";
-// import PrivateRoute from "@/privateRoute/PrivateRoute";
+import PrivateRoute from "@/privateRoute/PrivateRoute";
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -14,16 +14,15 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    // <PrivateRoute>
+    <PrivateRoute>
       <div className="flex min-h-screen bg-[#F6F8FA]">
         {/* Sidebar */}
         <div
-          className={`fixed z-10 top-0 left-0 h-full w-64 bg-white sm:shadow-right-lg text-black transition-transform transform ${
-            isOpen ? "translate-x-0" : "-translate-x-full"
-          } md:translate-x-0 md:w-64`}
+          className={`fixed z-10 top-0 left-0 h-full w-64 bg-white sm:shadow-right-lg text-black transition-transform transform ${isOpen ? "translate-x-0" : "-translate-x-full"
+            } md:translate-x-0 md:w-64`}
           style={{ maxWidth: "100%", minWidth: "250px" }}
         >
-        
+
           <Sidebar toggleSidebar={toggleSidebar}></Sidebar>
         </div>
         {/* // Content section */}
@@ -61,7 +60,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
           </div>
         </div>
       </div>
-    // </PrivateRoute>
+    </PrivateRoute>
   );
 };
 
