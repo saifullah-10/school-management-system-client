@@ -14,11 +14,8 @@ const Admin = () => {
                 <div className="flex-1 max-w-[1000px] bg-white p-5 rounded-xl shadow-lg mt-5 flex-shrink-0">
                     <EarningChart />
                 </div>
-                <div className="flex-1 max-w-[400px] bg-white p-5 rounded-xl shadow-lg mt-5 flex-shrink-0">
-                    <GenderPieChart />
-                </div>
+                <GenderPieChart />
             </div>
-
             <div className="flex flex-wrap justify-between my-5">
                 <div className="bg-white h-96 rounded-xl shadow-lg p-4">
                     <h3 className="text-2xl font-bold ml-4">Event Calendar</h3>

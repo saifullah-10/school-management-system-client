@@ -14,7 +14,7 @@ const COLORS = ['#304FFE', '#FFA601'];
 
 const GenderPieChart: React.FC = () => {
     return (
-        <div >
+        <div className="flex-1 max-w-[400px] bg-white p-5 rounded-xl shadow-lg mt-5 flex-shrink-0">
             <h1 className='text-2xl font-bold'>Students</h1>
             <ResponsiveContainer width="100%" height={400}>
                 <PieChart>

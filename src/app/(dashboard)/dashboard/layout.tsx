@@ -1,12 +1,11 @@
 "use client";
 import { useState } from "react";
-import Link from "next/link";
 import { FiMenu, FiX } from "react-icons/fi";
 import { MdNotificationsActive } from "react-icons/md";
 import Image from "next/image";
 import male from "../../../../public/assets/images/maleStudent.jpg";
 import Sidebar from "@/components/dashboard/Sidebar.tsx/Sidebar";
-import PrivateRoute from "@/privateRoute/PrivateRoute";
+// import PrivateRoute from "@/privateRoute/PrivateRoute";
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -15,7 +14,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <PrivateRoute>
+    // <PrivateRoute>
       <div className="flex min-h-screen bg-[#F6F8FA]">
         {/* Sidebar */}
         <div
@@ -24,25 +23,8 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
           } md:translate-x-0 md:w-64`}
           style={{ maxWidth: "100%", minWidth: "250px" }}
         >
-          <div className="p-4 flex items-center justify-between">
-            <Link
-              href={"/"}
-              className="text-2xl  transform transition-transform hover:scale-110 cursor-pointer font-extrabold"
-            >
-              Starlight{" "}
-              <span className="text-[#704FE6]">
-                <br />
-                University
-              </span>
-            </Link>
-            <button
-              onClick={toggleSidebar}
-              className="md:hidden border-2 border-red-600 rounded-[7px]"
-            >
-              <FiX size={24} className="text-red-600" />
-            </button>
-          </div>
-          <Sidebar></Sidebar>
+        
+          <Sidebar toggleSidebar={toggleSidebar}></Sidebar>
         </div>
         {/* // Content section */}
         <div
@@ -79,7 +61,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
           </div>
         </div>
       </div>
-    </PrivateRoute>
+    // </PrivateRoute>
   );
 };
 
