@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import Link from "next/link";
 import { FiMenu, FiX } from "react-icons/fi";
 import { MdNotificationsActive } from "react-icons/md";
 import Image from "next/image";
@@ -19,30 +18,12 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       <div className="flex min-h-screen bg-[#F6F8FA]">
         {/* Sidebar */}
         <div
-          className={`fixed z-10 top-0 left-0 h-full w-64 bg-white sm:shadow-right-lg text-black transition-transform transform ${
-            isOpen ? "translate-x-0" : "-translate-x-full"
-          } md:translate-x-0 md:w-64`}
+          className={`fixed z-10 top-0 left-0 h-full w-64 bg-white sm:shadow-right-lg text-black transition-transform transform ${isOpen ? "translate-x-0" : "-translate-x-full"
+            } md:translate-x-0 md:w-64`}
           style={{ maxWidth: "100%", minWidth: "250px" }}
         >
-          <div className="p-4 flex items-center justify-between">
-            <Link
-              href={"/"}
-              className="text-2xl  transform transition-transform hover:scale-110 cursor-pointer font-extrabold"
-            >
-              Starlight{" "}
-              <span className="text-[#704FE6]">
-                <br />
-                University
-              </span>
-            </Link>
-            <button
-              onClick={toggleSidebar}
-              className="md:hidden border-2 border-red-600 rounded-[7px]"
-            >
-              <FiX size={24} className="text-red-600" />
-            </button>
-          </div>
-          <Sidebar></Sidebar>
+
+          <Sidebar toggleSidebar={toggleSidebar}></Sidebar>
         </div>
         {/* // Content section */}
         <div
