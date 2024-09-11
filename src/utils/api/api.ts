@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 const API_URL = "http://localhost:5000";
 
 export const register = async (email: string, password: string) => {
@@ -17,9 +16,8 @@ export const login = async (email: string, password: string) => {
 
 export const logout = async () => {
   localStorage.clear();
-
 };
-
+//update user
 export const fetchProtectedData = async () => {
   const accessToken = localStorage.getItem("us");
 
