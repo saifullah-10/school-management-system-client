@@ -2,12 +2,12 @@
 
 import { fetchProtectedData } from "@/utils/api/api";
 import { useState } from "react";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  // const router = useRouter();
+  const router = useRouter();
   const [user, setUser] = useState(true);
   const [loading, setLoading] = useState(true);
   const protectedData = async () => {
@@ -27,10 +27,10 @@ const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({
   if (loading) {
     return <div>loading.....</div>;
   }
-  console.log(user);
-  // if (!user) {
-  //   router.push("/login");
-  // }
+
+  if (!user) {
+    router.push("/login");
+  }
   return <div>{children}</div>;
 };
 
