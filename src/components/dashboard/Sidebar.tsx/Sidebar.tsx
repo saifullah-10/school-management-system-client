@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+import { FiChevronDown, FiChevronUp, FiLogOut } from "react-icons/fi";
 import { AiOutlineDashboard } from "react-icons/ai";
 import { GiTeacher } from "react-icons/gi";
 import { GrGroup } from "react-icons/gr";
 import { ImProfile } from "react-icons/im";
-import { FaAngleRight } from "react-icons/fa6";
-import { FaRegCalendarAlt } from "react-icons/fa";
+import { FaAngleRight, FaListCheck } from "react-icons/fa6";
+import { FaBook, FaClipboardList, FaRegCalendarAlt } from "react-icons/fa";
 import { MdNotificationsActive } from "react-icons/md";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
@@ -126,7 +126,7 @@ const Sidebar = () => {
               : ""
           }`}
         >
-          <FaRegCalendarAlt />
+          <FaListCheck  />
           Attendance
         </li>
       </Link>
@@ -138,7 +138,7 @@ const Sidebar = () => {
               : ""
           }`}
         >
-          <FaRegCalendarAlt />
+          <FaBook />
           Courses
         </li>
       </Link>
@@ -149,7 +149,7 @@ const Sidebar = () => {
             pathname === "/dashboard/exam" ? "bg-[#704FE6] text-white" : ""
           }`}
         >
-          <ImProfile />
+          <FaClipboardList  />
           Exam
         </li>
       </Link>
@@ -174,11 +174,11 @@ const Sidebar = () => {
           Notice
         </li>
       </Link>
-
+      <div className="border-b-2 mx-3 border-black my-2"></div>
       <li
         onClick={handleLogout}
-        className="py-2 px-4 hover:text-white hover:bg-[#704FE6]"
-      >
+        className="py-2 px-4 hover:text-white hover:bg-[#704FE6] flex items-center font-bold text-lg gap-2"
+      ><FiLogOut />
         Logout
       </li>
     </ul>
