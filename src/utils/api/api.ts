@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// const API_URL = "http://localhost:5000";
-const API_URL = "https://school-management-system-server-lovat.vercel.app";
+const API_URL = "http://localhost:5000";
+// const API_URL = "https://school-management-system-server-lovat.vercel.app";
 
 export const register = async (email: string, password: string) => {
   return axios.post(
@@ -22,16 +22,12 @@ export const logout = async () => {
 export const fetchProtectedData = async () => {
   const accessToken = localStorage.getItem("us");
 
-  try {
-    const response = await axios.get(`${API_URL}/auth/protected`, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
-    if (response) {
-      return response;
-    }
-  } catch (error) {
-    return error as Error;
+  const response = await axios.get(`${API_URL}/auth/protected`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+  if (response) {
+    return response;
   }
 };
