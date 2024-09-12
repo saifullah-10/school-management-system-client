@@ -19,7 +19,7 @@ const trafficData: TrafficData[] = [
 
 const TrafficDashboard: React.FC = () => {
   return (
-    <div className="p-4 h-96 bg-white rounded-xl shadow-lg">
+    <div className="p-4 h-96 ">
       <h2 className="text-2xl font-semibold mb-2">Website Traffic</h2>
       <p className="text-4xl font-bold mb-4">2,590</p>
       
