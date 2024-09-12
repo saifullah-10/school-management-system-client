@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000";
-// const API_URL = "https://school-management-system-server-lovat.vercel.app";
+// const API_URL = "http://localhost:5000";
+const API_URL = "https://school-management-system-server-lovat.vercel.app";
 
 export const register = async (email: string, password: string) => {
   return axios.post(
