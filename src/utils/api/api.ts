@@ -22,16 +22,12 @@ export const logout = async () => {
 export const fetchProtectedData = async () => {
   const accessToken = localStorage.getItem("us");
 
-  try {
-    const response = await axios.get(`${API_URL}/auth/protected`, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
-    if (response) {
-      return response;
-    }
-  } catch (error) {
-    return error as Error;
+  const response = await axios.get(`${API_URL}/auth/protected`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+  if (response) {
+    return response;
   }
 };

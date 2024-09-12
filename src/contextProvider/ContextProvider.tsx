@@ -1,41 +1,41 @@
 "use client";
-import {
-  createContext,
-  Dispatch,
-  SetStateAction,
-  useContext,
+import { fetchProtectedData, logout } from "@/utils/api/api";
+import { AuthContextProps, UserData } from "@/utils/types/contextApi";
 
-  useState,
-} from "react";
+import { usePathname, useRouter } from "next/navigation";
 
-
-interface User {
-  _id: string;
-  authentication: object;
-  email: string;
-  username: string;
-  token: string;
-}
-interface AuthContextProps {
-  user: User | null;
-  setUser: (user: User | null) => void;
-  logout?: () => void;
-  loading: boolean;
-  setLoading: Dispatch<SetStateAction<boolean>>;
-}
+import { createContext, useContext, useEffect, useState } from "react";
 
 const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 
 export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [user, setUser] = useState<User | null>(null);
+  const path = usePathname();
+  const router = useRouter();
+  const [user, setUser] = useState<UserData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
- 
+
+  useEffect(() => {
+    const univesalDate = async () => {
+      try {
+        const userData = await fetchProtectedData();
+        
+        if (userData === undefined) {
+          logout();
+        } else {
+          setUser(userData.data)
+     
+        }
+      } catch (err) {
+        logout();
+        console.log(err);
+      }
+    };
+    univesalDate();
+  }, [path, router]);
   return (
-    <AuthContext.Provider
-      value={{ user, setUser, loading, setLoading }}
-    >
+    <AuthContext.Provider value={{ user, setUser, loading, setLoading }}>
       {children}
     </AuthContext.Provider>
   );
