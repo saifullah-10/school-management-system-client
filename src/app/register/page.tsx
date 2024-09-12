@@ -36,6 +36,7 @@ const Register = () => {
     const photourl = data.photoUrl;
     const role = data.role;
     try {
+      setLoading(true);
       const res = await registerUser(username, email, password, photourl, role);
       const us_token = res.data.token;
       if (us_token) {
@@ -51,17 +52,16 @@ const Register = () => {
           } else {
             setUser(user.data);
             router.push("/dashboard");
-            setLoading(false);
           }
         } catch (err) {
           logout();
           setUser(null);
           router.push("/login");
-          setLoading(false);
         }
       } else {
-        console.error("login failed");
+        console.error("register failed");
         router.push("/login");
+        setLoading(false);
       }
     } catch (err) {
       console.log(err);
