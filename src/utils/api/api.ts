@@ -28,12 +28,22 @@ export const logout = async () => {
 export const fetchProtectedData = async () => {
   const accessToken = localStorage.getItem("us");
 
-  const response = await axios.get(`${API_URL}/auth/protected`, {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-  });
-  if (response) {
+  if (!accessToken) {
+    console.error("No access token found. User might be logged out.");
+    return null;
+  }
+
+  try {
+    const response = await axios.get(`${API_URL}/auth/protected`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+
     return response;
+  } catch (error) {
+    console.error("Failed to fetch protected data:", error);
+
+    return null;
   }
 };

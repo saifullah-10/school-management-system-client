@@ -21,23 +21,22 @@ export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
       try {
         const userData = await fetchProtectedData();
 
-        if (userData === undefined) {
+        if (userData === null) {
           logout();
           setUser(null);
         } else {
           setUser(userData.data);
-         
         }
       } catch (err) {
-        logout();
         setLoading(false);
+        logout();
         console.log(err);
-      }finally{
-        setLoading(false)
+      } finally {
+        setLoading(false);
       }
     };
-    setLoading(true)
-   univesalDate()
+    setLoading(true);
+    univesalDate();
   }, [path, router]);
 
   if (loading) {
