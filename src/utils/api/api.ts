@@ -3,10 +3,16 @@ import axios from "axios";
 // const API_URL = "http://localhost:5000";
 const API_URL = "https://school-management-system-server-lovat.vercel.app";
 
-export const register = async (email: string, password: string) => {
+export const registerUser = async (
+  username: string,
+  email: string,
+  password: string,
+  photourl: string,
+  role: string
+) => {
   return axios.post(
     `${API_URL}/auth/register`,
-    { email, password },
+    { username, email, password, photourl, role },
     { withCredentials: true }
   );
 };

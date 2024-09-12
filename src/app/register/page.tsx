@@ -5,6 +5,8 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 import { useState } from "react";
 import bg from "../../../public/assets/images/university1.jpg";
+import { registerUser } from "@/utils/api/api";
+import { useRouter } from "next/navigation";
 
 interface LoginFormInputs {
   email: string;
@@ -16,6 +18,7 @@ interface LoginFormInputs {
 }
 
 const Register = () => {
+  const router = useRouter();
   const [show, setShow] = useState(false);
   const {
     register,
@@ -24,11 +27,26 @@ const Register = () => {
   } = useForm<LoginFormInputs>();
 
   const onSubmit: SubmitHandler<LoginFormInputs> = async (data) => {
-    console.log("Name:", data.name);
-    console.log("Email:", data.email);
-    console.log("Password:", data.password);
-    console.log("Photo URL:", data.photoUrl);
-    console.log("Role:", data.role);
+    const username = data.name;
+    const email = data.email;
+    const password = data.password;
+    const photourl = data.photoUrl;
+    const role = data.role;
+    try {
+      const res = await registerUser(username, email, password, photourl, role);
+      const us_token = res.data.token;
+      if (us_token) {
+        localStorage.setItem("us", us_token);
+
+        router.push("/dashboard");
+      } else {
+        console.error("login failed");
+        router.push("/login");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+
     console.log("Agreed to Terms:", data.agreeToTerms);
   };
 
