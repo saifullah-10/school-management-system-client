@@ -19,7 +19,7 @@ interface LoginFormInputs {
 
 const LoginPage = () => {
   const [show, setShow] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const { setUser } = useAuth();
 
@@ -36,6 +36,7 @@ const LoginPage = () => {
     console.log("Agreed to Terms:", data.agreeToTerms);
 
     try {
+      setLoading(true);
       const res = await login(email, password);
       const us_token = res.data.token;
 
@@ -51,13 +52,11 @@ const LoginPage = () => {
           } else {
             setUser(user.data);
             router.push("/dashboard");
-            setLoading(false);
           }
         } catch (err) {
           logout();
           setUser(null);
           router.push("/login");
-          setLoading(false);
         }
       } else {
         console.error("login failed");
