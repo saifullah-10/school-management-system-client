@@ -8,24 +8,16 @@ import {
 // Define the types
 interface AttendanceRecord {
   name: string;
-  attendance: { [date: string]: { [course: string]: string } }; // { date: { courseName: 'P' | 'A' | '-' } }
+  attendance: Record<string, Record<string, 'P' | 'A' | '-'>>; // { date: { courseName: 'P' | 'A' | '-' } }
 }
 
 const AttendanceInput: React.FC = () => {
+  const todayDate = new Date().toISOString().split('T')[0]; // Format: YYYY-MM-DD
   const [attendanceData, setAttendanceData] = useState<AttendanceRecord[]>(initialAttendanceData); // Initialize with sample data or fetch from API
-  const [selectedDate, setSelectedDate] = useState<string>(new Date().toISOString().split('T')[0]);
   const [currentStudent, setCurrentStudent] = useState<string | ''>('');
-  const [attendanceInputs, setAttendanceInputs] = useState<{ [studentName: string]: { [course: string]: string } }>({});
+  const [attendanceInputs, setAttendanceInputs] = useState<{ [studentName: string]: { [course: string]: 'P' | 'A' | '-' } }>({});
 
-  // Extract dates and courses from attendance data
-  const dates = useMemo(() => {
-    const allDates = new Set<string>();
-    attendanceData.forEach(record => {
-      Object.keys(record.attendance).forEach(date => allDates.add(date));
-    });
-    return Array.from(allDates).sort();
-  }, [attendanceData]);
-
+  // Extract courses from attendance data
   const courses = useMemo(() => {
     const allCourses = new Set<string>();
     if (attendanceData.length > 0) {
@@ -36,15 +28,11 @@ const AttendanceInput: React.FC = () => {
     return Array.from(allCourses);
   }, [attendanceData]);
 
-  const handleDateChange = (event: SelectChangeEvent<string>) => {
-    setSelectedDate(event.target.value);
-  };
-
   const handleStudentChange = (event: SelectChangeEvent<string>) => {
     const studentName = event.target.value;
     setCurrentStudent(studentName);
     if (studentName) {
-      const studentAttendance = attendanceData.find(record => record.name === studentName)?.attendance[selectedDate] || {};
+      const studentAttendance = attendanceData.find(record => record.name === studentName)?.attendance[todayDate] || {};
       setAttendanceInputs(prev => ({
         ...prev,
         [studentName]: studentAttendance
@@ -52,7 +40,7 @@ const AttendanceInput: React.FC = () => {
     }
   };
 
-  const handleAttendanceChange = (course: string, status: string) => {
+  const handleAttendanceChange = (course: string, status: 'P' | 'A' | '-') => {
     setAttendanceInputs(prev => ({
       ...prev,
       [currentStudent!]: {
@@ -71,7 +59,7 @@ const AttendanceInput: React.FC = () => {
           ...record,
           attendance: {
             ...record.attendance,
-            [selectedDate]: attendanceInputs[currentStudent!]
+            [todayDate]: attendanceInputs[currentStudent!]
           }
         };
       }
@@ -82,24 +70,11 @@ const AttendanceInput: React.FC = () => {
   };
 
   return (
-    <Box p={2}>
+    <Box>
       <h2 className="text-xl font-semibold mb-2">Update Attendance</h2>
-      <Box mb={4} display="flex" alignItems="center" flexWrap={'wrap'}>
-        <FormControl variant="outlined" sx={{ mr: 2 }}>
-          <InputLabel id="date-select-label">Date</InputLabel>
-          <Select
-            labelId="date-select-label"
-            value={selectedDate}
-            onChange={handleDateChange}
-            label="Date"
-          >
-            {dates.map(date => (
-              <MenuItem key={date} value={date}>{date}</MenuItem>
-            ))}
-          </Select>
-        </FormControl>
 
-        <FormControl variant="outlined"  className='w-52'>
+      <Box mb={4} display="flex" alignItems="center" flexWrap={'wrap'}>
+        <FormControl variant="outlined" sx={{ mr: 2 }} className='w-52'>
           <InputLabel id="student-select-label">Student</InputLabel>
           <Select
             labelId="student-select-label"
@@ -112,6 +87,17 @@ const AttendanceInput: React.FC = () => {
             ))}
           </Select>
         </FormControl>
+
+        {/* Display today's date */}
+        <TextField
+          label="Date"
+          value={todayDate}
+          InputProps={{
+            readOnly: true,
+          }}
+          variant="outlined"
+          sx={{ width: 200, ml: 2 }}
+        />
       </Box>
 
       {currentStudent && (
@@ -123,7 +109,7 @@ const AttendanceInput: React.FC = () => {
                 select
                 label="Attendance"
                 value={attendanceInputs[currentStudent]?.[course] || '-'}
-                onChange={(e) => handleAttendanceChange(course, e.target.value)}
+                onChange={(e) => handleAttendanceChange(course, e.target.value as 'P' | 'A' | '-')}
                 sx={{ width: 150 }}
               >
                 <MenuItem value="P">Present</MenuItem>
@@ -161,9 +147,9 @@ const initialAttendanceData: AttendanceRecord[] = [
 ];
 
 // Function to generate random attendance data for a given number of days and courses
-function generateAttendanceData(days: number, coursesCount: number): { [date: string]: { [course: string]: string } } {
+function generateAttendanceData(days: number, coursesCount: number): Record<string, Record<string, 'P' | 'A' | '-'>> {
   const courses = Array.from({ length: coursesCount }, (_, i) => `DS${100 + i}`);
-  const data: { [date: string]: { [course: string]: string } } = {};
+  const data: Record<string, Record<string, 'P' | 'A' | '-'>> = {};
   
   const startDate = new Date(); // Start from today
   for (let i = 0; i < days; i++) {
@@ -173,7 +159,8 @@ function generateAttendanceData(days: number, coursesCount: number): { [date: st
     data[dateString] = {};
     
     courses.forEach(course => {
-      data[dateString][course] = ['P', 'A', '-'][Math.floor(Math.random() * 3)];
+      // Type assertion for the randomly selected value
+      data[dateString][course] = (['P', 'A', '-'][Math.floor(Math.random() * 3)] as 'P' | 'A' | '-');
     });
   }
   
