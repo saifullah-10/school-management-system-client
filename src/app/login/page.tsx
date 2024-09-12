@@ -8,7 +8,8 @@ import bg from "../../../public/assets/images/university1.jpg";
 
 import { useRouter } from "next/navigation";
 
-import { login } from "@/utils/api/api";
+import { fetchProtectedData, login, logout } from "@/utils/api/api";
+import { useAuth } from "@/contextProvider/ContextProvider";
 
 interface LoginFormInputs {
   email: string;
@@ -20,6 +21,7 @@ const LoginPage = () => {
   const [show, setShow] = useState(false);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const { setUser } = useAuth();
 
   const {
     register,
@@ -29,19 +31,38 @@ const LoginPage = () => {
 
   const onSubmit: SubmitHandler<LoginFormInputs> = async (data) => {
     const email = data.email;
+
     const password = data.password.toString();
     console.log("Agreed to Terms:", data.agreeToTerms);
     setLoading(true);
     try {
       const res = await login(email, password);
       const us_token = res.data.token;
+
       if (us_token) {
         localStorage.setItem("us", us_token);
+        try {
+          const user = await fetchProtectedData();
 
-        router.push("/dashboard");
+          if (user === null) {
+            logout();
+            setUser(null);
+            router.push("/login");
+          } else {
+            setUser(user.data);
+            router.push("/dashboard");
+            setLoading(false);
+          }
+        } catch (err) {
+          logout();
+          setUser(null);
+          router.push("/login");
+          setLoading(false);
+        }
       } else {
         console.error("login failed");
         router.push("/login");
+         setLoading(false);
       }
     } catch (err) {
       router.push("/login");
