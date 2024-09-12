@@ -51,24 +51,23 @@ const LoginPage = () => {
           } else {
             setUser(user.data);
             router.push("/dashboard");
+            setLoading(false);
           }
         } catch (err) {
           logout();
           setUser(null);
           router.push("/login");
-        } finally {
           setLoading(false);
         }
       } else {
         console.error("login failed");
         router.push("/login");
+        setLoading(false);
       }
     } catch (err) {
       router.push("/login");
-
-      console.error(err);
-    } finally {
       setLoading(false);
+      console.error(err);
     }
   };
   if (loading) {
