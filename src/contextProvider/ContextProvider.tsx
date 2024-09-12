@@ -26,16 +26,18 @@ export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
           setUser(null);
         } else {
           setUser(userData.data);
-          setLoading(false);
+         
         }
       } catch (err) {
         logout();
-        setUser(null);
         setLoading(false);
         console.log(err);
+      }finally{
+        setLoading(false)
       }
     };
-    univesalDate();
+    setLoading(true)
+   univesalDate()
   }, [path, router]);
 
   if (loading) {
