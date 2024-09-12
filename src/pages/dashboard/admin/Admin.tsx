@@ -10,25 +10,28 @@ const Admin = () => {
     return (
         <div>
             <Status></Status>
-            <div className="flex gap-5 flex-col lg:flex-row justify-between ">
+            <div className="flex flex-wrap gap-1 lg:flex-row justify-between ">
                 <div className="flex-1 max-w-[1000px] bg-white p-5 rounded-xl shadow-lg mt-5 flex-shrink-0">
                     <EarningChart />
                 </div>
                 <GenderPieChart />
             </div>
-            <div className="flex flex-wrap justify-between my-5">
-                <div className="bg-white h-96 rounded-xl shadow-lg p-4">
+            <div className="flex flex-wrap justify-between my-5 gap-5">
+                <div className="bg-white w-full lg:w-[30%] h-auto lg:h-[400px] rounded-xl shadow-lg p-4 flex-shrink-0">
                     <h3 className="text-2xl font-bold ml-4">Event Calendar</h3>
                     <Calendar />
                 </div>
-                <div className="w-fit min-w-[350px] lg:w-1/3">
+
+                <div className="bg-white w-full lg:w-[30%] h-auto lg:h-[400px] rounded-xl shadow-lg p-4 flex-shrink-0">
                     <TrafficDashboard />
                 </div>
-                <div className="w-fit lg:w-[30%]">
+
+                <div className="bg-white w-full lg:w-[30%] h-auto lg:h-[400px] rounded-xl shadow-lg p-4 flex-shrink-0">
                     <NoticeBoard />
                 </div>
-
             </div>
+
+
 
         </div>
     );
