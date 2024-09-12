@@ -10,6 +10,7 @@ import { MdNotificationsActive } from "react-icons/md";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { logout } from "@/utils/api/api";
+import { useAuth } from "@/contextProvider/ContextProvider";
 
 // Define the type for the props
 interface SidebarProps {
@@ -17,9 +18,11 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
+  const { setUser } = useAuth();
   const router = useRouter();
   const handleLogout = () => {
     logout();
+    setUser(null);
     router.push("/login");
   };
 

@@ -23,12 +23,15 @@ export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
 
         if (userData === undefined) {
           logout();
+          setUser(null);
         } else {
           setUser(userData.data);
           setLoading(false);
         }
       } catch (err) {
         logout();
+        setUser(null);
+        setLoading(false);
         console.log(err);
       }
     };
