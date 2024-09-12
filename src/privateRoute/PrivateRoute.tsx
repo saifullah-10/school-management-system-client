@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contextProvider/ContextProvider";
 
+
 const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {

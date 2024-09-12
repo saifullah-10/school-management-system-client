@@ -5,8 +5,9 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 import { useState } from "react";
 import bg from "../../../public/assets/images/university1.jpg";
-import { registerUser } from "@/utils/api/api";
+import { fetchProtectedData, logout, registerUser } from "@/utils/api/api";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/contextProvider/ContextProvider";
 
 interface LoginFormInputs {
   email: string;
@@ -20,6 +21,8 @@ interface LoginFormInputs {
 const Register = () => {
   const router = useRouter();
   const [show, setShow] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const { setUser } = useAuth();
   const {
     register,
     handleSubmit,
@@ -38,7 +41,24 @@ const Register = () => {
       if (us_token) {
         localStorage.setItem("us", us_token);
 
-        router.push("/dashboard");
+        try {
+          const user = await fetchProtectedData();
+
+          if (user === null) {
+            logout();
+            setUser(null);
+            router.push("/login");
+          } else {
+            setUser(user.data);
+            router.push("/dashboard");
+            setLoading(false);
+          }
+        } catch (err) {
+          logout();
+          setUser(null);
+          router.push("/login");
+          setLoading(false);
+        }
       } else {
         console.error("login failed");
         router.push("/login");
@@ -49,7 +69,9 @@ const Register = () => {
 
     console.log("Agreed to Terms:", data.agreeToTerms);
   };
-
+  if (loading) {
+    <div>loading from register</div>;
+  }
   return (
     <div className="w-full flex justify-center items-center mx-auto relative min-h-screen p-5 sm:p-10">
       <div className="absolute inset-0 z-[-1]">
