@@ -20,12 +20,12 @@ export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
     const univesalDate = async () => {
       try {
         const userData = await fetchProtectedData();
-        
+
         if (userData === undefined) {
           logout();
         } else {
-          setUser(userData.data)
-     
+          setUser(userData.data);
+          setLoading(false);
         }
       } catch (err) {
         logout();
@@ -34,6 +34,10 @@ export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
     };
     univesalDate();
   }, [path, router]);
+
+  if (loading) {
+    return <div>loading context</div>;
+  }
   return (
     <AuthContext.Provider value={{ user, setUser, loading, setLoading }}>
       {children}
