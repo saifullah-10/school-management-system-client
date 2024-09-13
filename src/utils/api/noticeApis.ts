@@ -1,5 +1,5 @@
 import axiosInstance from "@/lib/axios";
-import { NoticeInputs } from "../types/noticeTypes";
+import { NoticeInputs, SearchTypes } from "../types/noticeTypes";
 
 export const postNoticeData = async (data: NoticeInputs) => {
   try {
@@ -10,9 +10,13 @@ export const postNoticeData = async (data: NoticeInputs) => {
   }
 };
 
-export const getNoticeData = async () => {
+export const getNoticeData = async (data: SearchTypes) => {
+  const { posted, title } = data;
+
   try {
-    const res = await axiosInstance.get("/notice");
+    const res = await axiosInstance.get(
+      `/notice?searchdate=${posted || ""}&title=${title || ""}`
+    );
 
     return res.data;
   } catch (err) {
