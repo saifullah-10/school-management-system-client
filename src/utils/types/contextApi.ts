@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 
 export interface UserData {
-  MotherName: string;
+  motherName: string;
   address: string;
   bloodGroup: string;
   classId: string;

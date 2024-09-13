@@ -7,11 +7,15 @@ import male from "../../../../public/assets/images/maleStudent.jpg";
 import Sidebar from "@/components/dashboard/Sidebar.tsx/Sidebar";
 import PrivateRoute from "@/privateRoute/PrivateRoute";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useAuth } from "@/contextProvider/ContextProvider";
 
 const queryClient = new QueryClient();
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { user } = useAuth();
+  const img = user?.photoUrl || male; // Fallback image
+
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -47,15 +51,16 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
                   <MdNotificationsActive className="text-2xl" />
                   <div className="flex items-center gap-3">
                     <div className="text-right">
-                      <h1 className="font-semibold">Stave Job</h1>
-                      <span className="inline-flex items-center rounded-[12px] bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
-                        Admin
+                      <h1 className="font-semibold capitalize">{user?.username}</h1>
+                      <span className="inline-flex items-center rounded-[12px] bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10 capitalize">
+                        {user?.role}
                       </span>
                     </div>
                     <Image
-                      placeholder="blur"
-                      src={male}
-                      alt=""
+                      src={img}
+                      alt={`${user?.username || "User"}'s profile`}
+                      width={40}
+                      height={40}
                       className="inline-block h-8 w-8 rounded-full ring-2 ring-white"
                     />
                   </div>
