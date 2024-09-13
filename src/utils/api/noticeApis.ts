@@ -10,16 +10,25 @@ export const postNoticeData = async (data: NoticeInputs) => {
   }
 };
 
-export const getNoticeData = async (data: SearchTypes) => {
-  const { posted, title } = data;
+export const getNoticeData = async (data?: SearchTypes) => {
+  if (data) {
+    const { posted, title } = data;
+    try {
+      const res = await axiosInstance.get(
+        `/notice?searchdate=${posted || ""}&title=${title || ""}`
+      );
 
-  try {
-    const res = await axiosInstance.get(
-      `/notice?searchdate=${posted || ""}&title=${title || ""}`
-    );
+      return res.data;
+    } catch (err) {
+      return err;
+    }
+  } else {
+    try {
+      const res = await axiosInstance.get(`/notice?searchdate=&title=`);
 
-    return res.data;
-  } catch (err) {
-    return err;
+      return res.data;
+    } catch (err) {
+      return err;
+    }
   }
 };
