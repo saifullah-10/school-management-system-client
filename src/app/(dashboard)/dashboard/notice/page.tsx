@@ -15,9 +15,12 @@ import { useAuth } from "@/contextProvider/ContextProvider";
 import { getNoticeData, postNoticeData } from "@/utils/api/noticeApis";
 import { useQuery } from "@tanstack/react-query";
 import timeAgo from "@/utils/globalFunction/timeAgoFn";
+import { useEffect, useState } from "react";
 
 const Notice: React.FC = () => {
   const { user } = useAuth();
+  const [searchValue, setSearchValue] = useState<SearchTypes>({});
+  console.log(searchValue);
   function getRandomColorCode(colorCodes: string[]) {
     const randomIndex = Math.floor(Math.random() * colorCodes.length);
 
@@ -40,8 +43,12 @@ const Notice: React.FC = () => {
   const formattedDate = getFormattedDate();
   const { data, refetch, isLoading, isFetching } = useQuery({
     queryKey: ["get-notice-data"],
-    queryFn: getNoticeData,
+    queryFn: () => getNoticeData(searchValue),
   });
+
+  useEffect(() => {
+    refetch();
+  }, [searchValue, refetch]);
 
   const {
     register: addData,
@@ -74,7 +81,7 @@ const Notice: React.FC = () => {
     useForm<NoticeInputs>();
 
   const handleSearchData: SubmitHandler<SearchTypes> = async (data) => {
-    console.log(data);
+    setSearchValue(data);
   };
 
   if (isLoading || isFetching) {
