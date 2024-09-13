@@ -10,7 +10,7 @@ const Admin = () => {
     return (
         <div>
             <Status></Status>
-            <div className="flex flex-wrap gap-1 lg:flex-row justify-between ">
+            <div className="flex flex-wrap gap-3 lg:flex-row justify-between ">
                 <div className="flex-1 max-w-[1000px] bg-white p-5 rounded-xl shadow-lg mt-5 flex-shrink-0">
                     <EarningChart />
                 </div>
