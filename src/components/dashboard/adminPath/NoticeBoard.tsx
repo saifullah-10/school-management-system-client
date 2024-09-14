@@ -1,14 +1,14 @@
 "use client";
 import { Card, CardContent } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import {  useAuthFromContext } from "@/contextProvider/ContextProvider";
+import { useAuth } from "@/contextProvider/ContextProvider";
 import { getNoticeData } from "@/utils/api/noticeApis";
 import timeAgo from "@/utils/globalFunction/timeAgoFn";
 import { NoticeInputs } from "@/utils/types/noticeTypes";
 import { useQuery } from "@tanstack/react-query";
 
 const NoticeBoard = () => {
-  const { user } =  useAuthFromContext();
+  const { user } = useAuth();
   const { data, isLoading } = useQuery({
     queryKey: ["get-notice-common-data"],
     queryFn: () => getNoticeData(),

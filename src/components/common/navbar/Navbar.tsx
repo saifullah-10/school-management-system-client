@@ -1,13 +1,13 @@
 "use client";
 
-import {  useAuthFromContext } from "@/contextProvider/ContextProvider";
+import { useAuth } from "@/contextProvider/ContextProvider";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { IoClose, IoMenu } from "react-icons/io5";
 
 const Navbar = () => {
-  const { user } =  useAuthFromContext();
+  const { user } = useAuth();
   const navigate = usePathname();
   console.log(user);
   const Links = (
