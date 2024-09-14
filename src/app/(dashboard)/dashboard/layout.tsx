@@ -7,13 +7,13 @@ import male from "../../../../public/assets/images/maleStudent.jpg";
 import Sidebar from "@/components/dashboard/Sidebar.tsx/Sidebar";
 import PrivateRoute from "@/privateRoute/PrivateRoute";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { useAuth } from "@/contextProvider/ContextProvider";
+import {  useAuthFromContext } from "@/contextProvider/ContextProvider";
 
 const queryClient = new QueryClient();
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { user } = useAuth();
+  const { user } =  useAuthFromContext();
   const img = user?.photoUrl || male; // Fallback image
 
 

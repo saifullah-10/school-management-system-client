@@ -7,7 +7,7 @@ import { useState } from "react";
 import bg from "../../../public/assets/images/university1.jpg";
 import { fetchProtectedData, logout, registerUser } from "@/utils/api/api";
 import { useRouter } from "next/navigation";
-import { useAuth } from "@/contextProvider/ContextProvider";
+import {  useAuthFromContext } from "@/contextProvider/ContextProvider";
 
 interface LoginFormInputs {
   email: string;
@@ -22,7 +22,7 @@ const Register = () => {
   const router = useRouter();
   const [show, setShow] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { setUser } = useAuth();
+  const { setUser } =  useAuthFromContext();
   const {
     register,
     handleSubmit,

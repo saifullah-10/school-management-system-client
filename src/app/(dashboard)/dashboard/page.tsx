@@ -1,11 +1,11 @@
 'use client'
-import { useAuth } from "@/contextProvider/ContextProvider";
+import {  useAuthFromContext } from "@/contextProvider/ContextProvider";
 import Admin from "@/pages/dashboard/admin/Admin";
 import StudentDashboard from "@/pages/dashboard/student/StudentDashboard";
 import TeacherDashboard from "@/pages/dashboard/teacher/TeacherDashboard";
 
 const Dashboard = () => {
-  const { user } = useAuth();
+  const { user } =  useAuthFromContext();
 
   return (
     <div>

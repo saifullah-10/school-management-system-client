@@ -11,14 +11,14 @@ import {
   SearchTypes,
 } from "@/utils/types/noticeTypes";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useAuth } from "@/contextProvider/ContextProvider";
+import { useAuthFromContext } from "@/contextProvider/ContextProvider";
 import { getNoticeData, postNoticeData } from "@/utils/api/noticeApis";
 import { useQuery } from "@tanstack/react-query";
 import timeAgo from "@/utils/globalFunction/timeAgoFn";
 import { useEffect, useState } from "react";
 
 const Notice: React.FC = () => {
-  const { user } = useAuth();
+  const { user } = useAuthFromContext();
   const [searchValue, setSearchValue] = useState<SearchTypes>({});
   console.log(searchValue);
   function getRandomColorCode(colorCodes: string[]) {
