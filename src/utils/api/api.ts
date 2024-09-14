@@ -28,6 +28,8 @@ export const logout = async () => {
 export const fetchProtectedData = async () => {
   const accessToken = localStorage.getItem("us");
 
+  console.log(accessToken);
+
   if (!accessToken) {
     console.error("No access token found. User might be logged out.");
     return null;

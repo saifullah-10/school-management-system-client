@@ -39,8 +39,8 @@ const Notice: React.FC = () => {
     return `${year}-${month}-${day}`; // Return in YYYY-MM-DD format
   }
 
-  // Example usage
   const formattedDate = getFormattedDate();
+
   const { data, refetch, isLoading, isFetching } = useQuery({
     queryKey: ["get-notice-data"],
     queryFn: () => getNoticeData(searchValue),

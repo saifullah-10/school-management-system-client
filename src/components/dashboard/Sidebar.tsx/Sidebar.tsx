@@ -18,7 +18,7 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
-  const { setUser } = useAuth();
+  const { setUser, user } = useAuth();
   const router = useRouter();
   const handleLogout = () => {
     logout();
@@ -64,64 +64,72 @@ const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
             Dashboard
           </li>
         </Link>
-        <Link href="/dashboard/allStudent">
-          <li
-            className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${
-              pathname === "/dashboard/allStudent"
-                ? "bg-[#704FE6] text-white"
-                : ""
-            }`}
-          >
-            <GrGroup />
-            All Students
-          </li>
-        </Link>
+        {user?.role !== "student" ? (
+          <Link href="/dashboard/allStudent">
+            <li
+              className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${
+                pathname === "/dashboard/allStudent"
+                  ? "bg-[#704FE6] text-white"
+                  : ""
+              }`}
+            >
+              <GrGroup />
+              All Students
+            </li>
+          </Link>
+        ) : (
+          ""
+        )}
 
         {/* Teachers Menu with Dropdown */}
-        <li className="relative">
-          <button
-            onClick={toggleTeachersMenu}
-            className={`w-full text-left py-2 px-4 hover:text-white hover:bg-[#704FE6] flex justify-between items-center ${
-              pathname.includes("/dashboard/teacher")
-                ? "bg-[#704FE6] text-white"
-                : ""
-            }`}
-          >
-            <h1 className="flex text-lg items-center gap-2">
-              <GiTeacher />
-              Teachers{" "}
-            </h1>
-            {isTeachersOpen ? <FiChevronUp /> : <FiChevronDown />}
-          </button>
-          {isTeachersOpen && (
-            <ul className="ml-4 mt-2">
-              <Link href="/dashboard/teachers/all">
-                <li
-                  className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white rounded-l-xl ${
-                    pathname === "/dashboard/teachers/all"
-                      ? "bg-[#704FE6] text-white"
-                      : ""
-                  }`}
-                >
-                  <FaAngleRight />
-                  All Teachers
-                </li>
-              </Link>
-              <Link href="/dashboard/teachers/add">
-                <li
-                  className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white rounded-l-xl ${
-                    pathname === "/dashboard/teachers/add"
-                      ? "bg-[#704FE6] text-white"
-                      : ""
-                  }`}
-                >
-                  <FaAngleRight />
-                  Add Teacher
-                </li>
-              </Link>
-            </ul>
-          )}
-        </li>
+        {user?.role !== "student" ? (
+          <li className="relative">
+            <button
+              onClick={toggleTeachersMenu}
+              className={`w-full text-left py-2 px-4 hover:text-white hover:bg-[#704FE6] flex justify-between items-center ${
+                pathname.includes("/dashboard/teacher")
+                  ? "bg-[#704FE6] text-white"
+                  : ""
+              }`}
+            >
+              <h1 className="flex text-lg items-center gap-2">
+                <GiTeacher />
+                Teachers{" "}
+              </h1>
+              {isTeachersOpen ? <FiChevronUp /> : <FiChevronDown />}
+            </button>
+            {isTeachersOpen && (
+              <ul className="ml-4 mt-2">
+                <Link href="/dashboard/teachers/all">
+                  <li
+                    className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white rounded-l-xl ${
+                      pathname === "/dashboard/teachers/all"
+                        ? "bg-[#704FE6] text-white"
+                        : ""
+                    }`}
+                  >
+                    <FaAngleRight />
+                    All Teachers
+                  </li>
+                </Link>
+                <Link href="/dashboard/teachers/add">
+                  <li
+                    className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white rounded-l-xl ${
+                      pathname === "/dashboard/teachers/add"
+                        ? "bg-[#704FE6] text-white"
+                        : ""
+                    }`}
+                  >
+                    <FaAngleRight />
+                    Add Teacher
+                  </li>
+                </Link>
+              </ul>
+            )}
+          </li>
+        ) : (
+          ""
+        )}
 
         <Link href="/dashboard/classRoutine">
           <li
