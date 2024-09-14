@@ -13,7 +13,11 @@ const queryClient = new QueryClient();
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { user } = useAuth();
+  const auth = useAuth();
+  if (auth === null) {
+    return <div>loading</div>;
+  }
+  const { user } = auth;
   const img = user?.photoUrl || male; // Fallback image
 
   const toggleSidebar = () => {

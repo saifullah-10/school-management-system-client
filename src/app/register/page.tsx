@@ -22,13 +22,17 @@ const Register = () => {
   const router = useRouter();
   const [show, setShow] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { setUser } = useAuth();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<LoginFormInputs>();
-
+  const auth = useAuth();
+  if (auth === null) {
+    return <div>loading</div>;
+  }
+  const { setUser } = auth;
   const onSubmit: SubmitHandler<LoginFormInputs> = async (data) => {
     const username = data.name;
     const email = data.email;
