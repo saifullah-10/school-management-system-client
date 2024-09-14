@@ -18,8 +18,6 @@ import timeAgo from "@/utils/globalFunction/timeAgoFn";
 import { useEffect, useState } from "react";
 
 const Notice: React.FC = () => {
-  const { user } = useAuth();
-  console.log(user, " user from notice");
   const [searchValue, setSearchValue] = useState<SearchTypes>({});
   console.log(searchValue);
   function getRandomColorCode(colorCodes: string[]) {
@@ -84,7 +82,11 @@ const Notice: React.FC = () => {
   const handleSearchData: SubmitHandler<SearchTypes> = async (data) => {
     setSearchValue(data);
   };
-
+  const auth = useAuth();
+  if (auth === null) {
+    return <div>loading</div>;
+  }
+  const { user } = auth;
   if (isLoading || isFetching) {
     <div>loading from notice page</div>;
   }

@@ -1,14 +1,12 @@
-
 import Linear from "@/components/animation/courses/Linear";
 import LinearWave from "@/components/animation/courses/LinearWave";
 import Rotate from "@/components/animation/courses/Rotate";
 import RotateFast from "@/components/animation/courses/RotateFast";
 import Course from "@/components/courses/Course";
-import { useAuth } from "@/contextProvider/ContextProvider";
+
 import Link from "next/link";
 
 const Courses: React.FC = () => {
-
   return (
     <>
       {/* heading */}

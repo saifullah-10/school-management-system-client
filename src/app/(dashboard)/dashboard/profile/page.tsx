@@ -4,7 +4,11 @@ import Image from "next/image";
 import { useAuth } from "@/contextProvider/ContextProvider";
 
 const Profile = () => {
-  const { user } = useAuth();
+  const auth = useAuth();
+  if (auth === null) {
+    return <div>loading</div>;
+  }
+  const { user } = auth;
 
   return (
     <div className="flex flex-col lg:flex-row gap-5 items-center justify-center p-6 bg-gray-50 ">

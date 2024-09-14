@@ -5,7 +5,11 @@ import StudentDashboard from "@/pages/dashboard/student/StudentDashboard";
 import TeacherDashboard from "@/pages/dashboard/teacher/TeacherDashboard";
 
 const Dashboard = () => {
-  const { user } = useAuth();
+  const auth = useAuth();
+  if (auth === null) {
+    return <div>loading</div>;
+  }
+  const { user } = auth;
 
   console.log(user, " user from main");
 
