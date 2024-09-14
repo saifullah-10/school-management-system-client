@@ -18,7 +18,7 @@ interface Course {
 }
 
 const getCourses = async() =>{
-  const res = await fetch('http://localhost:5000/coursesCollection?limit=6');
+  const res = await fetch('https://school-management-system-server-lovat.vercel.app/coursesCollection?limit=6');
   const data = await res.json();
   return data;
 }
