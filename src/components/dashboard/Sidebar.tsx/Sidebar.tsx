@@ -10,7 +10,7 @@ import { MdNotificationsActive } from "react-icons/md";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { logout } from "@/utils/api/api";
-import { useAuth } from "@/contextProvider/ContextProvider";
+import {  useAuthFromContext } from "@/contextProvider/ContextProvider";
 
 // Define the type for the props
 interface SidebarProps {
@@ -18,7 +18,7 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
-  const { setUser, user } = useAuth();
+  const { setUser, user } =  useAuthFromContext();
   const router = useRouter();
   const handleLogout = () => {
     logout();

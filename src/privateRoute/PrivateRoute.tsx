@@ -1,14 +1,14 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useAuth } from "@/contextProvider/ContextProvider";
+import {  useAuthFromContext } from "@/contextProvider/ContextProvider";
 
 
 const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const router = useRouter();
-  const { user } = useAuth();
+  const { user } =  useAuthFromContext();
 
   if (!user) {
     router.push("/login");

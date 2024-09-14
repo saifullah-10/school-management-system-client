@@ -9,7 +9,7 @@ import bg from "../../../public/assets/images/university1.jpg";
 import { useRouter } from "next/navigation";
 
 import { fetchProtectedData, login, logout } from "@/utils/api/api";
-import { useAuth } from "@/contextProvider/ContextProvider";
+import {  useAuthFromContext } from "@/contextProvider/ContextProvider";
 
 interface LoginFormInputs {
   email: string;
@@ -21,7 +21,7 @@ const LoginPage = () => {
   const [show, setShow] = useState(false);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const { setUser } = useAuth();
+  const { setUser } =  useAuthFromContext();
 
   const {
     register,

@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { useAuth } from "@/contextProvider/ContextProvider";
+import {  useAuthFromContext } from "@/contextProvider/ContextProvider";
 
 const Profile = () => {
-  const { user } = useAuth();
+  const { user } =  useAuthFromContext();
 
   return (
     <div className="flex flex-col lg:flex-row gap-5 items-center justify-center p-6 bg-gray-50 ">
