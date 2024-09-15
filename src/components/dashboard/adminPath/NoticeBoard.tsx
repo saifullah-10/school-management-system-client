@@ -65,6 +65,7 @@
 // export default NoticeBoard;
 import React from "react";
 
-export const NoticeBoard = () => {
+const NoticeBoard = () => {
   return <div>NoticeBoard</div>;
 };
+export default NoticeBoard;
