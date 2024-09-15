@@ -14,8 +14,8 @@ import {
   TableRow,
   Paper,
 } from "@mui/material";
-import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
+// import { useQuery } from "@tanstack/react-query";
 import axiosInstance from "@/lib/axios";
 import { FaCheck } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
@@ -37,16 +37,35 @@ const fetchAttendanceRecords = async (): Promise<AttendanceRecord[]> => {
 export default function AttendancePage() {
   const [selectedName, setSelectedName] = useState<string>("");
 
+  //test
+  const [records, setRecords] = useState<AttendanceRecord[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+  console.log(error);
   // Use TanStack Query to fetch data
-  const {
-    data: records = [],
-    isLoading,
-    error,
-  } = useQuery({
-    queryKey: ["attendanceRecords"],
-    queryFn: fetchAttendanceRecords,
-  });
+  // const {
+  //   data: records = [],
+  //   isLoading,
+  //   error,
+  // } = useQuery({
+  //   queryKey: ["attendanceRecords"],
+  //   queryFn: fetchAttendanceRecords,
+  // });
+  //test
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const data = await fetchAttendanceRecords();
+        setRecords(data);
+        setIsLoading(false);
+      } catch (err) {
+        setError("Error fetching attendance records");
+        setIsLoading(false);
+      }
+    };
 
+    loadData();
+  }, []);
   // Extract names, dates, and courses
   const names = records.map((record) => record.name);
   const dates = Array.from(
@@ -69,7 +88,7 @@ export default function AttendancePage() {
   ) || { attendance: {} as Record<string, Record<string, "P" | "A" | "-">> };
 
   if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Error loading data: {error.message}</p>;
+  // if (error) return <p>Error loading data: {error.message}</p>;
 
   return (
     <Box>
