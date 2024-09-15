@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { FiChevronDown, FiChevronUp, FiLogOut, FiX } from "react-icons/fi";
 import { AiOutlineDashboard } from "react-icons/ai";
@@ -18,7 +19,6 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
-  const { setUser, user } = useAuth();
   const router = useRouter();
   const handleLogout = () => {
     logout();
@@ -32,7 +32,11 @@ const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
   const toggleTeachersMenu = () => {
     setIsTeachersOpen(!isTeachersOpen); // Toggle submenu open/close
   };
-
+  const auth = useAuth();
+  if (auth === null) {
+    return <div>loading</div>;
+  }
+  const { user, setUser } = auth;
   return (
     <>
       <div className="p-4 flex items-center justify-between">

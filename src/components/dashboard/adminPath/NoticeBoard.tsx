@@ -8,7 +8,6 @@ import { NoticeInputs } from "@/utils/types/noticeTypes";
 import { useQuery } from "@tanstack/react-query";
 
 const NoticeBoard = () => {
-  const { user } = useAuth();
   const { data, isLoading } = useQuery({
     queryKey: ["get-notice-common-data"],
     queryFn: () => getNoticeData(),
@@ -20,7 +19,11 @@ const NoticeBoard = () => {
   }
 
   const colorCodes = ["#FF5733", "#33FF57", "#3357FF", "#F1C40F", "#9B59B6"];
-
+  const auth = useAuth();
+  if (auth === null) {
+    return <div>loading</div>;
+  }
+  const { user } = auth;
   const randomColor = getRandomColorCode(colorCodes);
   if (isLoading) {
     <div>loading in notice</div>;
@@ -60,3 +63,9 @@ const NoticeBoard = () => {
 };
 
 export default NoticeBoard;
+// import React from "react";
+
+// const NoticeBoard = () => {
+//   return <div>NoticeBoard</div>;
+// };
+// export default NoticeBoard;

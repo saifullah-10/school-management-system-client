@@ -3,6 +3,7 @@ import LinearWave from "@/components/animation/courses/LinearWave";
 import Rotate from "@/components/animation/courses/Rotate";
 import RotateFast from "@/components/animation/courses/RotateFast";
 import Course from "@/components/courses/Course";
+
 import Link from "next/link";
 
 interface Course {
