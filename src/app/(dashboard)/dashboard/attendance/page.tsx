@@ -14,8 +14,8 @@ import {
   TableRow,
   Paper,
 } from "@mui/material";
-import { useEffect, useState } from "react";
-// import { useQuery } from "@tanstack/react-query";
+import { useState, useMemo, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
 import axiosInstance from "@/lib/axios";
 import { FaCheck } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
@@ -23,55 +23,49 @@ import { GoDash } from "react-icons/go";
 import AttendanceInput from "@/components/attendance/AttendanceInput";
 import { useAuth } from "@/contextProvider/ContextProvider";
 
-// Define the AttendanceRecord type
 interface AttendanceRecord {
   name: string;
-  attendance: Record<string, Record<string, "P" | "A" | "-">>; // { date: { courseName: 'P' | 'A' | '-' } }
+  attendance: Record<string, Record<string, "P" | "A" | "-">>;
 }
 
-// Fetch all attendance records
 const fetchAttendanceRecords = async (): Promise<AttendanceRecord[]> => {
   const response = await axiosInstance.get("/attendance");
   return response.data;
 };
 
 export default function AttendancePage() {
+  const { user } = useAuth();
   const [selectedName, setSelectedName] = useState<string>("");
 
-  //test
-  const [records, setRecords] = useState<AttendanceRecord[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
-  console.log(error);
-  // Use TanStack Query to fetch data
-  // const {
-  //   data: records = [],
-  //   isLoading,
-  //   error,
-  // } = useQuery({
-  //   queryKey: ["attendanceRecords"],
-  //   queryFn: fetchAttendanceRecords,
-  // });
-  //test
-  useEffect(() => {
-    const loadData = async () => {
-      try {
-        const data = await fetchAttendanceRecords();
-        setRecords(data);
-        setIsLoading(false);
-      } catch (err) {
-        setError("Error fetching attendance records");
-        setIsLoading(false);
-      }
-    };
+  const {
+    data: records = [],
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["attendanceRecords"],
+    queryFn: fetchAttendanceRecords,
+  });
 
-    loadData();
-  }, []);
-  // Extract names, dates, and courses
+  // Set selectedName based on user role
+  useEffect(() => {
+    if (user?.role === "student") {
+      setSelectedName(user.username);
+    }
+  }, [user]);
+
   const names = records.map((record) => record.name);
-  const dates = Array.from(
-    new Set(records.flatMap((record) => Object.keys(record.attendance || {})))
-  );
+
+  // Memoize sorted dates to avoid unnecessary recalculations
+  const dates = useMemo(() => {
+    const allDates = Array.from(
+      new Set(records.flatMap((record) => Object.keys(record.attendance || {})))
+    );
+    // Sort dates in ascending order
+    return allDates.sort(
+      (a, b) => new Date(b).getTime() - new Date(a).getTime()
+    );
+  }, [records]);
+
   const courses =
     records.length > 0
       ? Array.from(
@@ -83,111 +77,79 @@ export default function AttendancePage() {
         )
       : [];
 
-  // Find selected record
   const selectedRecord = records.find(
     (record) => record.name === selectedName
   ) || { attendance: {} as Record<string, Record<string, "P" | "A" | "-">> };
-  const auth = useAuth();
-  if (auth === null) {
-    return <div>loading</div>;
-  }
-  const { user } = auth;
+
   if (isLoading) return <p>Loading...</p>;
-  // if (error) return <p>Error loading data: {error.message}</p>;
+  if (error) return <p>Error loading data: {error.message}</p>;
 
   return (
-    <>
-      {" "}
-      {user?.role === "student" ? (
-        <Box>
-          <h1 className="text-2xl text-center font-bold mb-4">
-            Attendance of Students
-          </h1>
+    <Box>
+      <h1 className="text-2xl text-center font-bold mb-4">
+        Attendance of Students
+      </h1>
 
-          <AttendanceInput />
+      {user?.role === "student" ? null : <AttendanceInput />}
 
-          <Box mb={4} display="flex" alignItems="center">
-            <FormControl variant="outlined" fullWidth>
-              <InputLabel id="name-select-label">Name</InputLabel>
-              <Select
-                labelId="name-select-label"
-                value={selectedName}
-                onChange={(e) => setSelectedName(e.target.value)}
-                label="Name"
-              >
-                {names.map((name) => (
-                  <MenuItem key={name} value={name}>
-                    {name}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-          </Box>
-
-          <TableContainer
-            component={Paper}
-            sx={{
-              width: { xs: "86vw", sm: "62vw", md: "70vw", lg: "77vw" },
-              overflowX: "auto",
-              margin: "0 auto",
-            }}
+      <Box mb={4} display="flex" alignItems="center">
+        <FormControl variant="outlined" fullWidth>
+          <InputLabel id="name-select-label">Name</InputLabel>
+          <Select
+            labelId="name-select-label"
+            value={selectedName}
+            onChange={(e) => setSelectedName(e.target.value)}
+            label="Name"
+            disabled={user?.role === "student"} // Disable if role is 'student'
           >
-            <Table stickyHeader>
-              <TableHead>
-                <TableRow>
-                  <TableCell>Date/Sub</TableCell>
-                  {courses.map((course) => (
-                    <TableCell key={course} align="center">
-                      {course}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {dates.map((date) => (
-                  <TableRow key={date}>
-                    <TableCell>{date}</TableCell>
-                    {courses.map((course) => (
-                      <TableCell key={course} align="center">
-                        {selectedRecord.attendance[date]?.[course] === "P" ? (
-                          <FaCheck color="green" />
-                        ) : selectedRecord.attendance[date]?.[course] ===
-                          "A" ? (
-                          <ImCross color="red" />
-                        ) : (
-                          <GoDash />
-                        )}
-                      </TableCell>
-                    ))}
-                  </TableRow>
+            {names.map((name) => (
+              <MenuItem key={name} value={name}>
+                {name}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Box>
+
+      <TableContainer
+        component={Paper}
+        sx={{
+          width: { xs: "86vw", sm: "62vw", md: "70vw", lg: "77vw" },
+          overflowX: "auto",
+          margin: "0 auto",
+        }}
+      >
+        <Table stickyHeader>
+          <TableHead>
+            <TableRow>
+              <TableCell>Date</TableCell>
+              {courses.map((course) => (
+                <TableCell key={course} align="center">
+                  {course}
+                </TableCell>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {dates.map((date) => (
+              <TableRow key={date}>
+                <TableCell>{date}</TableCell>
+                {courses.map((course) => (
+                  <TableCell key={course} align="center">
+                    {selectedRecord.attendance[date]?.[course] === "P" ? (
+                      <FaCheck color="green" />
+                    ) : selectedRecord.attendance[date]?.[course] === "A" ? (
+                      <ImCross color="red" />
+                    ) : (
+                      <GoDash />
+                    )}
+                  </TableCell>
                 ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </Box>
-      ) : user?.role === "teacher" ? (
-        <div>
-          <table className="">
-            <thead>
-              <tr className="bg-gray">
-                <td>student id</td>
-                <td>Name</td>
-                <td>Status</td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>345345343</td>
-                <td>jon</td>
-                <td>
-                  <button>p</button>
-                  <button>a</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      ) : null}
-    </>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Box>
   );
 }

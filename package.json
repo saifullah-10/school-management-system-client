@@ -24,6 +24,7 @@
     "axios": "^1.7.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "cookie": "^0.6.0",
     "dayjs": "^1.11.13",
     "flowbite": "^2.5.1",
     "flowbite-react": "^0.10.1",
@@ -46,6 +47,7 @@
     "vaul": "^0.9.2"
   },
   "devDependencies": {
+    "@types/cookie": "^0.6.0",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
     "@types/react": "^18",

@@ -6,7 +6,42 @@ import Course from "@/components/courses/Course";
 
 import Link from "next/link";
 
-const Courses: React.FC = () => {
+interface Course {
+  _id: string;
+  course_code: string;
+  title: string;
+  author: string;
+  category: string;
+  course_info: {
+    overview: string;
+    objectives: string[];
+    modules: string[];
+    prerequisites: string;
+    duration: string;
+    schedule: string;
+    format: string;
+    language: string;
+    certification: string;
+  };
+  course_image: string;
+  course_name: string;
+  description: string;
+  lessons: number;
+  credit_hours: string;
+  enrollment: number;
+  instructor: string;
+  price: string;
+}
+
+const getCourses = async () => {
+  const res = await fetch('https://school-management-system-server-lovat.vercel.app/coursesCollection?limit=6');
+  const data = await res.json();
+  return data;
+}
+
+const Courses: React.FC = async () => {
+  const CourseData = await getCourses();
+
   return (
     <>
       {/* heading */}
@@ -28,11 +63,10 @@ const Courses: React.FC = () => {
       </div>
 
       {/* courses cards */}
-
       <div className="flex flex-wrap md:flex-col gap-10 justify-center my-20">
-        {[...Array(6)].map((_, index) => (
-          <Link href={`/courses/${index}`} key={index}>
-            <Course keyProp={index} />
+        {CourseData.map((course: Course, index: number) => (
+          <Link href={`/courses/${course._id}`} key={course._id}>
+            <Course keyProp={course} index={index} />
           </Link>
         ))}
       </div>
