@@ -52,7 +52,8 @@ const CourseDetailspage = ({ params }: { params: Params }) => {
     const [error, setError] = useState<string | null>(null);
     const [registrationStatus, setRegistrationStatus] = useState<string | null>(null);
     const [isRegistered, setIsRegistered] = useState<boolean>(false);
-    const { user } = useAuth();
+    const auth = useAuth();
+    const user = auth?.user;
 
     useEffect(() => {
         const fetchCourse = async () => {
@@ -69,15 +70,14 @@ const CourseDetailspage = ({ params }: { params: Params }) => {
     }, [params.id]);
 
     useEffect(() => {
-        if (user && course) {
-            const checkRegistration = () => {
-                // Assuming user.registeredCourses is an array of course codes
+        const checkRegistration = () => {
+            if (user && course) {
                 const isAlreadyRegistered = user.registeredCourses.includes(course.course_code);
                 setIsRegistered(isAlreadyRegistered);
-            };
+            }
+        };
 
-            checkRegistration();
-        }
+        checkRegistration();
     }, [user, course]);
 
     const handleRegister = async () => {
