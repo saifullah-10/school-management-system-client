@@ -22,6 +22,7 @@ const Dashboard = () => {
       {/* <Admin />
       <StudentDashboard />
       <TeacherDashboard /> */}
+
       {user?.role === "admin" && <Admin></Admin>}
       {user?.role === "student" && <StudentDashboard></StudentDashboard>}
       {user?.role === "teacher" && <TeacherDashboard></TeacherDashboard>}
