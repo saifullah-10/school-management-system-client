@@ -239,11 +239,3 @@ const Notice: React.FC = () => {
 };
 
 export default Notice;
-
-// import React from "react";
-
-// const Notice = () => {
-//   return <div>page</div>;
-// };
-
-// export default Notice;

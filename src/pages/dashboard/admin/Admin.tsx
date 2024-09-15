@@ -5,6 +5,7 @@ import NoticeBoard from "@/components/dashboard/adminPath/NoticeBoard";
 
 import Status from "@/components/dashboard/adminPath/Status";
 import TrafficDashboard from "@/components/dashboard/adminPath/TrafficDashboard";
+import Tanstack from "@/utils/Tanstack";
 
 const Admin = () => {
   return (
@@ -27,7 +28,10 @@ const Admin = () => {
         </div>
 
         <div className="bg-white w-full lg:w-[30%] h-auto lg:h-[400px] rounded-xl shadow-lg p-4 flex-shrink-0">
-          <NoticeBoard />
+          <Tanstack>
+            {" "}
+            <NoticeBoard />
+          </Tanstack>
         </div>
       </div>
     </div>
