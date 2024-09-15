@@ -13,9 +13,12 @@ const queryClient = new QueryClient();
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { user } = useAuth();
+  const auth = useAuth();
+  if (auth === null) {
+    return <div>loading</div>;
+  }
+  const { user } = auth;
   const img = user?.photoUrl || male; // Fallback image
-
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -27,11 +30,11 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         <div className="flex min-h-screen bg-[#F6F8FA]">
           {/* Sidebar */}
           <div
-            className={`fixed z-10 top-0 left-0 h-full w-64 bg-white sm:shadow-right-lg text-black transition-transform transform ${isOpen ? "translate-x-0" : "-translate-x-full"
-              } md:translate-x-0 md:w-64`}
+            className={`fixed z-10 top-0 left-0 h-full w-64 bg-white sm:shadow-right-lg text-black transition-transform transform ${
+              isOpen ? "translate-x-0" : "-translate-x-full"
+            } md:translate-x-0 md:w-64`}
             style={{ maxWidth: "100%", minWidth: "250px" }}
           >
-
             <Sidebar toggleSidebar={toggleSidebar}></Sidebar>
           </div>
           {/* // Content section */}
@@ -51,7 +54,9 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
                   <MdNotificationsActive className="text-2xl" />
                   <div className="flex items-center gap-3">
                     <div className="text-right">
-                      <h1 className="font-semibold capitalize">{user?.username}</h1>
+                      <h1 className="font-semibold capitalize">
+                        {user?.username}
+                      </h1>
                       <span className="inline-flex items-center rounded-[12px] bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10 capitalize">
                         {user?.role}
                       </span>

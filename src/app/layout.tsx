@@ -6,7 +6,8 @@ import Footer from "@/components/common/footer/Footer";
 import Preloader from "@/components/animation/preloader/Preloader";
 
 import ScrollToTopButton from "@/components/common/scroll to top/ScrollToText";
-import { ContextProvider } from "@/contextProvider/ContextProvider";
+import { AuthProvider } from "@/contextProvider/ContextProvider";
+import Tanstack from "@/utils/Tanstack";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,16 +34,17 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-        <ContextProvider>
-   
-          <Preloader>
-            <Navbar></Navbar>
-            {children}
-            <Footer />
-            <ScrollToTopButton />
-          </Preloader>
-        </ContextProvider>
+      >
+        <AuthProvider>
+          <Tanstack>
+            <Preloader>
+              <Navbar></Navbar>
+              {children}
+              <Footer />
+              <ScrollToTopButton />
+            </Preloader>
+          </Tanstack>
+        </AuthProvider>
       </body>
     </html>
   );

@@ -8,7 +8,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 
-export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
+export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const path = usePathname();
@@ -51,8 +51,6 @@ export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error("useAuth must be used within an AuthProvider");
-  }
-  return context;
+
+  return context ?? null;
 };

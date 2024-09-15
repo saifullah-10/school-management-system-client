@@ -4,7 +4,11 @@ import Image from "next/image";
 import { useAuth } from "@/contextProvider/ContextProvider";
 
 const Profile = () => {
-  const { user } = useAuth();
+  const auth = useAuth();
+  if (auth === null) {
+    return <div>loading</div>;
+  }
+  const { user } = auth;
 
   return (
     <div className="flex flex-col lg:flex-row gap-5 items-center justify-center p-6 bg-gray-50 ">
@@ -21,7 +25,9 @@ const Profile = () => {
 
       {/* Right Side: Profile Info */}
       <div className="lg:w-2/3 w-full bg-white p-6 rounded-lg shadow-lg">
-        <h2 className="text-3xl font-semibold text-center lg:text-left mb-4">Profile Info</h2>
+        <h2 className="text-3xl font-semibold text-center lg:text-left mb-4">
+          Profile Info
+        </h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {/* Profile details */}
           <div>
