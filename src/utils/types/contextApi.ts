@@ -15,6 +15,7 @@ export interface UserData {
   role: string;
   status: string;
   username: string;
+  registeredCourses: string[];
   _id: string;
   refreshToken?: string;
   authentication?: object;

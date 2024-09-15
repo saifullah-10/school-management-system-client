@@ -4,7 +4,30 @@ import { IoIosPeople } from "react-icons/io";
 import { MdLibraryBooks, MdOutlineAccessTime } from "react-icons/md";
 import { PiChalkboardTeacherFill } from "react-icons/pi";
 
-export default function Courses() {
+interface Course {
+  _id: string;
+  category: string;
+  title: string;
+  duration: string;
+  credit_hours: string;
+  durainstructortion: string;
+  lessons: string;
+  instructor: string;
+  enrollment: number;
+  price: number;
+}
+
+const getCourses = async() =>{
+  const res = await fetch('https://school-management-system-server-lovat.vercel.app/coursesCollection?limit=6');
+  const data = await res.json();
+  return data;
+}
+
+const Courses = async() => {
+
+  const CourseData = await getCourses();
+  // console.log(CourseData);
+
   return (
     <div className="bg-[url('/assets/images/ed-bg-1.jpg')] md:py-14">
       {/* elements */}
@@ -20,9 +43,9 @@ export default function Courses() {
 
         <div className="flex flex-wrap gap-5 justify-center mx-auto mt-20">
           {
-            [...Array(6)].map((_, index) => (
-              <Link href={`/courses/${index}`}
-                key={index}>
+            CourseData.map((course : Course) => (
+              <Link href={`/courses/${course._id}`}
+                key={course._id}>
                 <div
                   className="bg-slate-200 group hover:bg-[#17254e] transition duration-300 ease-in-out hover:text-white border-dashed border-[#7151e6] border-[1px] w-[360px] sm:w-[398px] shadow-xl rounded-xl"
                 >
@@ -38,25 +61,25 @@ export default function Courses() {
                   {/* card body */}
                   <div className="p-8 mx-auto">
                     {/* title  */}
-                    <h2 className="text-white text-lg font-semibold border-2 bg-[#17254e] max-w-fit p-2 rounded-[4px] relative bottom-[300px] right-10 sm:right-12">Arts & Design</h2>
+                    <h2 className="text-white text-lg font-semibold border-2 bg-[#17254e] max-w-fit p-2 rounded-[4px] relative bottom-[300px] right-10 sm:right-12"> {course.category} </h2>
 
                     {/* tag line */}
 
-                    <p className="text-lg font-Montserrat font-semibold -mt-16">Inspiring Creativity, Shaping Tomorrow by crafting Visionaries in Art and Design.</p>
+                    <p className="text-lg font-Montserrat font-semibold -mt-12"> {course.title} </p>
 
                     {/* card actions */}
 
                     <div className="flex justify-between bg-white text-black w-80 py-2 px-4 my-4 rounded-sm">
-                      <div className="flex items-center"><MdLibraryBooks /> Lessons 6</div>
-                      <div className="flex items-center"> <MdOutlineAccessTime /> 3h Credit</div>
-                      <div className="flex items-center"> <IoIosPeople /> 100</div>
+                      <div className="flex items-center gap-1"><MdLibraryBooks /> Lessons: {course.lessons}</div>
+                      <div className="flex items-center gap-1"> <MdOutlineAccessTime /> Credit {course.credit_hours} </div>
+                      <div className="flex items-center gap-1"> <IoIosPeople /> {course.enrollment} </div>
                     </div>
 
-                    <div className="flex justify-between p-2 my-3">
-                      <div className="flex items-center">
-                        <PiChalkboardTeacherFill /> Instructor : Prof. Benjamin
+                    <div className="flex justify-between items-center p-2 my-3">
+                      <div className="flex items-center font-Montserrat font-semibold">
+                        <PiChalkboardTeacherFill size={30} /> {course.instructor}
                       </div>
-                      <p className=" text-[#7151e6] group-hover:text-white font-Montserrat font-bold">$ 114.99 </p>
+                      <p className=" text-[#7151e6] group-hover:text-white font-Montserrat font-bold">{course.price} </p>
                     </div>
 
                     <div className="flex justify-end">
@@ -89,3 +112,6 @@ export default function Courses() {
     </div>
   );
 }
+
+
+export default Courses;
