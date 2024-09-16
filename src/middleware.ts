@@ -4,7 +4,7 @@ import { parse } from 'cookie';
 
 export function middleware(request: NextRequest) {
   const cookies = parse(request.headers.get('cookie') || '');
-  const token = cookies['us-tk'];
+  const token = cookies['us_token_cookie'];
 
   if (!token) {
     console.log("No token found");
