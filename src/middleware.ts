@@ -7,8 +7,13 @@ export function middleware(request: NextRequest) {
   const token = cookies['us_token_cookie'];
 
   if (!token) {
-    console.log("No token found");
-    return NextResponse.redirect(new URL('/login', request.url));
+    // console.log("No token found");
+
+    // Store the original URL user was trying to access
+    const redirectUrl = new URL('/login', request.url);
+    redirectUrl.searchParams.set('redirectTo', request.nextUrl.pathname + request.nextUrl.search);
+
+    return NextResponse.redirect(redirectUrl);
   }
 
   return NextResponse.next();

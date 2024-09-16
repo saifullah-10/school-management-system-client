@@ -100,7 +100,7 @@ const AttendanceInput: React.FC = () => {
         }
       });
       if (response.status === 200) {
-        console.log('Attendance updated successfully');
+        // console.log('Attendance updated successfully');
       }
     } catch (err) {
       console.error('Error updating attendance:', err);

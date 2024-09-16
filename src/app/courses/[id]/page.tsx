@@ -72,13 +72,16 @@ const CourseDetailspage = ({ params }: { params: Params }) => {
     useEffect(() => {
         const checkRegistration = () => {
             if (user && course) {
-                const isAlreadyRegistered = user.registeredCourses.includes(course.course_code);
+                // Check if `registeredCourses` exists on the `user` object
+                const registeredCourses = user.registeredCourses || [];
+                const isAlreadyRegistered = registeredCourses.includes(course.course_code);
                 setIsRegistered(isAlreadyRegistered);
             }
         };
 
         checkRegistration();
     }, [user, course]);
+
 
     const handleRegister = async () => {
         if (!user) {
@@ -247,7 +250,7 @@ const CourseDetailspage = ({ params }: { params: Params }) => {
                                     onClick={handleRegister}
                                     disabled={isRegistered}
                                 >
-                                    {isRegistered? "Already Registered" :"Register course"}
+                                    {isRegistered ? "Already Registered" : "Register course"}
                                 </button>
                                 {registrationStatus && (
                                     <p className="mt-2 text-center text-lg font-semibold">

@@ -19,7 +19,7 @@ import { useEffect, useState } from "react";
 
 const Notice: React.FC = () => {
   const [searchValue, setSearchValue] = useState<SearchTypes>({});
-  console.log(searchValue);
+  // console.log(searchValue);
   function getRandomColorCode(colorCodes: string[]) {
     const randomIndex = Math.floor(Math.random() * colorCodes.length);
 
@@ -63,7 +63,7 @@ const Notice: React.FC = () => {
     const postedBy = user?.email;
 
     const noticeData: NoticeInputs = { title, content, posted, postedBy };
-    console.log(posted);
+    // console.log(posted);
     try {
       const res = (await postNoticeData(noticeData)) as PostApiResponse;
       const resData = res.data.message;

@@ -47,8 +47,8 @@ const Contact: React.FC = () => {
         templateParams,
         "i0rtKar2iBnc2tElA"
       )
-      .then((result) => {
-        console.log("Email sent successfully:", result.text);
+      .then(() => {
+        // console.log("Email sent successfully:", result.text);
         setResponseMessage(
           "Thank you for contacting us! We have received your message."
         );
