@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookies from 'js-cookie';
 
 // const API_URL = "http://localhost:5000";
 const API_URL = "https://school-management-system-server-lovat.vercel.app";
@@ -23,6 +24,7 @@ export const login = async (email: string, password: string) => {
 
 export const logout = async () => {
   localStorage.clear();
+  Cookies.remove('us_token_cookie');
 };
 //update user
 export const fetchProtectedData = async () => {

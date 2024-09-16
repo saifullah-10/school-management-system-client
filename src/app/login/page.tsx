@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 
 import { fetchProtectedData, login, logout } from "@/utils/api/api";
 import { useAuth } from "@/contextProvider/ContextProvider";
+import Cookies from 'js-cookie';
 
 interface LoginFormInputs {
   email: string;
@@ -45,6 +46,7 @@ const LoginPage = () => {
 
       if (us_token) {
         localStorage.setItem("us", us_token);
+        Cookies.set('us_token_cookie', us_token, { expires: 7, path: '/' });
         try {
           const user = await fetchProtectedData();
 
