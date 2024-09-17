@@ -4,6 +4,7 @@ import GenderPieChart from "@/components/dashboard/adminPath/GenderPieChart";
 import NoticeBoard from "@/components/dashboard/adminPath/NoticeBoard";
 import Status from "@/components/dashboard/adminPath/Status";
 import TrafficDashboard from "@/components/dashboard/adminPath/TrafficDashboard";
+import Tanstack from "@/utils/Tanstack";
 
 
 const Admin = () => {
@@ -27,7 +28,9 @@ const Admin = () => {
                 </div>
 
                 <div className="bg-white w-full lg:w-[32%] h-auto lg:h-[400px] rounded-xl shadow-lg p-4 flex-shrink-0">
+                    <Tanstack>
                     <NoticeBoard />
+                    </Tanstack>
                 </div>
             </div>
 

@@ -1,31 +1,36 @@
+"use client"
+import { Course } from "@/utils/types/courses";
+import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import Link from "next/link";
+
 import { IoIosPeople } from "react-icons/io";
 import { MdLibraryBooks, MdOutlineAccessTime } from "react-icons/md";
 import { PiChalkboardTeacherFill } from "react-icons/pi";
 
-interface Course {
-  _id: string;
-  category: string;
-  title: string;
-  duration: string;
-  credit_hours: string;
-  durainstructortion: string;
-  lessons: string;
-  instructor: string;
-  enrollment: number;
-  price: number;
-}
 
-const getCourses = async() =>{
+
+async function getData() {
   const res = await fetch('https://school-management-system-server-lovat.vercel.app/coursesCollection?limit=6');
   const data = await res.json();
-  return data;
+  return data
+
+
 }
 
-const Courses = async() => {
 
-  const CourseData = await getCourses();
+
+const Courses: React.FC = () => {
+  const {data,isLoading} = useQuery({
+    queryKey: ['home-courses-section'],
+    queryFn: getData
+  })
+  
+  if(isLoading){
+    return <div>loading....</div>
+  }
+  
+
   // console.log(CourseData);
 
   return (
@@ -43,7 +48,7 @@ const Courses = async() => {
 
         <div className="flex flex-wrap gap-5 justify-center mx-auto mt-20">
           {
-            CourseData.map((course : Course) => (
+            data?.map((course : Course) => (
               <Link href={`/courses/${course._id}`}
                 key={course._id}>
                 <div

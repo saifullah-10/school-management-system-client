@@ -1,10 +1,11 @@
 import HomePage from "@/pages/home/HomePage";
 
 
-export default function Home() {
+const Home:React.FC=()=> {
   return (
     <div>
       <HomePage />
     </div>
   );
 }
+export default Home
