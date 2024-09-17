@@ -21,7 +21,8 @@ const fetchAttendanceRecords = async (): Promise<AttendanceRecord[]> => {
 };
 
 export default function AttendancePage() {
-  const { user } = useAuth();
+  const auth = useAuth();
+  
   const [selectedName, setSelectedName] = useState<string>('');
 
   const { data: records = [], isLoading, error } = useQuery({
@@ -29,12 +30,12 @@ export default function AttendancePage() {
     queryFn: fetchAttendanceRecords,
   });
 
-  // Set selectedName based on user role
+  // Set selectedName based on auth?.user role
   useEffect(() => {
-    if (user?.role === 'student') {
-      setSelectedName(user.username); 
+    if (auth?.user?.role === 'student') {
+      setSelectedName(auth?.user.username); 
     }
-  }, [user]);
+  }, [auth?.user]);
 
   const names = records.map(record => record.name);
 
@@ -58,7 +59,7 @@ export default function AttendancePage() {
     <Box>
       <h1 className="text-2xl text-center font-bold mb-4">Attendance of Students</h1>
 
-      {user?.role === 'student' ? null : <AttendanceInput />}
+      {auth?.user?.role === 'student' ? null : <AttendanceInput />}
 
       <Box mb={4} display="flex" alignItems="center">
         <FormControl variant="outlined" fullWidth>
@@ -68,7 +69,7 @@ export default function AttendancePage() {
             value={selectedName}
             onChange={(e) => setSelectedName(e.target.value)}
             label="Name"
-            disabled={user?.role === 'student'} // Disable if role is 'student'
+            disabled={auth?.user?.role === 'student'} // Disable if role is 'student'
           >
             {names.map(name => (
               <MenuItem key={name} value={name}>{name}</MenuItem>
