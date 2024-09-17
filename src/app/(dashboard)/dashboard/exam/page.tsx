@@ -37,7 +37,7 @@ const Exam = () => {
                   <td>10/18/24</td>
                 </tr>
                 <tr>
-                  <td className=" px-3 py-2  ">Cyber Security</td>
+                  <td className=" px-3 py-2p  ">Cyber Security</td>
                   <td>80</td>
                   <td>10/25/24</td>
                 </tr>
