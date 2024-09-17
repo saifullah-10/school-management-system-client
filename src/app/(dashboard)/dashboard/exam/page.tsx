@@ -2,7 +2,7 @@ import Calender from "@/components/dashboard/adminPath/Calendar"
 
 const Exam = () => {
   return (
-    <div>
+    
       <div className="grid grid-cols-12 lg:gap-8 ">
         <div className="col-span-4 border-2 flex flex-col gap-2 rounded-xl border-blue-200 p-3">
           <div>
@@ -12,10 +12,14 @@ const Exam = () => {
           </div>
           <div className=" flex justify-between text-lg font-medium items-center">
             <div>
-              <p>Mid Term</p>
+              <p className=" px-2  border border-blue-600 rounded-xl bg-blue-200 text-blue-900">
+                Mid Term
+              </p>
             </div>
             <div>
-              <p>10/14/2024</p>
+              <p className=" px-2  border border-blue-600 rounded-xl bg-blue-200 text-blue-900">
+                10/14/2024
+              </p>
             </div>
           </div>
           <div className=" w-full relative">
@@ -28,13 +32,13 @@ const Exam = () => {
                 </tr>
               </thead>
               <tbody>
-                <tr className=" text-black/60">
+           
                 <tr className=" text-black/60">
                   <td className=" px-3 py-2  ">DSA</td>
                   <td>80</td>
                   <td>10/14/24</td>
                 </tr>
-                <tr className=" text-black/60">
+            
                 <tr className=" text-black/60">
                   <td className=" px-3 py-2  ">D.Math</td>
                   <td>80</td>
@@ -45,13 +49,13 @@ const Exam = () => {
                   <td>80</td>
                   <td>10/25/24</td>
                 </tr>
-                <tr className=" text-black/60">
+              
                 <tr className=" text-black/60">
                   <td className=" px-3 py-2  ">Networking</td>
                   <td>80</td>
                   <td>10/27/24</td>
                 </tr>
-                <tr className=" text-black/60">
+          
                 <tr className=" text-black/60">
                   <td className=" px-3 py-2  ">Computer Arch</td>
 
@@ -108,7 +112,7 @@ const Exam = () => {
             </button>
           </form>
         </div>
-        <div className="col-span-4 relative custom-scrollbar overflow-y-scroll  h-64 border-2 rounded-xl border-blue-300">
+        
         <div className="col-span-4 relative custom-scrollbar overflow-y-scroll  h-64 border-2 rounded-xl border-blue-300">
           <div>
             <h1 className=" text-center my-2  font-semibold  ">Exam History</h1>
@@ -141,6 +145,7 @@ const Exam = () => {
         </div>
       </div>
     </div>
+    
   );
 };
 

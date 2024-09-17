@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import { Box, FormControl, InputLabel, MenuItem, Select, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 import { useState, useMemo, useEffect } from 'react';
@@ -52,8 +52,80 @@ export default function AttendancePage() {
 
   const selectedRecord = records.find(record => record.name === selectedName) || { attendance: {} as Record<string, Record<string, 'P' | 'A' | '-'>> };
 
-  if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Error loading data: {error.message}</p>;
+//   if (isLoading) return <p>Loading...</p>;
+//   if (error) return <p>Error loading data: {error.message}</p>;
+
+//   return (
+//     <Box>
+//       <h1 className="text-2xl text-center font-bold mb-4">
+//         Attendance of Students
+//       </h1>
+
+//       {user?.role === "student" ? null : <AttendanceInput />}
+
+//       <Box mb={4} display="flex" alignItems="center">
+//         <FormControl variant="outlined" fullWidth>
+//           <InputLabel id="name-select-label">Name</InputLabel>
+//           <Select
+//             labelId="name-select-label"
+//             value={user?.username}
+//             onChange={(e) => setSelectedName(e.target.value)}
+//             label="Name"
+//             disabled={user?.role === "student"} // Disable if role is 'student'
+//           >
+//             {names.map((name) => (
+//               <MenuItem key={name} value={name}>
+//                 {name}
+//               </MenuItem>
+//             ))}
+//           </Select>
+//         </FormControl>
+//       </Box>
+
+//       <TableContainer
+//         component={Paper}
+//         sx={{
+//           width: { xs: "86vw", sm: "62vw", md: "70vw", lg: "77vw" },
+//           overflowX: "auto",
+//           margin: "0 auto",
+//         }}
+//       >
+//         <Table stickyHeader>
+//           <TableHead>
+//             <TableRow>
+//               <TableCell>Date</TableCell>
+//               {courses.map((course) => (
+//                 <TableCell key={course} align="center">
+//                   {course}
+//                 </TableCell>
+//               ))}
+//             </TableRow>
+//           </TableHead>
+//           <TableBody>
+//             {dates.map((date) => (
+//               <TableRow key={date}>
+//                 <TableCell>{date}</TableCell>
+//                 {courses.map((course) => (
+//                   <TableCell key={course} align="center">
+//                     {selectedRecord.attendance[date]?.[course] === "P" ? (
+//                       <FaCheck color="green" />
+//                     ) : selectedRecord.attendance[date]?.[course] === "A" ? (
+//                       <ImCross color="red" />
+//                     ) : (
+//                       <GoDash />
+//                     )}
+//                   </TableCell>
+//                 ))}
+//               </TableRow>
+//             ))}
+//           </TableBody>
+//         </Table>
+//       </TableContainer>
+//     </Box>
+//   );
+// }
+
+
 
   return (
     <Box>
