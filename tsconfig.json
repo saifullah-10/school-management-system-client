@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "types": ["node", "cookie"],
+    "typeRoots": ["./node_modules/@types"], //important
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
