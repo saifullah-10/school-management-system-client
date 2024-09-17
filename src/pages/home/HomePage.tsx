@@ -6,8 +6,11 @@ import Instructor from "@/components/home/Instructor";
 import Newsletter from "@/components/home/Newsletter";
 import Testimonial from "@/components/home/Testimonial";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
+import Tanstack from "@/utils/Tanstack";
 
-export default function Home() {
+
+
+const Home:React.FC=() => {
   return (
     <div>
       <section>
@@ -17,7 +20,9 @@ export default function Home() {
         <Category />
       </section>
       <section>
-        <Courses />
+  <Tanstack>
+  <Courses />
+  </Tanstack>
       </section>
       <section>
         <WhyChooseUs />
@@ -37,3 +42,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Home;
