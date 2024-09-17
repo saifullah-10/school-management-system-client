@@ -74,9 +74,7 @@ const Navbar = () => {
   }
 const router = useRouter()
 const auth = useAuth()
-if (auth === null){
-  return <div>Loading...</div>
-}
+
 const {user, setUser}  = auth;
 const handleLogout = () => {
   logout();

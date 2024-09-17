@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 
 import { Box, FormControl, InputLabel, MenuItem, Select, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 import { useState, useMemo, useEffect } from 'react';
@@ -52,8 +52,8 @@ export default function AttendancePage() {
 
   const selectedRecord = records.find(record => record.name === selectedName) || { attendance: {} as Record<string, Record<string, 'P' | 'A' | '-'>> };
 
-//   if (isLoading) return <p>Loading...</p>;
-//   if (error) return <p>Error loading data: {error.message}</p>;
+  if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>Error loading data: {error.message}</p>;
 
 //   return (
 //     <Box>
