@@ -13,6 +13,8 @@ import { IoClose, IoMenu } from "react-icons/io5";
 const Navbar = () => {
   const navigate = usePathname();
   const [open, setOpen] = useState<boolean>(false)
+  const router = useRouter()
+const auth = useAuth()
 
   const Links = (
     <>
@@ -72,8 +74,7 @@ const Navbar = () => {
   if (navigate?.includes("dashboard")) {
     return;
   }
-const router = useRouter()
-const auth = useAuth()
+
 
 const {user, setUser}  = auth;
 const handleLogout = () => {

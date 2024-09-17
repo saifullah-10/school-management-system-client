@@ -6,6 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 
 import { createContext, useContext, useEffect, useState } from "react";
 
+
 const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
@@ -54,8 +55,7 @@ export const useAuth = () => {
   if (!context ){
     return {
       user: null,
-      login: () => {},
-      logout: () => {},
+
       setUser: ()=>(null)
     };
    
