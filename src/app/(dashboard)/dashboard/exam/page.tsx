@@ -48,6 +48,7 @@ const Exam = () => {
                 </tr>
                 <tr>
                   <td className=" px-3 py-2  ">Computer Arch</td>
+                  
                   <td>80</td>
                   <td>10/29/24</td>
                 </tr>
