@@ -51,6 +51,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
-
-  return context ?? null;
+  if (!context ){
+    return {
+      user: null,
+      login: () => {},
+      logout: () => {},
+      setUser: ()=>(null)
+    };
+   
+  }
+  return context;
 };
