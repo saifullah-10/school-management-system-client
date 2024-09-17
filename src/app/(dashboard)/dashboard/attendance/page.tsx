@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 
 import { Box, FormControl, InputLabel, MenuItem, Select, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 import { useState, useMemo, useEffect } from 'react';
