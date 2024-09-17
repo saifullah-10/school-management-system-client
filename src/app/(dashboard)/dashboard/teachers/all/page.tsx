@@ -1,43 +1,54 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
-    Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Checkbox, TextField, Button, Paper,
+    Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Button, Paper,
 } from '@mui/material';
 import { BsPersonWorkspace } from 'react-icons/bs';
+import axiosInstance from '@/lib/axios';
 
-// Dummy data for the table
 interface Teacher {
-    id: string;
-    photo: string;
-    name: string;
-    gender: string;
-    class: number;
-    section: string;
-    address: string;
-    phone: string;
+    _id: string;
     email: string;
+    username: string;
+    role: string;
+    status: string;
+    photoUrl: string;
+    department: string;
+    phoneNumber: string;
+    address: string;
+    gender: string;
+    courses: string;
 }
 
-const teachers: Teacher[] = [
-    { id: '#0021', photo: 'green', name: 'Mark Willy', gender: 'Male', class: 2, section: 'A', address: 'TA-107 Newyork', phone: '+123 9988568', email: 'kazifahim@example.com' },
-    { id: '#0022', photo: 'blue', name: 'Jessia Rose', gender: 'Female', class: 1, section: 'A', address: '59 Australia, Sydney', phone: '+123 9988568', email: 'jessiarose@example.com' },
-    { id: '#0023', photo: 'red', name: 'John Doe', gender: 'Male', class: 2, section: 'B',  address: '123 Main St',  phone: '+123 9988568', email: 'johndoe@example.com' },
-    // Add more teachers if necessary
-];
-
 const TeacherTable: React.FC = () => {
+    const [teachers, setTeachers] = useState<Teacher[]>([]);
     const [searchId, setSearchId] = useState('');
     const [searchName, setSearchName] = useState('');
     const [searchClass, setSearchClass] = useState('');
+    const [filteredData, setFilteredData] = useState<Teacher[]>([]);
 
-    const [filteredData, setFilteredData] = useState(teachers);
+    useEffect(() => {
+        const fetchTeachers = async () => {
+            try {
+                const response = await axiosInstance.get<Teacher[]>('/users');
+                // Filter users by role 'teacher'
+                const teacherData = response.data.filter((user) => user.role === 'teacher');
+                setTeachers(teacherData);
+                setFilteredData(teacherData); // Set initial data
+            } catch (error) {
+                console.error('Error fetching teachers:', error);
+            }
+        };
+
+        fetchTeachers();
+    }, []);
 
     const handleSearch = () => {
         const filtered = teachers.filter((teacher) => {
-            const matchesId = searchId ? teacher.id.toLowerCase().includes(searchId.toLowerCase()) : true;
-            const matchesName = searchName ? teacher.name.toLowerCase().includes(searchName.toLowerCase()) : true;
-            const matchesClass = searchClass ? teacher.class.toString() === searchClass : true;
+            const matchesId = searchId ? teacher._id.toLowerCase().includes(searchId.toLowerCase()) : true;
+            const matchesName = searchName ? teacher.username.toLowerCase().includes(searchName.toLowerCase()) : true;
+            const matchesClass = searchClass ? teacher.department === searchClass : true;
 
             return matchesId && matchesName && matchesClass;
         });
@@ -105,13 +116,12 @@ const TeacherTable: React.FC = () => {
                     <Table>
                         <TableHead>
                             <TableRow>
-                                <TableCell><Checkbox /></TableCell>
                                 <TableCell>Id</TableCell>
                                 <TableCell>Photo</TableCell>
                                 <TableCell>Name</TableCell>
                                 <TableCell>Gender</TableCell>
-                                <TableCell className="hidden md:table-cell">Class</TableCell>
-                                <TableCell>Section</TableCell>
+                                <TableCell className="hidden md:table-cell">Department</TableCell>
+                                <TableCell>Courses</TableCell>
                                 <TableCell className="hidden md:table-cell">Address</TableCell>
                                 <TableCell className="hidden lg:table-cell">Phone</TableCell>
                                 <TableCell className="hidden md:table-cell">E-mail</TableCell>
@@ -120,15 +130,14 @@ const TeacherTable: React.FC = () => {
                         <TableBody>
                             {filteredData.map((teacher, index) => (
                                 <TableRow key={index}>
-                                    <TableCell><Checkbox /></TableCell>
-                                    <TableCell>{teacher.id}</TableCell>
+                                    <TableCell>{teacher._id.slice(-10)}</TableCell>
                                     <TableCell><BsPersonWorkspace size={20} /></TableCell>
-                                    <TableCell>{teacher.name}</TableCell>
+                                    <TableCell>{teacher.username}</TableCell>
                                     <TableCell>{teacher.gender}</TableCell>
-                                    <TableCell className="hidden md:table-cell">{teacher.class}</TableCell>
-                                    <TableCell>{teacher.section}</TableCell>
+                                    <TableCell className="hidden md:table-cell">{teacher.department}</TableCell>
+                                    <TableCell>{teacher.courses}</TableCell>
                                     <TableCell className="hidden md:table-cell">{teacher.address}</TableCell>
-                                    <TableCell className="hidden lg:table-cell">{teacher.phone}</TableCell>
+                                    <TableCell className="hidden lg:table-cell">{teacher.phoneNumber}</TableCell>
                                     <TableCell className="hidden md:table-cell">{teacher.email}</TableCell>
                                 </TableRow>
                             ))}
@@ -141,5 +150,3 @@ const TeacherTable: React.FC = () => {
 };
 
 export default TeacherTable;
-
-

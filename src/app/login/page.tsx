@@ -6,10 +6,11 @@ import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 import { useState } from "react";
 import bg from "../../../public/assets/images/university1.jpg";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import { fetchProtectedData, login, logout } from "@/utils/api/api";
 import { useAuth } from "@/contextProvider/ContextProvider";
+import Cookies from 'js-cookie';
 
 interface LoginFormInputs {
   email: string;
@@ -21,6 +22,10 @@ const LoginPage = () => {
   const [show, setShow] = useState(false);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const next = searchParams?.get('redirectTo');
+
+  // console.log(next);
 
   const {
     register,
@@ -36,7 +41,7 @@ const LoginPage = () => {
     const email = data.email;
 
     const password = data.password.toString();
-    console.log("Agreed to Terms:", data.agreeToTerms);
+    // console.log("Agreed to Terms:", data.agreeToTerms);
 
     try {
       setLoading(true);
@@ -45,6 +50,7 @@ const LoginPage = () => {
 
       if (us_token) {
         localStorage.setItem("us", us_token);
+        Cookies.set('us_token_cookie', us_token, { expires: 7, path: '/' });
         try {
           const user = await fetchProtectedData();
 
@@ -54,7 +60,8 @@ const LoginPage = () => {
             router.push("/login");
           } else {
             setUser(user.data);
-            router.push("/dashboard");
+            router.prefetch(next || "dashboard");
+            router.push(next || "/dashboard");
           }
         } catch (err) {
           logout();

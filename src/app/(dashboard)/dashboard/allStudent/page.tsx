@@ -1,45 +1,72 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Button, Paper,
 } from '@mui/material';
-import { BsPersonWorkspace } from 'react-icons/bs';
+import { BsPersonWorkspace } from 'react-icons/bs'; // Adjust the path if needed
+import axiosInstance from '@/lib/axios';
 
-// Dummy data for the table
 interface Student {
-    roll: string;
-    photo: string;
-    name: string;
-    gender: string;
-    class: number;
-    section: string;
-    parents: string;
-    address: string;
-    dob: string;
-    phone: string;
+    _id: string;
     email: string;
+    username: string;
+    role: string;
+    status: string;
+    photoUrl: string;
+    classId: string;
+    phoneNumber: string;
+    address: string;
+    fatherName: string;
+    dateOfBirth: string;
+    gender: string;
+    registeredCourses: string[];
 }
 
-const students: Student[] = [
-    { roll: '#0021', photo: 'green', name: 'Mark Willy', gender: 'Male', class: 2, section: 'A', parents: 'Jack Sparrow', address: 'TA-107 Newyork', dob: '02/05/2001', phone: '+123 9988568', email: 'kazifahim@example.com' },
-    { roll: '#0022', photo: 'blue', name: 'Jessia Rose', gender: 'Female', class: 1, section: 'A', parents: 'Maria Jamans', address: '59 Australia, Sydney', dob: '02/05/2001', phone: '+123 9988568', email: 'jessiarose@example.com' },
-    { roll: '#0023', photo: 'red', name: 'John Doe', gender: 'Male', class: 2, section: 'B', parents: 'Jane Doe', address: '123 Main St', dob: '02/05/2001', phone: '+123 9988568', email: 'johndoe@example.com' },
-    // Add more students if necessary
-];
+interface ApiUserResponse {
+    _id: string;
+    email: string;
+    username: string;
+    role: string;
+    status: string;
+    photoUrl: string;
+    classId: string;
+    phoneNumber: string;
+    address: string;
+    fatherName: string;
+    dateOfBirth: string;
+    gender: string;
+    registeredCourses: string[];
+}
 
 const StudentTable: React.FC = () => {
+    const [students, setStudents] = useState<Student[]>([]);
     const [searchRoll, setSearchRoll] = useState('');
     const [searchName, setSearchName] = useState('');
     const [searchClass, setSearchClass] = useState('');
+    const [filteredData, setFilteredData] = useState<Student[]>([]);
 
-    const [filteredData, setFilteredData] = useState(students);
+    useEffect(() => {
+        const fetchStudents = async () => {
+            try {
+                const response = await axiosInstance.get<ApiUserResponse[]>('/users');
+                // Filter users by role 'student'
+                const studentData = response.data.filter((user) => user.role === 'student');
+                setStudents(studentData);
+                setFilteredData(studentData); // Set initial data
+            } catch (error) {
+                console.error('Error fetching students:', error);
+            }
+        };
+
+        fetchStudents();
+    }, []);
 
     const handleSearch = () => {
         const filtered = students.filter((student) => {
-            const matchesRoll = searchRoll ? student.roll.toLowerCase().includes(searchRoll.toLowerCase()) : true;
-            const matchesName = searchName ? student.name.toLowerCase().includes(searchName.toLowerCase()) : true;
-            const matchesClass = searchClass ? student.class.toString() === searchClass : true;
+            const matchesRoll = searchRoll ? student._id.toLowerCase().includes(searchRoll.toLowerCase()) : true;
+            const matchesName = searchName ? student.username.toLowerCase().includes(searchName.toLowerCase()) : true;
+            const matchesClass = searchClass ? student.classId.toLowerCase() === searchClass.toLowerCase() : true;
 
             return matchesRoll && matchesName && matchesClass;
         });
@@ -103,18 +130,16 @@ const StudentTable: React.FC = () => {
 
             {/* Responsive Table */}
             <div style={{ overflowX: 'auto' }}>
-                <TableContainer component={Paper} sx={{ width: { xs: "86vw", sm: "62vw", md: "70vw", lg: "76vw" } , overflowX: 'auto' , margin: '0 auto'}}>
+                <TableContainer component={Paper} sx={{ width: { xs: "86vw", sm: "62vw", md: "70vw", lg: "76vw" }, overflowX: 'auto', margin: '0 auto' }}>
                     <Table>
                         <TableHead>
                             <TableRow>
-                                <TableCell>Roll</TableCell>
+                                <TableCell>Registration</TableCell>
                                 <TableCell>Photo</TableCell>
                                 <TableCell>Name</TableCell>
                                 <TableCell>Gender</TableCell>
                                 <TableCell className="hidden md:table-cell">Class</TableCell>
-                                <TableCell>Section</TableCell>
-                                <TableCell className="hidden lg:table-cell">Parents</TableCell>
-                                <TableCell className="hidden md:table-cell">Address</TableCell>
+                                <TableCell>Address</TableCell>
                                 <TableCell className="hidden lg:table-cell">Date Of Birth</TableCell>
                                 <TableCell className="hidden lg:table-cell">Phone</TableCell>
                                 <TableCell className="hidden md:table-cell">E-mail</TableCell>
@@ -123,16 +148,14 @@ const StudentTable: React.FC = () => {
                         <TableBody>
                             {filteredData.map((student, index) => (
                                 <TableRow key={index}>
-                                    <TableCell>{student.roll}</TableCell>
+                                    <TableCell>{student._id.slice(-10)}</TableCell>
                                     <TableCell><BsPersonWorkspace size={20} /></TableCell>
-                                    <TableCell>{student.name}</TableCell>
+                                    <TableCell>{student.username}</TableCell>
                                     <TableCell>{student.gender}</TableCell>
-                                    <TableCell className="hidden md:table-cell">{student.class}</TableCell>
-                                    <TableCell>{student.section}</TableCell>
-                                    <TableCell className="hidden lg:table-cell">{student.parents}</TableCell>
-                                    <TableCell className="hidden md:table-cell">{student.address}</TableCell>
-                                    <TableCell className="hidden lg:table-cell">{student.dob}</TableCell>
-                                    <TableCell className="hidden lg:table-cell">{student.phone}</TableCell>
+                                    <TableCell className="hidden md:table-cell">{student.classId}</TableCell>
+                                    <TableCell>{student.address}</TableCell>
+                                    <TableCell className="hidden lg:table-cell">{student.dateOfBirth}</TableCell>
+                                    <TableCell className="hidden lg:table-cell">{student.phoneNumber}</TableCell>
                                     <TableCell className="hidden md:table-cell">{student.email}</TableCell>
                                 </TableRow>
                             ))}

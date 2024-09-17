@@ -11,7 +11,7 @@ const Dashboard = () => {
   }
   const { user } = auth;
 
-  console.log(user, " user from main");
+  // console.log(user, " user from main");
 
   if (!user) {
     return <div>loading from dashboard</div>;

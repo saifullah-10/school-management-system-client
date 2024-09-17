@@ -27,11 +27,16 @@ const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
   };
 
   const [isTeachersOpen, setIsTeachersOpen] = useState(false); // For submenu
+  const [isCoursesOpen, setIsCoursesOpen] = useState(false); // For submenu
   const pathname = usePathname() || "";
 
   const toggleTeachersMenu = () => {
     setIsTeachersOpen(!isTeachersOpen); // Toggle submenu open/close
   };
+  const toggleCoursesMenu = () => {
+    setIsCoursesOpen(!isCoursesOpen); // Toggle submenu open/close
+  };
+
   const auth = useAuth();
   if (auth === null) {
     return <div>loading</div>;
@@ -60,9 +65,8 @@ const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
       <ul className="mt-4 text-[17px]">
         <Link href="/dashboard">
           <li
-            className={`py-2 flex items-center gap-2 px-4 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${
-              pathname === "/dashboard" ? "bg-[#704FE6] text-white" : ""
-            }`}
+            className={`py-2 flex items-center gap-2 px-4 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${pathname === "/dashboard" ? "bg-[#704FE6] text-white" : ""
+              }`}
           >
             <AiOutlineDashboard className="text-xl" />
             Dashboard
@@ -71,11 +75,10 @@ const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
         {user?.role !== "student" ? (
           <Link href="/dashboard/allStudent">
             <li
-              className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${
-                pathname === "/dashboard/allStudent"
-                  ? "bg-[#704FE6] text-white"
-                  : ""
-              }`}
+              className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${pathname === "/dashboard/allStudent"
+                ? "bg-[#704FE6] text-white"
+                : ""
+                }`}
             >
               <GrGroup />
               All Students
@@ -90,11 +93,10 @@ const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
           <li className="relative">
             <button
               onClick={toggleTeachersMenu}
-              className={`w-full text-left py-2 px-4 hover:text-white hover:bg-[#704FE6] flex justify-between items-center ${
-                pathname.includes("/dashboard/teacher")
-                  ? "bg-[#704FE6] text-white"
-                  : ""
-              }`}
+              className={`w-full text-left py-2 px-4 hover:text-white hover:bg-[#704FE6] flex justify-between items-center ${pathname.includes("/dashboard/teacher")
+                ? "bg-[#704FE6] text-white"
+                : ""
+                }`}
             >
               <h1 className="flex text-lg items-center gap-2">
                 <GiTeacher />
@@ -106,28 +108,27 @@ const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
               <ul className="ml-4 mt-2">
                 <Link href="/dashboard/teachers/all">
                   <li
-                    className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white rounded-l-xl ${
-                      pathname === "/dashboard/teachers/all"
-                        ? "bg-[#704FE6] text-white"
-                        : ""
-                    }`}
+                    className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white rounded-l-xl ${pathname === "/dashboard/teachers/all"
+                      ? "bg-[#704FE6] text-white"
+                      : ""
+                      }`}
                   >
                     <FaAngleRight />
                     All Teachers
                   </li>
                 </Link>
-                <Link href="/dashboard/teachers/add">
+                {user?.role === "admin" ? (<Link href="/dashboard/teachers/add">
                   <li
-                    className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white rounded-l-xl ${
-                      pathname === "/dashboard/teachers/add"
-                        ? "bg-[#704FE6] text-white"
-                        : ""
-                    }`}
+                    className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white rounded-l-xl ${pathname === "/dashboard/teachers/add"
+                      ? "bg-[#704FE6] text-white"
+                      : ""
+                      }`}
                   >
                     <FaAngleRight />
                     Add Teacher
                   </li>
-                </Link>
+                </Link>)
+                  : ""}
               </ul>
             )}
           </li>
@@ -137,11 +138,10 @@ const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
 
         <Link href="/dashboard/classRoutine">
           <li
-            className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${
-              pathname === "/dashboard/classRoutine"
-                ? "bg-[#704FE6] text-white"
-                : ""
-            }`}
+            className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${pathname === "/dashboard/classRoutine"
+              ? "bg-[#704FE6] text-white"
+              : ""
+              }`}
           >
             <FaRegCalendarAlt />
             Class Routine
@@ -149,32 +149,66 @@ const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
         </Link>
         <Link href="/dashboard/attendance">
           <li
-            className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${
-              pathname === "/dashboard/attendance"
-                ? "bg-[#704FE6] text-white"
-                : ""
-            }`}
+            className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${pathname === "/dashboard/attendance"
+              ? "bg-[#704FE6] text-white"
+              : ""
+              }`}
           >
             <FaListCheck />
             Attendance
           </li>
         </Link>
-        <Link href="/dashboard/courses">
-          <li
-            className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${
-              pathname === "/dashboard/courses" ? "bg-[#704FE6] text-white" : ""
-            }`}
+
+        {/* Courses Menu with Dropdown */}
+        <li className="relative">
+          <button
+            onClick={toggleCoursesMenu}
+            className={`w-full text-left py-2 px-4 hover:text-white hover:bg-[#704FE6] flex justify-between items-center ${pathname.includes("/dashboard/courses")
+              ? "bg-[#704FE6] text-white"
+              : ""
+              }`}
           >
-            <FaBook />
-            Courses
-          </li>
-        </Link>
+            <h1 className="flex text-lg items-center gap-2">
+              <FaBook />
+              Courses{" "}
+            </h1>
+            {isCoursesOpen ? <FiChevronUp /> : <FiChevronDown />}
+          </button>
+          {isCoursesOpen && (
+            <ul className="ml-4 mt-2">
+              <Link href="/dashboard/courses/all">
+                <li
+                  className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white rounded-l-xl ${pathname === "/dashboard/courses/all"
+                    ? "bg-[#704FE6] text-white"
+                    : ""
+                    }`}
+                >
+                  <FaAngleRight />
+                  All Courses
+                </li>
+              </Link>
+              {user?.role === "admin" ? (<Link href="/dashboard/courses/add">
+                <li
+                  className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white rounded-l-xl ${pathname === "/dashboard/courses/add"
+                    ? "bg-[#704FE6] text-white"
+                    : ""
+                    }`}
+                >
+                  <FaAngleRight />
+                  Add Courses
+                </li>
+              </Link>
+              )
+                : " "
+              }
+            </ul>
+          )}
+        </li>
 
         <Link href="/dashboard/exam">
           <li
-            className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${
-              pathname === "/dashboard/exam" ? "bg-[#704FE6] text-white" : ""
-            }`}
+            className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${pathname === "/dashboard/exam" ? "bg-[#704FE6] text-white" : ""
+              }`}
           >
             <FaClipboardList />
             Exam
@@ -182,9 +216,8 @@ const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
         </Link>
         <Link href="/dashboard/profile">
           <li
-            className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${
-              pathname === "/dashboard/profile" ? "bg-[#704FE6] text-white" : ""
-            }`}
+            className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${pathname === "/dashboard/profile" ? "bg-[#704FE6] text-white" : ""
+              }`}
           >
             <ImProfile />
             Profile
@@ -193,9 +226,8 @@ const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
 
         <Link href="/dashboard/notice">
           <li
-            className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${
-              pathname === "/dashboard/notice" ? "bg-[#704FE6] text-white" : ""
-            }`}
+            className={`py-2 px-4 flex items-center gap-2 hover:text-white hover:bg-[#704FE6] border-y-2 border-white ${pathname === "/dashboard/notice" ? "bg-[#704FE6] text-white" : ""
+              }`}
           >
             <MdNotificationsActive />
             Notice
