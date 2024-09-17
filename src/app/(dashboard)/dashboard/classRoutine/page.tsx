@@ -191,7 +191,7 @@ const classNameRoutine = () => {
             {/* <!-- Monday --> */}
             {routins.map((day) => (
               <>
-                <tr key={day.id}>
+                <tr key={`${day.id}-clsroutine`}>
                   <td className="py-2 px-4 border border-gray-300 bg-gray-200">
                     {day.day}
                   </td>
