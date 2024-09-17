@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookies from 'js-cookie';
 
 const API_URL = "http://localhost:5000";
 // const API_URL = "https://school-management-system-server-lovat.vercel.app";
@@ -23,15 +24,16 @@ export const login = async (email: string, password: string) => {
 
 export const logout = async () => {
   localStorage.clear();
+  Cookies.remove('us_token_cookie');
 };
 //update user
 export const fetchProtectedData = async () => {
   const accessToken = localStorage.getItem("us");
 
-  console.log(accessToken);
+  // console.log(accessToken);
 
   if (!accessToken) {
-    console.error("No access token found. User might be logged out.");
+    // console.error("No access token found. User might be logged out.");
     return null;
   }
 
@@ -44,7 +46,7 @@ export const fetchProtectedData = async () => {
 
     return response;
   } catch (error) {
-    console.error("Failed to fetch protected data:", error);
+    // console.error("Failed to fetch protected data:", error);
 
     return null;
   }

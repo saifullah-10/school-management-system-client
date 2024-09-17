@@ -71,7 +71,7 @@ const Register = () => {
       console.log(err);
     }
 
-    console.log("Agreed to Terms:", data.agreeToTerms);
+    // console.log("Agreed to Terms:", data.agreeToTerms);
   };
   if (loading) {
     <div>loading from register</div>;
