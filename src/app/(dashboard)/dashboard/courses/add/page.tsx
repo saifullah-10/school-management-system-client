@@ -1,4 +1,5 @@
 "use client";
+import axiosInstance from "@/lib/axios";
 import React, { useState } from "react";
 
 // Define the type for the form data
@@ -27,6 +28,7 @@ interface CourseData {
 }
 
 const AddCourseForm = () => {
+  const [disableBtn, setDisableBtn]=  useState<boolean>(true)
   // Initialize form state with proper types
   const [formData, setFormData] = useState<CourseData>({
     course_code: "",
@@ -74,13 +76,16 @@ formData.append("image",file)
 fetch("https://api.imgbb.com/1/upload?key=96ff04967d839a087ec86d576873248e", {
   method: "POST",
   body: formData
-}).then(res=>res.json()).then(data=> console.log(data)).catch(err=> console.log(err))
+}).then(res=>res.json()).then(data=> {
+const url =  data.data.url
+  if(url){
+    setDisableBtn(false);
+    setFormData((pre)=> ({...pre, course_image: url}))
+  }
+}).catch(err=> console.log(err))
 
 
-    setFormData((prevData) => ({
-      ...prevData,
-      course_image: e.target.files ? e.target.files[0] : null,
-    }));
+ 
   };
 
   // Handle array changes (objectives and modules)
@@ -93,9 +98,16 @@ fetch("https://api.imgbb.com/1/upload?key=96ff04967d839a087ec86d576873248e", {
   };
 
   // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault();
-console.log(formData)
+try{
+const res = await axiosInstance.post("/add-course", formData)
+const data = await res.data;
+console.log(data)
+
+}catch(err){
+  console.log(err)
+}
   };
 
   // Handle form reset
@@ -393,7 +405,7 @@ console.log(formData)
         <div className="flex justify-start gap-3 mt-6">
           <button
             type="submit"
-            className="bg-[#FFAE01] hover:bg-yellow-600 text-white px-12 py-3 rounded"
+            className={`bg-[#FFAE01] hover:bg-yellow-600 text-white px-12 py-3 rounded ${disableBtn ? "cursor-not-allowed bg-gray-300 hover:bg-gray-300":""}`}
           >
             Save
           </button>
