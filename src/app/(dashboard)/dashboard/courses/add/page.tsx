@@ -67,6 +67,16 @@ const AddCourseForm = () => {
 
   // Handle file changes with proper typing
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+const file = e.target.files ? e.target.files[0] : "";
+const formData= new FormData();
+formData.append("image",file)
+
+fetch("https://api.imgbb.com/1/upload?key=96ff04967d839a087ec86d576873248e", {
+  method: "POST",
+  body: formData
+}).then(res=>res.json()).then(data=> console.log(data)).catch(err=> console.log(err))
+
+
     setFormData((prevData) => ({
       ...prevData,
       course_image: e.target.files ? e.target.files[0] : null,
@@ -78,14 +88,14 @@ const AddCourseForm = () => {
     const value = e.target.value;
     setFormData((prevData) => ({
       ...prevData,
-      [field]: value.split(',').map(item => item.trim()), // Assuming CSV input for simplicity
+      [field]: value.split(',').map(item => item.trim()), 
     }));
   };
 
   // Handle form submission
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Log form data (or handle it as needed)
+console.log(formData)
   };
 
   // Handle form reset
