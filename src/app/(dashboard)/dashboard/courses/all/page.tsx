@@ -116,7 +116,7 @@ const Courses: React.FC = () => {
                                     <TableCell>{course.course_name}</TableCell>
                                     <TableCell>{course.category}</TableCell>
                                     <TableCell>{course.instructor}</TableCell>
-                                    <TableCell>{course.price}</TableCell>
+                                    <TableCell>$ {course.price}</TableCell>
                                     <TableCell>{course.credit_hours}</TableCell>
                                     <TableCell>{course.enrollment}</TableCell>
                                 </TableRow>

@@ -102,8 +102,10 @@ const url =  data.data.url
     e.preventDefault();
 try{
 const res = await axiosInstance.post("/add-course", formData)
-const data = await res.data;
-console.log(data)
+
+if(res.data.insertedId){
+  console.log("succcessfully inserted")
+}
 
 }catch(err){
   console.log(err)
