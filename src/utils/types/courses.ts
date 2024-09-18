@@ -9,4 +9,5 @@ export interface Course {
     instructor: string;
     enrollment: number;
     price: number;
+    image: string;
   }

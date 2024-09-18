@@ -57,7 +57,7 @@ const Courses: React.FC = () => {
 
                   <div className="relative overflow-hidden rounded-2xl w-[90%] md:w-[360px] top-2 mx-auto h-[255px]">
                     <Image
-                      src="/assets/images/course-2-2.jpg"
+                      src={course.image}
                       alt="Course image"
                       fill={true}
                       className="absolute inset-0 rounded-2xl mx-auto transform group-hover:scale-110 transition duration-300 ease-in-out w-full h-full object-cover" />

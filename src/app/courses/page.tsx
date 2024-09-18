@@ -23,7 +23,6 @@ interface Course {
     language: string;
     certification: string;
   };
-  course_image: string;
   course_name: string;
   description: string;
   lessons: number;
@@ -31,17 +30,18 @@ interface Course {
   enrollment: number;
   instructor: string;
   price: string;
+  image: string;
 }
 
 const getCourses = async () => {
-  const res = await fetch('https://school-management-system-server-lovat.vercel.app/coursesCollection?limit=6');
+  const res = await fetch('https://school-management-system-server-lovat.vercel.app/coursesCollection');
   const data = await res.json();
   return data;
 }
 
 const Courses: React.FC = async () => {
   const CourseData = await getCourses();
-
+  console.log(CourseData);
   return (
     <>
       {/* heading */}
