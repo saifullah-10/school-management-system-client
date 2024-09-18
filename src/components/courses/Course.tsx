@@ -15,7 +15,6 @@ interface Courses {
     title: string;
     author: string;
     category: string;
-    course_image: string;
     course_name: string;
     description: string;
     lessons: number;
@@ -23,16 +22,17 @@ interface Courses {
     enrollment: number;
     instructor: string;
     price: string;
+    image: string;
   }
 
 const Course: React.FC<CourseProps> = ({ keyProp, index }) => {
   const course = keyProp as Courses; // Type assertion to access properties
-
+  
   return (
     <div className={`flex flex-col md:flex-row ${(index % 2 === 0) ? 'md:flex-row-reverse' : ''} items-center bg-slate-50 group hover:bg-[#17254e] transition duration-300 ease-in-out hover:text-white border-dashed border-[#7151e6] border-[1px] w-[365px] sm:w-10/12 shadow-xl rounded-xl mx-auto px-2`}>
       <div className="relative overflow-hidden rounded-2xl max-w-[360px] top-2 mx-auto h-[255px]">
         <Image
-          src="/assets/images/course-2-2.jpg"
+          src={course.image}
           alt={course.title}
           width={360}
           height={255}

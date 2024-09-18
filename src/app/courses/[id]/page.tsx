@@ -33,7 +33,7 @@ interface Course {
         language: string;
         certification: string;
     };
-    course_image: string;
+    image: string;
     course_name: string;
     description: string;
     lessons: number;
@@ -214,8 +214,8 @@ const CourseDetailspage = ({ params }: { params: Params }) => {
                 <div className="bg-[#7151e61d] w-[360px] sm:w-[488px] mx-auto my-4">
                     <div className="p-4 mx-auto my-auto">
                         <Image
-                            src="/assets/images/course-2-2.jpg"
-                            alt="Course image"
+                            src={course.image}
+                            alt={course.title}
                             width={360}
                             height={255}
                         />
