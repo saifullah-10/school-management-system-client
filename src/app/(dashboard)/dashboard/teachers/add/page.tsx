@@ -1,4 +1,5 @@
 "use client";
+import axiosInstance from "@/lib/axios";
 import React, { useState } from "react";
 
 // Define the type for the form data
@@ -21,6 +22,7 @@ interface FormData {
 
 const AddTeacherForm = () => {
   // Initialize form state with proper types
+  const [disableBtn, setDisableBtn]=  useState<boolean>(true)
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
@@ -53,16 +55,41 @@ const AddTeacherForm = () => {
 
   // Handle file changes with proper typing
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData((prevData) => ({
-      ...prevData,
-      file: e.target.files ? e.target.files[0] : null,
-    }));
+
+    const imageFile = e.target.files ? e.target.files[0] : ""
+
+    const formData = new FormData()
+    formData.append("image",imageFile)
+fetch("https://api.imgbb.com/1/upload?key=45bf9334191eafc41867f74f072e6955", {
+  method: "POST",
+  body: formData
+}).then(res=> res.json()).then(data=>{
+  const response = data.data.url
+
+  if(response){
+    setDisableBtn(false)
+    setFormData((pre)=>({
+      ...pre, file: response
+    }))
+  }
+ 
+}).catch(err => console.log(err))
+  
   };
 
   // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Log form data (or handle it as needed)
+  try{
+const response = await axiosInstance.post("/add-teacher", formData);
+  
+
+if(response.data.insertedId){
+  console.log("data insert success")
+}
+  }catch(err){
+    console.log(err)
+  }
   };
 
   // Handle form reset
@@ -266,9 +293,10 @@ const AddTeacherForm = () => {
             <label className=" text-gray-500">Short BIO</label>
             <textarea
               name="bio"
+              rows={5}
               value={formData.bio}
               onChange={handleInputChange}
-              className="w-full px-3 py-10 border rounded focus:outline-none bg-[#F0F1F3]"
+              className="w-full p-2  border rounded focus:outline-none bg-[#F0F1F3]"
             ></textarea>
           </div>
           {/* Upload Student Photo */}
@@ -289,7 +317,7 @@ const AddTeacherForm = () => {
         <div className="flex justify-start gap-3">
           <button
             type="submit"
-            className="bg-[#FFAE01] hover:bg-yellow-600 text-white px-12 py-[14px] rounded"
+            className={`bg-[#FFAE01] hover:bg-yellow-600 text-white px-12 py-[14px] rounded ${disableBtn ? "cursor-not-allowed bg-gray-300 hover:bg-gray-300":""}`}
           >
             Save
           </button>

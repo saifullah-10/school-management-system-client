@@ -1,4 +1,5 @@
 "use client"
+import axiosInstance from "@/lib/axios";
 import { Course } from "@/utils/types/courses";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
@@ -11,8 +12,8 @@ import { PiChalkboardTeacherFill } from "react-icons/pi";
 
 
 async function getData() {
-  const res = await fetch('https://school-management-system-server-lovat.vercel.app/coursesCollection?limit=6');
-  const data = await res.json();
+  const res = await axiosInstance('/coursesCollection?limit=6');
+  const data = await res.data;
   return data
 
 
