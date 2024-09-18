@@ -1,8 +1,8 @@
 import axios from "axios";
 import Cookies from 'js-cookie';
 
-const API_URL = "http://localhost:5000";
-// const API_URL = "https://school-management-system-server-lovat.vercel.app";
+// const API_URL = "http://localhost:5000";
+const API_URL = "https://school-management-system-server-lovat.vercel.app";
 
 export const registerUser = async (
   username: string,
