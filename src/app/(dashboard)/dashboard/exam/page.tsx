@@ -22,7 +22,6 @@ const Exam = () => {
               </p>
             </div>
           </div>
-          </div>
           <div className=" w-full relative">
             <table className=" text-center w-full  relative">
               <thead>
