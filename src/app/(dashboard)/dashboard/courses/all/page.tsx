@@ -4,6 +4,7 @@ import axios from 'axios';
 import {
     Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Button, Paper,
 } from '@mui/material';
+import axiosInstance from '@/lib/axios';
 
 interface Course {
     _id: string;
@@ -25,7 +26,7 @@ const Courses: React.FC = () => {
     // Fetch data from the API route
     const fetchCourses = async () => {
         try {
-            const response = await axios.get<Course[]>('https://school-management-system-server-lovat.vercel.app/courses');
+            const response = await axiosInstance.get<Course[]>('/courses');
             setCourses(response.data);
             setFilteredData(response.data); // Initialize filtered data with all courses
         } catch (error) {

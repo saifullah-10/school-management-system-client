@@ -115,7 +115,7 @@ const Exam = () => {
         
         <div className="col-span-4 relative custom-scrollbar overflow-y-scroll  h-64 border-2 rounded-xl border-blue-300">
           <div>
-            <h1 className=" text-center my-2  font-semibold  ">Exam History</h1>
+        
             <h1 className=" text-center my-2  font-semibold  ">Exam History</h1>
           </div>
           <div className=" relative  w-full ">
@@ -140,10 +140,11 @@ const Exam = () => {
             </table>
           </div>
         </div>
+        </div>
         <div className="col-span-4">
           <Calender/>
         </div>
-      </div>
+    
     </div>
     
   );
