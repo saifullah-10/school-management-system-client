@@ -35,7 +35,7 @@ const Courses: React.FC = () => {
   // console.log(CourseData);
 
   return (
-    <div className="bg-[url('/assets/images/ed-bg-1.jpg')] md:py-14">
+    <div className="bg-[url('/assets/images/ed-bg-1.jpg')] max-w-screen-2xl w-[98%] mx-auto md:w-11/12 md:py-14">
       {/* elements */}
       <div className="w-11/12 mx-auto">
         {/* heading */}
