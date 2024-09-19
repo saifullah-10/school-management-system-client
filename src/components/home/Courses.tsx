@@ -42,12 +42,12 @@ const Courses: React.FC = () => {
         <div className="">
           <h1 className='font-Montserrat text-[#704fe6] bg-[#E9E2FF] border-2 w-fit px-6 py-1 rounded-[5px]'>POPULAR COURSES</h1>
 
-          <h3 className="text-3xl md:text-5xl font-bold my-3">Starlight Courses Student <br /> Can Join With Us</h3>
+          <h3 className="text-2xl md:text-5xl font-bold my-3">Starlight Courses Student <br /> Can Join With Us</h3>
         </div>
 
         {/* courses cards */}
 
-        <div className="flex flex-wrap gap-5 justify-center mx-auto mt-20">
+        <div className="flex flex-wrap gap-5 justify-center mx-auto mt-5 lg:mt-20">
           {
             data?.map((course : Course) => (
               <Link href={`/courses/${course._id}`}
