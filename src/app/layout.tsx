@@ -21,8 +21,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Create Next App",
-  description: "This is a school management website",
+  title: "Starlight University",
+  description: "A comprehensive university management website designed to streamline administrative tasks, enhance student engagement, and improve overall efficiency. Features include course management, student information systems, faculty portals, and real-time communication tools.",
 };
 
 export default function RootLayout({
