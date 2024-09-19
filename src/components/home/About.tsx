@@ -57,7 +57,7 @@ export default function About() {
             </h1>
           </div>
           <div>
-            <h1 className="text-3xl">
+            <h1 className="text-3xl md:text-5xl font-bold">
               Empowering Education: Our University Management Solution{" "}
             </h1>
           </div>
