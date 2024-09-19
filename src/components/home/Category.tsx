@@ -24,7 +24,7 @@ export default function Category() {
         <h1 className="text-center text-lg font-normal text-[#704fe6] bg-[#E9E2FF] border-2 w-fit px-6 py-1 rounded-[5px]"> Departments </h1>
       </div>
       <div className="flex justify-center items-center text-center mx-auto text-3xl">
-        <h1 className="py-1 mt-5 mb-8 w-[90%] md:w-[60%] text-3xl">Shaping Future Leaders through Innovative Education and Research Excellence.</h1>
+        <h1 className="py-1 mt-5 mb-8 w-[90%] md:w-[60%] text-lg">Shaping Future Leaders through Innovative Education and Research Excellence.</h1>
       </div>
 
       <div className="w-full max-w-[1550px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

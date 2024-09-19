@@ -69,13 +69,13 @@ export default function Testimonial() {
           </div>
         </div>
       
-        <div className="flex justify-center pt-36">
+        <div className="flex justify-center pt-24 lg:pt-36">
           <h1 className="text-center text-lg font-normal text-[#704fe6] bg-[#E9E2FF] border-2 w-fit px-6 py-1 rounded-[5px]">
             Testimonials
           </h1>
         </div>
-        <div className="flex justify-center font-bold py-1 mt-5 mb-16">
-          <div className="flex flex-col w-[90%] mx-auto items-center justify-center text-3xl">
+        <div className="flex justify-center font-bold py-1 mt-5 mb-5 lg:mb-16">
+          <div className="flex flex-col w-[90%] mx-auto items-center justify-center text-2xl lg:text-3xl">
             <h1>Creating A Community Of</h1>
             <h1>Life Long Learners.</h1>
           </div>

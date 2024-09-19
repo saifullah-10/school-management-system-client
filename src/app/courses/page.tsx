@@ -45,11 +45,11 @@ const Courses: React.FC = async () => {
   return (
     <>
       {/* heading */}
-      <div className="bg-[url('/assets/images/breadcrumb.jpg')] py-20 relative">
-        <h1 className="text-6xl text-center font-Montserrat font-bold">
+      <div className="bg-[url('/assets/images/breadcrumb.jpg')] py-5 lg:py-10 relative">
+        <h1 className="lg:text-6xl text-4xl text-center font-Montserrat font-bold">
           All Courses
         </h1>
-        <div className="flex justify-center font-Poppins font-bold py-4">
+        <div className="flex justify-center font-Poppins font-bold ">
           <Link href="/" className="hover:underline">
             Home
           </Link>
