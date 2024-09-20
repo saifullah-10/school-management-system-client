@@ -16,6 +16,7 @@ import { getNoticeData, postNoticeData } from "@/utils/api/noticeApis";
 import { useQuery } from "@tanstack/react-query";
 import timeAgo from "@/utils/globalFunction/timeAgoFn";
 import { useEffect, useState } from "react";
+import Preloader from "@/components/animation/preloader/Preloader";
 
 const Notice: React.FC = () => {
   const [searchValue, setSearchValue] = useState<SearchTypes>({});
@@ -84,11 +85,11 @@ const Notice: React.FC = () => {
   };
   const auth = useAuth();
   if (auth === null) {
-    return <div>loading</div>;
+    return <div><Preloader/></div>;
   }
   const { user } = auth;
   if (isLoading || isFetching) {
-    <div>loading from notice page</div>;
+    <div><Preloader/></div>;
   }
   return (
     <div>
