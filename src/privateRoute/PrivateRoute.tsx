@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contextProvider/ContextProvider";
+import Preloader from "@/components/animation/preloader/Preloader";
 
 const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -9,7 +10,7 @@ const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({
   const router = useRouter();
   const auth = useAuth();
   if (auth === null) {
-    return <div>loading</div>;
+    return <div><Preloader/></div>;
   }
   const { user } = auth;
 

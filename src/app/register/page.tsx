@@ -8,6 +8,7 @@ import bg from "../../../public/assets/images/university1.jpg";
 import { fetchProtectedData, logout, registerUser } from "@/utils/api/api";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contextProvider/ContextProvider";
+import Preloader from "@/components/animation/preloader/Preloader";
 
 interface LoginFormInputs {
   email: string;
@@ -30,7 +31,7 @@ const Register = () => {
   } = useForm<LoginFormInputs>();
   const auth = useAuth();
   if (auth === null) {
-    return <div>loading</div>;
+    return <div><Preloader/></div>;
   }
   const { setUser } = auth;
   const onSubmit: SubmitHandler<LoginFormInputs> = async (data) => {
@@ -74,7 +75,7 @@ const Register = () => {
     // console.log("Agreed to Terms:", data.agreeToTerms);
   };
   if (loading) {
-    <div>loading from register</div>;
+    <div><Preloader/></div>;
   }
   return (
     <div className="w-full flex justify-center items-center mx-auto relative min-h-screen p-5 sm:p-10">

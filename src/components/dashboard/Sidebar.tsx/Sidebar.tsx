@@ -12,6 +12,7 @@ import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { logout } from "@/utils/api/api";
 import { useAuth } from "@/contextProvider/ContextProvider";
+import Preloader from "@/components/animation/preloader/Preloader";
 
 // Define the type for the props
 interface SidebarProps {
@@ -39,7 +40,7 @@ const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }) => {
 
   const auth = useAuth();
   if (auth === null) {
-    return <div>loading</div>;
+    return <div><Preloader/></div>;
   }
   const { user, setUser } = auth;
   return (
