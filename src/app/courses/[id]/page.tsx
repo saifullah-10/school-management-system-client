@@ -214,7 +214,7 @@ const CourseDetailspage = ({ params }: { params: Params }) => {
                 <div className="bg-[#7151e61d] w-[360px] sm:w-[488px] mx-auto my-4">
                     <div className="p-4 mx-auto my-auto">
                         <Image
-                            src={course.image}
+                            src={course.image || ""}
                             alt={course.title}
                             width={360}
                             height={255}

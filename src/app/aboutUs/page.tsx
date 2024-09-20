@@ -8,8 +8,8 @@ import RotateFast from "@/components/animation/courses/RotateFast";
 export default function AboutUs() {
   return (
     <div>
-      <div className="bg-[url('/assets/images/breadcrumb.jpg')] py-24 relative">
-        <h1 className="text-6xl text-center font-Montserrat font-bold">
+      <div className="bg-[url('/assets/images/breadcrumb.jpg')] py-5 lg:py-10 relative">
+        <h1 className="lg:text-6xl text-4xl text-center font-Montserrat font-bold">
           About Us
         </h1>
         <div className="flex justify-center font-Poppins font-bold">

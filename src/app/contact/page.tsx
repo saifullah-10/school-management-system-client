@@ -5,7 +5,7 @@ import LinearWave from "@/components/animation/courses/LinearWave";
 import Rotate from "@/components/animation/courses/Rotate";
 import RotateFast from "@/components/animation/courses/RotateFast";
 import emailjs from "@emailjs/browser";
-import { Link } from "lucide-react";
+
 import React, { useState } from "react";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import { FaClock } from "react-icons/fa6";
@@ -62,14 +62,14 @@ const Contact: React.FC = () => {
   return (
     <div className="min-h-screen">
       {/* heading */}
-      <div className="bg-[url('/assets/images/breadcrumb.jpg')] py-20 relative">
-        <h1 className="text-6xl text-center font-Montserrat font-bold">
+      <div className="bg-[url('/assets/images/breadcrumb.jpg')] py-5 lg:py-10 relative">
+        <h1 className="text-4xl lg:text-6xl text-center font-Montserrat font-bold">
           Contact Us
         </h1>
-        <div className="flex justify-center font-Poppins font-bold py-4">
-          <Link href="/" className="hover:underline">
+        <div className="flex justify-center font-Poppins font-bold ">
+
             Home
-          </Link>
+      
           <span className="text-[#704fe6] px-2">/</span>
           <p>Contact Us</p>
         </div>

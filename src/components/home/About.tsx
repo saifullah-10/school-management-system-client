@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function About() {
   return (
@@ -57,7 +58,7 @@ export default function About() {
             </h1>
           </div>
           <div>
-            <h1 className="  text-3xl">
+            <h1 className="text-3xl md:text-5xl font-bold">
               Empowering Education: Our University Management Solution{" "}
             </h1>
           </div>
@@ -118,7 +119,7 @@ export default function About() {
             </div>
           </div>
 
-          <div className=" flex justify-end">
+        <Link href="/aboutUs">  <div className=" flex justify-end">
             <button className="flex items-center gap-2 text-white btn bg-[#704fe6] group-hover:bg-white group-hover:text-black py-2 px-5 rounded-full">
               More
               <span>
@@ -136,7 +137,7 @@ export default function About() {
                 </svg>
               </span>
             </button>
-          </div>
+          </div></Link>
         </div>
       </div>
     </div>

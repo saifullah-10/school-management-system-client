@@ -16,6 +16,10 @@ const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({
   if (!user) {
     router.push("/login");
   }
+  else if (user.role === "student" && !user.status){
+    router.push("/courses");
+
+  }
   return <div>{children}</div>;
 };
 
