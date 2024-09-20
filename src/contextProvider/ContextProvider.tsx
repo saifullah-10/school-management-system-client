@@ -1,4 +1,5 @@
 "use client";
+import Preloader from "@/components/animation/preloader/Preloader";
 import { fetchProtectedData, logout } from "@/utils/api/api";
 import { AuthContextProps, UserData } from "@/utils/types/contextApi";
 
@@ -41,7 +42,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   }, [path, router]);
 
   if (loading) {
-    return <div>loading context</div>;
+    return      <div> <Preloader/></div>;
   }
   return (
     <AuthContext.Provider value={{ user, setUser, loading, setLoading }}>

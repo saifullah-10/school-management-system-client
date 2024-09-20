@@ -15,6 +15,7 @@ import { RiShareForwardLine } from 'react-icons/ri';
 import { PiChalkboardTeacherFill } from 'react-icons/pi';
 import { IoIosPeople } from 'react-icons/io';
 import { MdLibraryBooks, MdOutlineAccessTime } from 'react-icons/md';
+import Preloader from '@/components/animation/preloader/Preloader';
 
 interface Course {
     _id: string;
@@ -111,7 +112,7 @@ const CourseDetailspage = ({ params }: { params: Params }) => {
     }
 
     if (!course) {
-        return <div>Loading...</div>;
+        return <div><Preloader/></div>;
     }
 
     return (

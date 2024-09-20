@@ -11,6 +11,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { fetchProtectedData, login, logout } from "@/utils/api/api";
 import { useAuth } from "@/contextProvider/ContextProvider";
 import Cookies from 'js-cookie';
+import Preloader from "@/components/animation/preloader/Preloader";
 
 interface LoginFormInputs {
   email: string;
@@ -34,7 +35,7 @@ const LoginPage = () => {
   } = useForm<LoginFormInputs>();
   const auth = useAuth();
   if (auth === null) {
-    return <div>loading</div>;
+    return <div><Preloader/></div>;
   }
   const { setUser } = auth;
   const onSubmit: SubmitHandler<LoginFormInputs> = async (data) => {

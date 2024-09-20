@@ -9,6 +9,7 @@ import { ImCross } from 'react-icons/im';
 import { GoDash } from 'react-icons/go';
 import AttendanceInput from '@/components/attendance/AttendanceInput';
 import { useAuth } from '@/contextProvider/ContextProvider';
+import Preloader from '@/components/animation/preloader/Preloader';
 
 interface AttendanceRecord {
   name: string;
@@ -52,7 +53,7 @@ export default function AttendancePage() {
 
   const selectedRecord = records.find(record => record.name === selectedName) || { attendance: {} as Record<string, Record<string, 'P' | 'A' | '-'>> };
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Preloader/>;
   if (error) return <p>Error loading data: {error.message}</p>;
 
 //   return (
