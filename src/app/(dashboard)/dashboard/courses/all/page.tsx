@@ -5,6 +5,7 @@ import {
     Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Button, Paper,
 } from '@mui/material';
 import axiosInstance from '@/lib/axios';
+import Preloader from '@/components/animation/preloader/Preloader';
 
 interface Course {
     _id: string;
@@ -43,7 +44,7 @@ const Courses: React.FC = () => {
 
     // Conditional rendering based on the state
     if (loading) {
-        return <p>Loading...</p>;
+        return <p><Preloader/></p>;
     }
 
     if (error) {

@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/common/navbar/Navbar";
 import Footer from "@/components/common/footer/Footer";
-import Preloader from "@/components/animation/preloader/Preloader";
+
 
 import ScrollToTopButton from "@/components/common/scroll to top/ScrollToText";
 import { AuthProvider } from "@/contextProvider/ContextProvider";
@@ -37,12 +37,12 @@ export default function RootLayout({
       >
         <AuthProvider>
           <Tanstack>
-            <Preloader>
+      
               <Navbar></Navbar>
               {children}
               <Footer />
               <ScrollToTopButton />
-            </Preloader>
+   
           </Tanstack>
         </AuthProvider>
       </body>
