@@ -2,11 +2,12 @@
 import React from "react";
 import Image from "next/image";
 import { useAuth } from "@/contextProvider/ContextProvider";
+import Preloader from "@/components/animation/preloader/Preloader";
 
 const Profile = () => {
   const auth = useAuth();
   if (auth === null) {
-    return <div>loading</div>;
+    return <div><Preloader/></div>;
   }
   const { user } = auth;
 

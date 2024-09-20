@@ -81,7 +81,7 @@ const LoginPage = () => {
     }
   };
   if (loading) {
-    return <div>loading from login</div>;
+    return <div><Preloader/></div>;
   }
   return (
     <div className="w-full flex justify-center items-center mx-auto relative min-h-screen p-5 sm:p-10">
