@@ -1,4 +1,5 @@
 "use client"
+import Preloader from "@/app/(dashboard)/dashboard/loading";
 import { useAuth } from "@/contextProvider/ContextProvider";
 import axiosInstance from "@/lib/axios";
 import { Course } from "@/utils/types/courses";
@@ -30,7 +31,7 @@ const Courses: React.FC = () => {
   })
   
   if(isLoading){
-    return <div>loading....</div>
+    return <div><Preloader/></div>
   }
   
 

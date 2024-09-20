@@ -1,4 +1,5 @@
 "use client";
+import Preloader from "@/components/animation/preloader/Preloader";
 import { Card, CardContent } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useAuth } from "@/contextProvider/ContextProvider";
@@ -21,12 +22,12 @@ const NoticeBoard = () => {
   const colorCodes = ["#FF5733", "#33FF57", "#3357FF", "#F1C40F", "#9B59B6"];
   const auth = useAuth();
   if (auth === null) {
-    return <div>loading</div>;
+    return <div><Preloader/></div>;
   }
   const { user } = auth;
   const randomColor = getRandomColorCode(colorCodes);
   if (isLoading) {
-    <div>loading in notice</div>;
+    <div><Preloader/></div>;
   }
   return (
     <div>
