@@ -4,164 +4,74 @@ const routins = [
   {
     day: "Monday",
     id: 1,
-    classes: [
-      { subject: "Data Structures and Algorithms", teacher: "ha kaihju" },
-      {
-        subject: "Operating Systems",
-        teacher: "ha kaihju",
-      },
-      {
-        subject: "Database Management Systems",
-        teacher: "ha kaihju",
-      },
-      {
-        subject: "Computer Networks",
-        teacher: "ha kaihju",
-      },
-      {
-        teacher: "ha kaihju",
-        subject: "Software Engineering",
-      },
-      {
-        subject: "Discrete Mathematics",
-        teacher: "ha kaihju",
-      },
-    ],
+  classes: [
+    {first: {subject: "subject", room: "A23", teacher: "jon due"}},
+    {second: {subject: "subject", room: "A23", teacher: "jon due"}},
+    {third: {subject: "subject", room: "A23", teacher: "jon due"}},
+    {fourth: {subject: "subject", room: "A23", teacher: "jon due"}},
+    {five: {subject: "subject", room: "A23", teacher: "jon due"}},
+    {six: {subject: "subject", room: "A23", teacher: "jon due"}},
+]
   },
   {
     day: "Tuesday",
     id: 2,
     classes: [
-      { subject: "Object-Oriented Programming", teacher: "ha kaihju" },
-      {
-        subject: "Theory of Computation",
-        teacher: "ha kaihju",
-      },
-      {
-        subject: "Compiler Design",
-        teacher: "ha kaihju",
-      },
-      {
-        subject: "Artificial Intelligence",
-        teacher: "ha kaihju",
-      },
-      {
-        teacher: "ha kaihju",
-        subject: "Web Technologies",
-      },
-      {
-        subject: "Human-Computer Interaction",
-        teacher: "ha kaihju",
-      },
-    ],
+      {first: {subject: "subject", room: "A23", teacher: "jon due"}},
+      {second: {subject: "subject", room: "A23", teacher: "jon due"}},
+      {third: {subject: "subject", room: "A23", teacher: "jon due"}},
+      {fourth: {subject: "subject", room: "A23", teacher: "jon due"}},
+      {five: {subject: "subject", room: "A23", teacher: "jon due"}},
+      {six: {subject: "subject", room: "A23", teacher: "jon due"}},
+  ]
   },
   {
     day: "Wednesday",
     id: 3,
     classes: [
-      { subject: "Machine Learning", teacher: "ha kaihju" },
-      {
-        subject: "Cloud Computing",
-        teacher: "ha kaihju",
-      },
-      {
-        subject: "Mobile Application Development",
-        teacher: "ha kaihju",
-      },
-      {
-        subject: "Cybersecurity",
-        teacher: "ha kaihju",
-      },
-      {
-        teacher: "ha kaihju",
-        subject: "Parallel Computing",
-      },
-      {
-        subject: "Digital Logic Design",
-        teacher: "ha kaihju",
-      },
-    ],
+      {first: {subject: "subject", room: "A23", teacher: "jon due"}},
+      {second: {subject: "subject", room: "A23", teacher: "jon due"}},
+      {third: {subject: "subject", room: "A23", teacher: "jon due"}},
+      {fourth: {subject: "subject", room: "A23", teacher: "jon due"}},
+      {five: {subject: "subject", room: "A23", teacher: "jon due"}},
+      {six: {subject: "subject", room: "A23", teacher: "jon due"}},
+  ]
   },
   {
     day: "Thursday",
     id: 4,
     classes: [
-      { subject: "Programming Languages", teacher: "ha kaihju" },
-      {
-        subject: "Network Security",
-        teacher: "ha kaihju",
-      },
-      {
-        subject: "Data Mining",
-        teacher: "ha kaihju",
-      },
-      {
-        subject: "Internet of Things (IoT)",
-        teacher: "ha kaihju",
-      },
-      {
-        teacher: "ha kaihju",
-        subject: "Software Testing",
-      },
-      {
-        subject: "Advanced Database Systems",
-        teacher: "ha kaihju",
-      },
-    ],
+      {first: {subject: "subject", room: "A23", teacher: "jon due"}},
+      {second: {subject: "subject", room: "A23", teacher: "jon due"}},
+      {third: {subject: "subject", room: "A23", teacher: "jon due"}},
+      {fourth: {subject: "subject", room: "A23", teacher: "jon due"}},
+      {five: {subject: "subject", room: "A23", teacher: "jon due"}},
+      {six: {subject: "subject", room: "A23", teacher: "jon due"}},
+  ]
   },
   {
     day: "Saturday",
     id: 5,
     classes: [
-      { subject: "Big Data Analytics", teacher: "ha kaihju" },
-      {
-        subject: "Quantum Computing",
-        teacher: "ha kaihju",
-      },
-      {
-        subject: "Blockchain Technology",
-        teacher: "ha kaihju",
-      },
-      {
-        subject: "Computer Graphics",
-        teacher: "ha kaihju",
-      },
-      {
-        teacher: "ha kaihju",
-        subject: "Natural Language Processing",
-      },
-      {
-        subject: "Distributed Systems",
-        teacher: "ha kaihju",
-      },
-    ],
+      {first: {subject: "subject", room: "A23", teacher: "jon due"}},
+      {second: {subject: "subject", room: "A23", teacher: "jon due"}},
+      {third: {subject: "subject", room: "A23", teacher: "jon due"}},
+      {fourth: {subject: "subject", room: "A23", teacher: "jon due"}},
+      {five: {subject: "subject", room: "A23", teacher: "jon due"}},
+      {six: {subject: "subject", room: "A23", teacher: "jon due"}},
+  ]
   },
   {
     day: "Sunday",
     id: 6,
     classes: [
-      { subject: "Software Project Management", teacher: "ha kaihju" },
-      {
-        subject: "Virtual Reality",
-        teacher: "ha kaihju",
-      },
-      {
-        subject: "Augmented Reality",
-        teacher: "ha kaihju",
-      },
-      {
-        subject: "Game Development",
-        teacher: "ha kaihju",
-      },
-      {
-        teacher: "ha kaihju",
-        subject: "E-Commerce Technologies",
-      },
-      {
-        subject: "Data Visualization",
-        teacher: "ha kaihju",
-      },
-    ],
+      {first: {subject: "subject", room: "A23", teacher: "jon due"}},
+      {second: {subject: "subject", room: "A23", teacher: "jon due"}},
+      {third: {subject: "subject", room: "A23", teacher: "jon due"}},
+      {fourth: {subject: "subject", room: "A23", teacher: "jon due"}},
+      {five: {subject: "subject", room: "A23", teacher: "jon due"}},
+      {six: {subject: "subject", room: "A23", teacher: "jon due"}},
+  ]
   },
 ];
 
@@ -201,7 +111,7 @@ const classNameRoutine = () => {
                         key={`${day.id}-${ind}`}
                         className="py-2 px-4 border border-gray-300"
                       >
-                        <RoutinCard card={singleclass} />
+                    {/**    <RoutinCard card={singleclass} /> */}
                       </td>
                     </>
                   ))}
