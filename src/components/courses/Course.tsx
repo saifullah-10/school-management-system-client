@@ -1,5 +1,5 @@
 "use client"
-import { useAuth } from '@/contextProvider/ContextProvider';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -31,7 +31,7 @@ interface Courses {
 
 const Course: React.FC<CourseProps> = ({ keyProp, index }) => {
   const course = keyProp as Courses; // Type assertion to access properties
-  const {user} = useAuth()
+
   return (
     <div className={`flex flex-col md:flex-row ${(index % 2 === 0) ? 'md:flex-row-reverse' : ''} items-center bg-slate-50 group hover:bg-[#17254e] transition duration-300 ease-in-out hover:text-white border-dashed border-[#7151e6] border-[1px] w-[365px] sm:w-10/12 shadow-xl rounded-xl mx-auto px-2`}>
       <div className="relative overflow-hidden rounded-2xl max-w-[360px] top-2 mx-auto h-[255px]">
