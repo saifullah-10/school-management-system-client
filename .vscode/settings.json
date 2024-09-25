@@ -2,5 +2,8 @@
     "cSpell.words": [
         "countup",
         "tanstack"
-    ]
+    ],
+    "editor.formatOnSave": true,
+    "editor.fontWeight": "normal",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
